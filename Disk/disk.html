@@ -1,0 +1,213 @@
+<head>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+      
+<body>
+        <h1>FCFS</h1>
+        <div id="fcfs"></div>
+        <h1>SEEK: <span id="fcfsseek"></span></h1>
+        <script>
+          
+                var inp=[98,183,37,122,14,124,65,67];
+                var ini=53;
+                var final=199;
+                var x1=[];
+                var y1=[];
+                var seek=0;
+
+                x1.push(ini);
+                y1.push(0);
+
+                var a1;
+
+                for(a1=1;a1<=inp.length;++a1){
+                        x1.push(inp[a1-1]);
+                        y1.push(-1*a1);
+                        if(a1==1){
+                                seek=seek+Math.abs(ini-inp[a1-1]);
+                        }
+                        else{
+                                seek=seek+Math.abs(inp[a1-2]-inp[a1-1]);
+                        }
+                }
+                
+                var layout = {
+                        xaxis: {
+                                autorange: true,
+                                showgrid: true,
+                                zeroline: false,
+                                showline: true,
+                                autotick: true,
+                                ticks: '',
+                                showticklabels: true
+                        },
+                        yaxis: {
+                                autorange: true,
+                                showgrid: false,
+                                zeroline: false,
+                                showline: false,
+                                autotick: true,
+                                ticks: '',
+                                showticklabels: false
+                        }
+                };
+
+                var trace1 = {
+                        x: x1, 
+                        y: y1, 
+                        type: 'scatter'
+                };
+                        
+                var data = [trace1];
+                Plotly.newPlot('fcfs', data, layout);
+                document.getElementById("fcfsseek").innerHTML = seek;
+        </script>
+        <hr>
+        <h1>SSTF</h1>
+        <div id="sstf"></div>
+        <h1>SEEK: <span id="sstfseek"></span></h1>
+        <script>
+          
+                var inp=[98,183,37,122,14,124,65,67];
+                var ini=53;
+                var final=199;
+                var x1=[];
+                var y1=[];
+                var seek=0;
+                var visited=[];
+
+                var a1,a2;
+
+                for(a1=0;a1<inp.length;++a1){
+                        visited[a1]=0;
+                }
+                
+                x1.push(ini);
+                y1.push(0);
+
+                var hold=ini;
+
+                for(a1=1;a1<=inp.length;++a1){
+                        var mn=10000;
+                        var idx;
+                        for(a2=0;a2<inp.length;++a2){
+                                if(visited[a2]==0){
+                                        if(Math.abs(hold-inp[a2])<mn){
+                                                idx=a2;
+                                                mn=Math.abs(hold-inp[a2]);                 
+                                        }
+                                }
+                        }
+                        seek=seek+Math.abs(hold-inp[idx]);
+                        visited[idx]=1;
+                        hold=inp[idx];
+                        x1.push(inp[idx]);
+                        y1.push(-1*a1);
+                }
+
+                var layout = {
+                        xaxis: {
+                                autorange: true,
+                                showgrid: true,
+                                zeroline: false,
+                                showline: true,
+                                autotick: true,
+                                ticks: '',
+                                showticklabels: true
+                        },
+                        yaxis: {
+                                autorange: true,
+                                showgrid: false,
+                                zeroline: false,
+                                showline: false,
+                                autotick: true,
+                                ticks: '',
+                                showticklabels: false
+                        }
+                };
+
+                var trace1 = {
+                        x: x1, 
+                        y: y1, 
+                        type: 'scatter'
+                };
+                        
+                var data = [trace1];
+                Plotly.newPlot('sstf', data, layout);
+                document.getElementById("sstfseek").innerHTML = seek;
+        </script>
+        <hr>
+        <h1>SCAN</h1>
+        <div id="scan"></div>
+        <h1>SEEK: <span id="scanseek"></span></h1>
+        <script>
+          
+                var inp=[98,183,37,122,14,124,65,67];
+                var ini=53;
+                var final=199;
+                var x1=[];
+                var y1=[];
+                var seek=0;
+                var visited=[];
+
+                var a1,a2;
+
+                for(a1=0;a1<inp.length;++a1){
+                        visited[a1]=0;
+                }
+                
+                x1.push(ini);
+                y1.push(0);
+
+                var hold=ini;
+
+                for(a1=1;a1<=inp.length;++a1){
+                        var mn=10000;
+                        var idx;
+                        for(a2=0;a2<inp.length;++a2){
+                                if(visited[a2]==0){
+                                        if(Math.abs(hold-inp[a2])<mn){
+                                                idx=a2;
+                                                mn=Math.abs(hold-inp[a2]);                 
+                                        }
+                                }
+                        }
+                        seek=seek+Math.abs(hold-inp[idx]);
+                        visited[idx]=1;
+                        hold=inp[idx];
+                        x1.push(inp[idx]);
+                        y1.push(-1*a1);
+                }
+
+                var layout = {
+                        xaxis: {
+                                autorange: true,
+                                showgrid: true,
+                                zeroline: false,
+                                showline: true,
+                                autotick: true,
+                                ticks: '',
+                                showticklabels: true
+                        },
+                        yaxis: {
+                                autorange: true,
+                                showgrid: false,
+                                zeroline: false,
+                                showline: false,
+                                autotick: true,
+                                ticks: '',
+                                showticklabels: false
+                        }
+                };
+
+                var trace1 = {
+                        x: x1, 
+                        y: y1, 
+                        type: 'scatter'
+                };
+                        
+                var data = [trace1];
+                Plotly.newPlot('scan', data, layout);
+                document.getElementById("scanseek").innerHTML = seek;
+        </script>
+</body>
