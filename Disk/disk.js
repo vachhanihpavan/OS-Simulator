@@ -1,92 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Disk Scheduling</title>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <link rel="stylesheet" href="styles.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <!-- <script src="disk.js"></script> -->
-        <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
-    </head>
-    <body>
-            <!-- Navigation Bar -->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="#">Operationg System Simulator</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>         
+function getBitStreamAndPlot(event, r1, ini, final, alg)
 
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="../Disk/disk.html">Disk Scheduling</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">Banker's Algorithm</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                      </li>
-                    </ul>
-                </div>
-            </nav>
-            <br>
-            <div class="container">
-                <div class="jumbotron">
-                    <h1 class="display-3">Disk Scheduling</h1>
-                    <p class="lead">Short Intro</p>
-                    <hr class="my-4">
-                    <p>Some more details here</p>
-                    <p class="lead">
-                      <a class="btn btn-success" href="#" role="button">Wiki</a>
-                    </p>
-                </div>
-
-                <form> 
-                    <fieldset>
-                        <div class="row">
-                            <div class="form-group" style="margin-left:50px; float:left;">
-                                <label for="exampleSelect1">Rename this</label>
-                                  <select class="form-control" id="algorithm">
-                                    <option value="fcfs">FCFS</option>
-                                    <option value="sstf">SSTF</option>
-                                    <option value="scan">SCAN</option>
-                                    <option value="cscan">C-SCAN</option>
-                                    <option value="look">LOOK</option>
-                                    <option value="clook">C-LOOK</option>
-                                  </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
-                                <label class="col-form-label" for="inputDefault">Sequence of cylinders</label>
-                                <input class="form-control" id="bitstream-input" name="bitstream" placeholder="DD" type="text" size="35">
-                            </div>
-                            <div class="form-group" style="margin-left:50px; float:left; width: 20%">
-                                <label class="col-form-label" for="inputDefault">Initial cylinder</label>
-                                <input class="form-control" id="initial-input" name="intial" placeholder="DD" type="text" size="35">
-                            </div>
-                            <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
-                                <label class="col-form-label" for="inputDefault">Last cylinder</label>
-                                <input class="form-control" id="final-input" name="final" placeholder="DD" type="text" size="35">
-                            </div>
-                        </div>
-                        <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px; onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value)>Plot</button>
-                    </fieldset>
-                </form>
-            </div>        
-            <div class="container">
-                <div id="alg-name"></div>
-                <div id="alg-seek"></div>
-                <div id="graph-area"></div>
-            </div>
-
-        <script type="text/javascript">
-                function getBitStreamAndPlot(event, r1, ini, final, alg){
                         var inp=[],r2=r1.split(" "),r3;
                         for(a1=0;a1<r2.length;++a1){
                                 if(r2[a1]==""){continue;}
@@ -113,15 +26,16 @@
                         if(alg=="clook"){
                                 clook(inp, ini, final);
                         }
-                }
-                
-                function fcfs(inp, ini, final){
+function fcfs(inp, ini, final){
                         var x1=[];
                         var y1=[];
-                        var seek=0;
+                        var seek
+
                         x1.push(ini);
-                        y1.push(0);
-                        var a1;
+                        y1.push(
+
+                        
+
                         for(a1=1;a1<=inp.length;++a1){
                                 x1.push(inp[a1-1]);
                                 y1.push(-1*a1);
@@ -154,7 +68,8 @@
                                         ticks: '',
                                         showticklabels: false
                                 }
-                        };
+                        
+
                         var trace1 = {
                                 x: x1, 
                                 y: y1, 
@@ -165,20 +80,25 @@
                         Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "FCFS";
-                }
-                function sstf(inp, ini, final){
+                
+
+function sstf(inp, ini, final){
                         var x1=[];
                         var y1=[];
                         var seek=0;
-                        var visited=[];
-                        var a1,a2;
+                        var visi
+
+                        var a1,a
+
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
                         
                         x1.push(ini);
-                        y1.push(0);
-                        var hold=ini;
+                        y1.push(
+
+                        var hold
+
                         for(a1=1;a1<=inp.length;++a1){
                                 var mn=10000;
                                 var idx;
@@ -195,7 +115,8 @@
                                 hold=inp[idx];
                                 x1.push(inp[idx]);
                                 y1.push(-1*a1);
-                        }
+                        
+
                         var layout = {
                                 title: 'SSTF',
                                 xaxis: {
@@ -217,7 +138,8 @@
                                         ticks: '',
                                         showticklabels: false
                                 }
-                        };
+                        
+
                         var trace1 = {
                                 x: x1, 
                                 y: y1, 
@@ -228,20 +150,25 @@
                         Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "SSTF";
-                }
-                function scan(inp, ini, final){
+                
+
+function scan(inp, ini, final){
                         var x1=[];
                         var y1=[];
                         var seek=0;
-                        var visited=[];
-                        var a1,a2;
+                        var visi
+
+                        var a1,a
+
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
                         
                         x1.push(ini);
-                        y1.push(0);
-                        inp.sort(function(a, b){return a-b});
+                        y1.push(
+
+                        inp.sort(function(a, b){return a
+
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -290,7 +217,8 @@
                                         hold=inp[a1];
                                 }
                                 
-                        }
+                        
+
                         var layout = {
                                 title: 'SCAN',
                                 xaxis: {
@@ -312,7 +240,8 @@
                                         ticks: '',
                                         showticklabels: false
                                 }
-                        };
+                        
+
                         var trace1 = {
                                 x: x1, 
                                 y: y1, 
@@ -323,8 +252,9 @@
                         Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "SCAN";
-                }
-                function cscan(inp, ini, final){
+                
+
+function cscan(inp, ini, final){
                         var x1=[];
                         var y1=[];
                         var x2=[];
@@ -332,15 +262,19 @@
                         var x3=[];
                         var y3=[];
                         var seek=0;
-                        var visited=[];
-                        var a1,a2;
+                        var visi
+
+                        var a1,a
+
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
                         
                         x1.push(ini);
-                        y1.push(0);
-                        inp.sort(function(a, b){return a-b});
+                        y1.push(
+
+                        inp.sort(function(a, b){return a
+
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -355,7 +289,8 @@
                                 x1.push(0);
                                 y1.push(-1*count);
                                 seek=seek+hold;
-                                hold=final;
+                                hold=fin
+
                                 x2.push(0);
                                 y2.push(-1*count);
                                 x2.push(final);
@@ -386,7 +321,8 @@
                                 x1.push(final);
                                 y1.push(-1*count);
                                 seek=seek+final-hold;
-                                hold=0;
+                                
+
                                 x2.push(final);
                                 y2.push(-1*count);
                                 x2.push(0);
@@ -403,7 +339,8 @@
                                         hold=inp[a1];                          
                                 }
                                 
-                        }
+                        
+
                         var layout = {
                                 title: 'C-SCAN',
                                 xaxis: {
@@ -425,7 +362,8 @@
                                         ticks: '',
                                         showticklabels: false
                                 }
-                        };
+                        
+
                         var trace1 = {
                                 x: x1, 
                                 y: y1, 
@@ -453,20 +391,25 @@
                         Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "C-SCAN";
-                }
-                function look(inp, ini, final){
+                
+
+function look(inp, ini, final){
                         var x1=[];
                         var y1=[];
                         var seek=0;
-                        var visited=[];
-                        var a1,a2;
+                        var visi
+
+                        var a1,a
+
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
                         
                         x1.push(ini);
-                        y1.push(0);
-                        inp.sort(function(a, b){return a-b});
+                        y1.push(
+
+                        inp.sort(function(a, b){return a
+
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -507,7 +450,8 @@
                                         hold=inp[a1];
                                 }
                                 
-                        }
+                        
+
                         var layout = {
                                 title: 'LOOK',
                                 xaxis: {
@@ -529,7 +473,8 @@
                                         ticks: '',
                                         showticklabels: false
                                 }
-                        };
+                        
+
                         var trace1 = {
                                 x: x1, 
                                 y: y1, 
@@ -540,8 +485,9 @@
                         Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "LOOK";
-                }
-                function clook(inp, ini, final){
+                
+
+function clook(inp, ini, final){
                         var x1=[];
                         var y1=[];
                         var x2=[];
@@ -549,15 +495,19 @@
                         var x3=[];
                         var y3=[];
                         var seek=0;
-                        var visited=[];
-                        var a1,a2;
+                        var visi
+
+                        var a1,a
+
                         for(a1=0;a1<inp.length;++a1){
                                 visited[a1]=0;
                         }
                         
                         x1.push(ini);
-                        y1.push(0);
-                        inp.sort(function(a, b){return a-b});
+                        y1.push(
+
+                        inp.sort(function(a, b){return a
+
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -568,8 +518,10 @@
                                         ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         hold=inp[a1];
-                                }
                                 
+
+                                
+
                                 x2.push(hold);
                                 y2.push(-1*(count-1));
                                 x2.push(inp[inp.length-1]);
@@ -577,7 +529,8 @@
                                 x3.push(inp[inp.length-1]);
                                 y3.push(-1*(count-1));
                         
-                                hold=inp[inp.length-1];
+                                hold=inp[inp.len
+
                                 for(a1=inp.length-2;a1>store;--a1){
                                         x3.push(inp[a1]);
                                         y3.push(-1*count);
@@ -596,8 +549,10 @@
                                         ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
                                         hold=inp[a1];
-                                }
                                 
+
+                                
+
                                 x2.push(hold);
                                 y2.push(-1*(count-1));
                                 x2.push(inp[0]);
@@ -606,7 +561,8 @@
                                 x3.push(inp[0]);
                                 y3.push(-1*(count-1));
                         
-                                hold=inp[0];
+                                hold=inp
+
                                 for(a1=1;a1<store;++a1){
                                         x3.push(inp[a1]);
                                         y3.push(-1*count);
@@ -615,7 +571,8 @@
                                         hold=inp[a1];                          
                                 }
                                 
-                        }
+                        
+
                         var layout = {
                                 title: 'C-LOOK',
                                 xaxis: {
@@ -637,7 +594,8 @@
                                         ticks: '',
                                         showticklabels: false
                                 }
-                        };
+                        
+
                         var trace1 = {
                                 x: x1, 
                                 y: y1, 
@@ -666,6 +624,3 @@
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "C-LOOK";
                 }               
-        </script>
-    </body>
-</html>
