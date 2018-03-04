@@ -164,7 +164,8 @@ var res,pro;
 						//TABLE for NEED
 
 						var tab_need = document.getElementById("tab_need");
-						var row = tab_need.insertRow(0);
+						var header = tab_need.createTHead();
+						var row = header.insertRow(0);
 						var cell = row.insertCell(0);
 						cell.innerHTML = "<b>Need</b>";
                         var pro_head = tab_need.insertRow(1);
@@ -194,7 +195,8 @@ var res,pro;
 
 
 						var tab_alloc = document.getElementById("tab_alloc");
-						var row = tab_alloc.insertRow(0);
+						var header = tab_alloc.createTHead();
+						var row = header.insertRow(0);
 						var cell = row.insertCell(0);
 						cell.innerHTML = "<b>Allocation</b>";
                         var alloc_head = tab_alloc.insertRow(1);

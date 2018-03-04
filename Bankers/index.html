@@ -3,7 +3,6 @@
     <head>
         <title>Safety Algorithm</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
@@ -16,120 +15,82 @@
                 <span class="navbar-toggler-icon"></span>
               </button>         
 
-        <div class="collapse navbar-collapse" id="navbarColor01">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Disk/disk.html">Disk Scheduling</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Banker's Algorithm</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-            </ul>
-        </div>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../Disk/disk.html">Disk Scheduling</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Banker's Algorithm</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                </ul>
+            </div>
         </nav>
         <br>
         <div class="container">
-        <div class="jumbotron">
-            <h1 class="display-3">Banker's Algorithm</h1>
-            <p class="lead">Safety algorithm to prevent deadlock</p>
-            <hr class="my-4">
-            <p>This prevents deadlock by checking every permemutation of processes to provide resources to all processes blah etc.</p>
-            <p class="lead">
-              <a class="btn btn-success" href="#" role="button">Wiki</a>
-            </p>
-        </div>
-        <br>
-        <div class="row">
-            <div class="col-lg-3">
-            <div class="bs-component">
-        <form name = "resource">
-            <fieldset>
-                <div class="form-group row">
-                    <div class="form-group" style="margin-left:50px; float:left;">
-                        <label for="resourcesInput">No. of Resources Types</label>
-                            <input class="form-control" id="resourcesInput" aria-describedby="helptips" placeholder="# of resources" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));">
-                            <small id="helptips" class="form-text text-muted">Enter the number of types of resources available to the processes</small>
-                            <div id="FormFields" style=""></div>
+                <div class="jumbotron">
+                    <h1 class="display-3">Banker's Algorithm</h1>
+                    <p class="lead">Detection algorithm to avoid deadlock</p>
+                    <hr class="my-4">
+                    <p>Banker's Algorithm is a resource allocation and deadlock avoidance algorithm that tests for safety by simulating the allocation of predetermined maximum possible amounts of all resources, and then makes an "safe-state" check to test for possible deadlock conditions for all other pending activities, before deciding whether allocation should be allowed to continue.</p>
+                    <p class="lead">
+                      <a class="btn btn-success" href="#" role="button">Wiki</a>
+                    </p>
+                </div>
+                <br>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="bs-component">
+                        <form name = "resource">
+                            <fieldset>
+                                <div class="form-group row">
+                                    <div class="form-group" style="margin-left:50px; float:left;">
+                                        <label for="resourcesInput">No. of Resources Types</label>
+                                            <input class="form-control" id="resourcesInput" aria-describedby="helptips" placeholder="# of resources" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));">
+                                            <small id="helptips" class="form-text text-muted">Enter the number of types of resources available to the processes</small>
+                                            <div id="FormFields" style=""></div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
-            </fieldset>
-        </form>
-    </div>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-        <div class="bs-component">
-            <form name="need"> 
-                <div class="form-group row">
-                    <div class="form-group" style="margin-left:50px; float:right;">
-                        <label for="processesInput">No. of Processes</label>
-                            <input class="form-control" id="processesInput" aria-describedby="helptips" placeholder="# of processes" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));">
-                            <small id="helptips" class="form-text text-muted">Enter the number of Processes</small>
-                            <div id="FormFields1" style=""></div>
-                    </div> 
-                </div>               
-            </form>
-        </div>
-    </div>
-    <div class="col-lg-3 offset-lg-1">
-        <div class="bs-component">
-            <form name="alloc"> 
-                <div class="form-group row">
-                    <div class="form-group" style="margin-left:50px; float:right;">
-                    <div id="FormFields1" style=""></div>
-                    <div id="FormFields2" style=""></div>
-                    </div> 
-                </div>               
-            </form>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <table id="tab_need" class="table table-hover">
-    </table>
-    <table id="tab_alloc" class="table table-hover">
-    </table>
-    <ul id = "printing">
-    </ul>
-</div>
-<div class="panel-footer">
-    <button class="btn btn-primary btn-success" onclick="banker()">Run</button>
-</div>
-
-</div>
-
-
-        <!-- <div class = "panel panel-primary"
-            style="margin : 0.25cm 0.25cm 0.25cm 0.25cm;">
-            <form>
-            <fieldset>
-            <div class="panel-body">
-                <form name = "resource">
-                    <div class = "form-group" style="margin-left:50px; float:left;">
-                    <label>Number of Types of Resources:</label>
-                    <input class="form-control" type="Number" onkeyup="BuildFormFields(parseInt(this.value, 10));" />
-                    <div id="FormFields" style=""></div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="bs-component">
+                        <form name="Need"> 
+                            <div class="form-group row">
+                                <div class="form-group" style="margin-left:50px; float:right;">
+                                    <label for="processesInput">No. of Processes</label>
+                                        <input class="form-control" id="processesInput" aria-describedby="helptips" placeholder="# of processes" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));">
+                                        <small id="helptips" class="form-text text-muted">Enter the number of Processes</small>
+                                        <div id="FormFields1" style=""></div>
+                                </div> 
+                            </div>               
+                        </form>
                     </div>
-                </form>
-                <form name = "Need">
-                    <div class = "form-group" style="margin-left:50px;float:left;">
-                    <label>Number of Processes:</label> <input class="form-control" type="Number" onkeyup="BuildFormFields2(y = parseInt(this.value, 10));" />
-                    <div id="FormFields1"></div>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <div class="bs-component">
+                        <form name="Alloc"> 
+                            <div class="form-group row">
+                                <div class="form-group" style="margin-left:50px; float:right;">
+                                <div id="FormFields2" style=""></div>
+                                </div> 
+                            </div>               
+                        </form>
                     </div>
-                </form>
-                 <form name = "Alloc">
-                     <div class = "form-group" style="margin-left:50px;float:left;margin-top:60px;">
-                    <div id="FormFields2"></div>
-                    </div>
-                </form>
-
+                </div>
+            </div>
+            <div class="row">
                 <table id="tab_need" class="table table-hover">
                 </table>
+                <br>
                 <table id="tab_alloc" class="table table-hover">
                 </table>
                 <ul id = "printing">
@@ -138,8 +99,6 @@
             <div class="panel-footer">
                 <button class="btn btn-primary btn-success" onclick="banker()">Run</button>
             </div>
-        </div> -->
-
-
+        </div>
     </body>
 </html>
