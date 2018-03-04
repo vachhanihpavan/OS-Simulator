@@ -12,8 +12,8 @@
     <body>
             <!-- Navigation Bar -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-                <a class="navbar-brand" href="#">Operationg System Simulator</a>
-                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+                <a class="navbar-brand" href="#">Operating System Simulator</a>
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>         
 
@@ -38,7 +38,7 @@
             <div class="container">
                 <div class="jumbotron">
                     <h1 class="display-3">Disk Scheduling</h1>
-                    <p class="lead">Short Intro</p>
+                    <p class="lead">Disk scheduling is the method that computer operating systems use to decide in which order the block I/O operations will be submitted to storage volumes. I/O scheduling is sometimes called disk scheduling.</p>
                     <hr class="my-4">
                     <p>Some more details here</p>
                     <p class="lead">
@@ -50,7 +50,7 @@
                     <fieldset>
                         <div class="row">
                             <div class="form-group" style="margin-left:50px; float:left;">
-                                <label for="exampleSelect1">Rename this</label>
+                                <label for="exampleSelect1">Algorithm</label>
                                   <select class="form-control" id="algorithm">
                                     <option value="fcfs">FCFS</option>
                                     <option value="sstf">SSTF</option>
@@ -64,28 +64,35 @@
                         <div class="row">
                             <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
                                 <label class="col-form-label" for="inputDefault">Sequence of cylinders</label>
-                                <input class="form-control" id="bitstream-input" name="bitstream" placeholder="DD" type="text" size="35">
+                                <input class="form-control" id="bitstream-input" name="bitstream" placeholder="Space-separated sequence" type="text" size="35">
                             </div>
                             <div class="form-group" style="margin-left:50px; float:left; width: 20%">
                                 <label class="col-form-label" for="inputDefault">Initial cylinder</label>
-                                <input class="form-control" id="initial-input" name="intial" placeholder="DD" type="text" size="35">
+                                <input class="form-control" id="initial-input" name="intial"  type="text" size="35">
                             </div>
                             <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
                                 <label class="col-form-label" for="inputDefault">Last cylinder</label>
-                                <input class="form-control" id="final-input" name="final" placeholder="DD" type="text" size="35">
+                                <input class="form-control" id="final-input" name="final"  type="text" size="35">
                             </div>
                         </div>
-                        <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px; onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value)>Plot</button>
                     </fieldset>
                 </form>
-            </div>        
+                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value)">Plot</button>
+                    
+                
+			</div>        
+			<br>
+			<br>
             <div class="container">
-                <div id="alg-name"></div>
+				<div id="alg-name"></div>
                 <div id="alg-seek"></div>
-                <div id="graph-area"></div>
-            </div>
-
-        <script type="text/javascript">
+                
+			</div>
+			
+			<div id="graph-area"></div>
+			<br>
+			<br>
+        <script>
                 function getBitStreamAndPlot(event, r1, ini, final, alg){
                         var inp=[],r2=r1.split(" "),r3;
                         for(a1=0;a1<r2.length;++a1){
@@ -94,8 +101,8 @@
                                 inp.push(r3);
                         }
                         console.log(r2);
-                        console.log(inp);
-                        if(alg=="fcfs"){
+						console.log(inp);
+						if(alg=="fcfs"){
                                 fcfs(inp, ini, final);
                         }
                         if(alg=="sstf"){

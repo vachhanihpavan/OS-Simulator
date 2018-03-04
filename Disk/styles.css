@@ -1,5 +1,6 @@
 #graph-area {
-    margin: 30px 60px 30px 60px;
+    margin: auto;
+    height: 650px;
     width: 1200px;
     padding: 0;
     border: 1px solid black;
