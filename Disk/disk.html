@@ -58,6 +58,7 @@
                                     <option value="cscan">C-SCAN</option>
                                     <option value="look">LOOK</option>
                                     <option value="clook">C-LOOK</option>
+                                    <option value="compare">Compare</option>
                                   </select>
                             </div>
                         </div>
@@ -93,6 +94,7 @@
 			<br>
 			<br>
         <script>
+                var pre,v1,v2,v3,v4,v5,v6;
                 function getBitStreamAndPlot(event, r1, ini, final, alg){
                         var inp=[],r2=r1.split(" "),r3;
                         for(a1=0;a1<r2.length;++a1){
@@ -101,8 +103,9 @@
                                 inp.push(r3);
                         }
                         console.log(r2);
-						console.log(inp);
-						if(alg=="fcfs"){
+			console.log(inp);
+			pre=1;
+                        if(alg=="fcfs"){
                                 fcfs(inp, ini, final);
                         }
                         if(alg=="sstf"){
@@ -119,6 +122,16 @@
                         }
                         if(alg=="clook"){
                                 clook(inp, ini, final);
+                        }
+                        if(alg=="compare"){
+                                pre=0;
+                                fcfs(inp, ini, final);
+                                sstf(inp, ini, final);
+                                scan(inp, ini, final);
+                                cscan(inp, ini, final);
+                                look(inp, ini, final);
+                                clook(inp, ini, final);
+                                compare();
                         }
                 }
                 
@@ -169,9 +182,11 @@
                         };
                                 
                         var data = [trace1];
-                        Plotly.newPlot('graph-area', data, layout);
+                        v1=seek;
+                        if(pre){Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "FCFS";
+                        }
                 }
                 function sstf(inp, ini, final){
                         var x1=[];
@@ -232,9 +247,11 @@
                         };
                                 
                         var data = [trace1];
-                        Plotly.newPlot('graph-area', data, layout);
+                        v2=seek;
+                        if(pre){Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "SSTF";
+                        }
                 }
                 function scan(inp, ini, final){
                         var x1=[];
@@ -327,9 +344,11 @@
                         };
                                 
                         var data = [trace1];
-                        Plotly.newPlot('graph-area', data, layout);
+                        v3=seek;
+                        if(pre){Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "SCAN";
+                        }
                 }
                 function cscan(inp, ini, final){
                         var x1=[];
@@ -352,7 +371,7 @@
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
                                 var count=1;
-                                for(a1=store;a1>=0;--a1){
+                                for(a1=store;a1>=0;--a1){                                        
                                         x1.push(inp[a1]);
                                         y1.push(-1*count);
                                         ++count;
@@ -457,9 +476,11 @@
                         };
                                 
                         var data = [trace1,trace2,trace3];
-                        Plotly.newPlot('graph-area', data, layout);
+                        v4=seek;
+                        if(pre){Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "C-SCAN";
+                        }
                 }
                 function look(inp, ini, final){
                         var x1=[];
@@ -544,9 +565,11 @@
                         };
                                 
                         var data = [trace1];
-                        Plotly.newPlot('graph-area', data, layout);
+                        v5=seek;
+                        if(pre){Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "LOOK";
+                        }
                 }
                 function clook(inp, ini, final){
                         var x1=[];
@@ -669,9 +692,46 @@
                         };
                                 
                         var data = [trace1,trace2,trace3];
-                        Plotly.newPlot('graph-area', data, layout);
+                        v6=seek;
+                        if(pre){Plotly.newPlot('graph-area', data, layout);
                         document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
                         document.getElementById("alg-name").innerHTML = "C-LOOK";
+                        }
+                }
+                function compare(){
+                        var avg=(v1+v2+v3+v4+v5+v6)/6.0;
+                        console.log(avg);
+                        document.getElementById("alg-seek").innerHTML = "Mean: "+avg;
+                        document.getElementById("alg-name").innerHTML = "Comparision";
+                        var trace1 = {
+                        x: ['FCFS', 'SSTF', 'SCAN', 'C-SCAN', 'LOOK', 'C-LOOK'],
+                        y: [v1,v2,v3,v4,v5,v6],
+                        type: 'bar',
+                        text: [v1-avg+' from mean', v2-avg+' from mean', v3-avg+' from mean', v4-avg+' from mean', v5-avg+' from mean', v6-avg+' from mean'],    
+                                marker: {
+                                        color: 'rgb(142,124,195)'
+                                }
+                        };
+
+                        var data = [trace1];
+
+                        var layout = {
+                        title: 'Comparision Between Different Algorithms',
+                        font:   {
+                                        family: 'Raleway, snas-serif'
+                                },
+                        showlegend: false,
+                        xaxis:  {
+                                        tickangle: -45
+                                },
+                        yaxis:  {
+                                        zeroline: false,
+                                        gridwidth: 2
+                                },
+                        bargap :0.05
+                        };
+
+                        Plotly.newPlot('graph-area', data, layout);
                 }               
         </script>
     </body>
