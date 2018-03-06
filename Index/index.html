@@ -13,12 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 
-	<!--[if IE]>
-		<script type="text/javascript">
-			 var console = { log: function() {} };
-		</script>
-	<![endif]-->
-
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
@@ -29,7 +23,7 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'rgba(201, 108, 108, 0.5)', '#ccddff'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage' ,'8thpage'],
 				menu: '#menu',
 				easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
 			});
@@ -43,7 +37,10 @@
 	<li data-menuanchor="secondPage"><a href="#secondPage">Scheduling</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Banker's</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage">Disk Scheduling</a></li>
-	<li data-menuanchor="5thpage"><a href="#5thpage">About</a></li>
+	<li data-menuanchor="5thpage"><a href="#5thpage">Process Synchronization</a></li>
+	<li data-menuanchor="6thpage"><a href="#6thpage">Semaphores</a></li>
+	<li data-menuanchor="7thpage"><a href="#7thpage">File Management</a></li>
+	<li data-menuanchor="8thpage"><a href="#8thpage">About</a></li>
 </ul>
 
 <div id="fullpage">
@@ -71,7 +68,7 @@
 	<div class="section" id="section2">
 		<div class="intro">
 			<h1><a href="../Bankers/index.html">Banker</a></h1>
-			<p>Nirav Modi murdabad</p>
+			<p>Banker's Algorithm is a resource allocation and deadlock avoidance algorithm that tests for safety by simulating the allocation of predetermined maximum possible amounts of all resources, and then makes an "safe-state" check to test for possible deadlock conditions for all other pending activities, before deciding whether allocation should be allowed to continue.</p>
 		</div>
 	</div>
 	<div class="section" id="section3">
@@ -79,7 +76,34 @@
 			<h1><a href="../Disk/disk.html">Disk Scheduling</h1>
 		</div>
 	</div>
-	<div class="section" id="section4">
+	<div class="section" id="section5">
+		<div class="intro">
+			<div class="row">
+				<div class="column">
+					<h1>Process Synchronization</h1>
+				</div>
+				<div class="column">
+					 <ul id="scheduling-style">
+  					   <li><a href="../Process synchronization/cigarette_smokers.html">Cigarette Smokers</a></li>
+					   <li><a href="../Process synchronization/dining.html">Dining Philosophers</a></li>
+					   <li><a href="../Process synchronization/producer_consumer.html">Producer Consumer</a></li>
+					   <li><a href="#">Next one</a></li>
+					 </ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section" id="section6">
+		<div class="intro">
+			<h1><a href="#">Semaphores</h1>
+		</div>
+	</div>
+	<div class="section" id="section7">
+		<div class="intro">
+			<h1><a href="#">File Management</h1>
+		</div>
+	</div>
+	<div class="section" id="section8">
 		<div class="intro">
 			<h1><a href="about.html">About</h1>
 		</div>

@@ -1,10 +1,9 @@
-html, body {
-	background: url("includes/back.jpg");
+body {
+	color: #
 }
-
 #table {
   position: absolute;
-  top: 50%;
+  top: 143%;
   left: 50%;
   width:500px;
   height:500px;
@@ -15,7 +14,7 @@ html, body {
 
 #phil1 {
   position: absolute;
-  top: 23%;
+  top: 116%;
   left: 39%;
   width:100px;
   height:100px;
@@ -26,7 +25,7 @@ html, body {
 
 #phil2 {
   position: absolute;
-  top: 22%;
+  top: 115%;
   left: 59%;
   width:100px;
   height:100px;
@@ -37,7 +36,7 @@ html, body {
 
 #phil3 {
   position: absolute;
-  top: 57%;
+  top: 150%;
   left: 65%;
   width:100px;
   height:100px;
@@ -48,7 +47,7 @@ html, body {
 
 #phil4 {
   position: absolute;
-  top: 83%;
+  top: 176%;
   left: 51%;
   width:100px;
   height:100px;
@@ -59,7 +58,7 @@ html, body {
 
 #phil5 {
   position: absolute;
-  top: 60%;
+  top: 153%;
   left: 34%;
   width:100px;
   height:100px;
@@ -70,7 +69,7 @@ html, body {
 
 #food {
   position: absolute;
-  top: 50%;
+  top: 143%;
   left: 50%;
   width:120px;
 	height:120px;
@@ -91,7 +90,7 @@ span {
 	width: 5px;
     height: 60px;
 	position: absolute;
-	top: 62%;
+	top: 155%;
 	left: 43%;
     background-color: #DAA520;
     -ms-transform: rotate(40deg); 
@@ -103,7 +102,7 @@ span {
 	width: 5px;
     height: 60px;
 	position: absolute;
-	top: 39%;
+	top: 132%;
 	left: 39%;
     background-color: #DAA520;
     -ms-transform: rotate(100deg); 
@@ -115,7 +114,7 @@ span {
 	width: 5px;
     height: 60px;
 	position: absolute;
-	top: 23%;
+	top: 116%;
 	left: 49%;
     background-color: #DAA520;
     -ms-transform: rotate(1deg); 
@@ -127,7 +126,7 @@ span {
 	width: 5px;
     height: 60px;
 	position: absolute;
-	top: 35%;
+	top: 128%;
 	left: 58.5%;
     background-color: #DAA520;
     -ms-transform: rotate(60deg); 
@@ -139,7 +138,7 @@ span {
 	width: 5px;
     height: 60px;
 	position: absolute;
-	top: 61%;
+	top: 154%;
 	left: 56%;
     background-color: #DAA520;
     -ms-transform: rotate(130deg); 
@@ -151,7 +150,7 @@ span {
 	width: 200px;
     height: 90px;
 	position: absolute;
-	top: 17%;
+	top: 100%;
 	left: 5%;
     background-color: #4CAF50;
 	font-size: 40px;
@@ -161,10 +160,10 @@ span {
 #random {
 	font-size: 25px;
     position: absolute;
-    top: 41%;
-    left: 13%;
+    top: 141%;
+    left: 15%;
     transform: translate(-50%, -50%);
-	background: #fff099;
+	background: #4E5D6C;
 	padding: 7px 7px 7px 7px;
 	border-radius: 10px;
 }
@@ -172,10 +171,10 @@ span {
 #p1 {
 	font-size: 20px;
     position: absolute;
-    top: 22%;
+    top: 115%;
     left: 30%;
     transform: translate(-50%, -50%);
-	background: #e7e7e7;
+	background: #4E5D6C;
 	padding: 7px 7px 7px 7px;
 	border-radius: 10px;
 }
@@ -183,10 +182,10 @@ span {
 #p2 {
 	font-size: 20px;
     position: absolute;
-    top: 20%;
+    top: 113%;
     left: 69%;
     transform: translate(-50%, -50%);
-	background: #e7e7e7;
+	background: #4E5D6C;
 	padding: 7px 7px 7px 7px;
 	border-radius: 10px;
 }
@@ -194,10 +193,10 @@ span {
 #p3 {
 	font-size: 20px;
     position: absolute;
-    top: 59%;
+    top: 152%;
     left: 74%;
     transform: translate(-50%, -50%);
-	background: #e7e7e7;
+	background: #4E5D6C;
 	padding: 7px 7px 7px 7px;
 	border-radius: 10px;
 }
@@ -205,10 +204,10 @@ span {
 #p4 {
 	font-size: 20px;
     position: absolute;
-    top: 95%;
+    top: 188%;
     left: 51%;
     transform: translate(-50%, -50%);
-	background: #e7e7e7;
+	background: #4E5D6C;
 	padding: 7px 7px 7px 7px;
 	border-radius: 10px;
 }
@@ -217,17 +216,17 @@ span {
 #p5 {
 	font-size: 20px;
     position: absolute;
-    top: 65%;
+    top: 158%;
     left: 25%;
     transform: translate(-50%, -50%);
-	background: #e7e7e7;
+	background: #4E5D6C;
 	padding: 7px 7px 7px 7px;
 	border-radius: 10px;
 }
 
 #think {
 	  position: absolute;
-	  top: 70%;
+	  top: 163%;
 	  left: 85%;
 	  width:60px;
 	  height:60px;
@@ -238,7 +237,7 @@ span {
 
 #hungry {
 	  position: absolute;
-	  top: 80%;
+	  top: 173%;
 	  left: 85%;
 	  width:60px;
 	  height:60px;
@@ -249,7 +248,7 @@ span {
 
 #eating {
 	  position: absolute;
-	  top: 90%;
+	  top: 183%;
 	  left: 85%;
 	  width:60px;
 	  height:60px;
@@ -260,7 +259,7 @@ span {
 
 #thinkt {
 	  position: absolute;
-	  top: 73%;
+	  top: 166%;
 	  left: 90%;
 	  width:60px;
 	  height:60px;
@@ -271,7 +270,7 @@ span {
 
 #hungryt {
 	  position: absolute;
-	  top: 83%;
+	  top: 176%;
 	  left: 90%;
 	  width:60px;
 	  height:60px;
@@ -282,7 +281,7 @@ span {
 
 #eatingt {
 	  position: absolute;
-	  top: 93%;
+	  top: 186%;
 	  left: 90%;
 	  width:60px;
 	  height:60px;
@@ -295,28 +294,33 @@ span {
 	position:absolute; 
 	bottom:150px; 
 	left:30px;
+	top: 160%;
 }
 
 #ph2 {
 	position:absolute; 
 	bottom:130px; 
 	left:30px;
+	top: 165%;
 }
 
 #ph3 {
 	position:absolute; 
 	bottom:110px; 
 	left:30px;
+	top: 170%;
 }
 
 #ph4 {
 	position:absolute; 
 	bottom:90px; 
 	left:30px;
+	top: 175%;
 }
 
 #ph5 {
 	position:absolute; 
 	bottom:70px; 
 	left:30px;
+	top: 180%;
 }

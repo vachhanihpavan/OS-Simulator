@@ -1,13 +1,9 @@
 
-html, body {
-	background: url("includes/back.jpg");
-}
-
 .play1,.pause1 {
 	width:150px;
 	height:150px;
 	position: absolute;
-	top: 71%;
+	top: 162%;
 	left: 10%;
 	border-radius: 50%;
 	
@@ -17,17 +13,18 @@ html, body {
 	width:150px;
 	height:150px;
 	position: absolute;
-	top: 71%;
+	top: 162%;
 	left: 75%;
 	border-radius: 50%;
 	
 }
 
+
 #prod {
 	width:250px;
 	height:250px;
 	position: absolute;
-	top: 50%;
+	top: 141%;
 	left: 15%;
 	margin-right: -50%;
 	border-radius: 5px;
@@ -38,7 +35,7 @@ html, body {
 	width:250px;
 	height:250px;
 	position: absolute;
-	top: 50%;
+	top: 141%;
 	left: 80%;
 	margin-right: -50%;
 	border-radius: 5px;
@@ -50,7 +47,7 @@ html, body {
 #empty1 {
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 24%;
 	position: absolute;
 }
@@ -58,7 +55,7 @@ html, body {
 #empty2 {
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 30%;
 	position: absolute;
 }
@@ -66,7 +63,7 @@ html, body {
 #empty3 {
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 36%;
 	position: absolute;
 }
@@ -74,7 +71,7 @@ html, body {
 #empty4 {
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 42%;
 	position: absolute;
 }
@@ -82,7 +79,7 @@ html, body {
 #empty5 {
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 48%;
 	position: absolute;
 }
@@ -90,7 +87,7 @@ html, body {
 #empty6 {
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 54%;
 	position: absolute;
 }
@@ -98,7 +95,7 @@ html, body {
 #empty7{
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 60%;
 	position: absolute;
 }
@@ -106,7 +103,7 @@ html, body {
 #empty8{
 	width: 80px;
 	height: 80px;
-	top: 76%;
+	top: 136%;
 	left: 66%;
 	position: absolute;
 }
@@ -114,7 +111,7 @@ html, body {
 #producer {
 	width: 200px;
 	height: 60px;
-	top: 19%;
+	top: 110%;
 	left: 7.5%;
 	position: absolute;
 	border-radius: 7px;
@@ -123,21 +120,20 @@ html, body {
 #consumer {
 	width: 200px;
 	height: 60px;
-	top: 19%;
+	top: 110%;
 	left: 73%;
 	position: absolute;
 	border-radius: 7px;
 }
 
-h1 {
-	text-indent: 210px;
-	font-size: 45px;
+.display-3 {
+    font-size: 3.5rem;
 }
 
 .buffer {
 	font-size: 30px;
     position: absolute;
-    top: 50%;
+    top: 110%;
     left: 46%;
     transform: translate(-50%, -50%);
 	background: orange;
@@ -148,7 +144,7 @@ h1 {
 #count {
 	font-size: 30px;
     position: absolute;
-    top: 60%;
+    top: 180%;
     left: 46.3%;
     transform: translate(-50%, -50%);
 	background: orange;
