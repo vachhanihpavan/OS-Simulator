@@ -9,17 +9,17 @@
 
 <body>
 	<span style="font-weight:bold">Simulation of Dining Philosophers Problem</span>
-	<img id="table" src="table.jpg" >
-	<img id="food" src="noodles.jpg" >
+	<img id="table" src="includes/table.jpg" >
+	<img id="food" src="includes/noodles.jpg" >
 	
 	<button type="button" class="next" onclick="simulate()">Next</button>
 	
 	<div>
-		<img id="phil1" src="thinking.jpg" >
-		<img id="phil2" src="thinking.jpg" >
-		<img id="phil3" src="thinking.jpg" >
-		<img id="phil4" src="thinking.jpg" >
-		<img id="phil5" src="thinking.jpg" >
+		<img id="phil1" src="includes/thinking.jpg" >
+		<img id="phil2" src="includes/thinking.jpg" >
+		<img id="phil3" src="includes/thinking.jpg" >
+		<img id="phil4" src="includes/thinking.jpg" >
+		<img id="phil5" src="includes/thinking.jpg" >
 	</div>
 	
 	<div id="c4"></div>
@@ -28,9 +28,9 @@
 	<div id="c2"></div>
 	<div id="c3"></div>
 	
-	<img id="think" src="thinking.jpg" align="right"><div id="thinkt">Thinking</div>
-	<img id="hungry" src="hungry.jpg" align="right"><div id="hungryt">Hungry</div>
-	<img id="eating" src="eating.jpg" align="right"><div id="eatingt">Eating</div>
+	<img id="think" src="includes/thinking.jpg" align="right"><div id="thinkt">Thinking</div>
+	<img id="hungry" src="includes/hungry.jpg" align="right"><div id="hungryt">Hungry</div>
+	<img id="eating" src="includes/eating.jpg" align="right"><div id="eatingt">Eating</div>
 	
 	<div id="p1">Philosopher 1</div>
 	<div id="p2">Philosopher 2</div>
@@ -58,7 +58,7 @@
 			if(phil[n-1]==0)
 			{
 				phil[n-1] = 1;
-				document.getElementById("phil"+n).src = "hungry.jpg";
+				document.getElementById("phil"+n).src = "includes/hungry.jpg";
 				document.getElementById("ph"+n).innerHTML = "Philosopher " + n + " - Hungry";
 			}
 			else if(phil[n-1]==1)
@@ -68,7 +68,7 @@
 					chopsticks[n-1]=1;
 					chopsticks[n%5]=1;
 					phil[n-1] = 2;
-					document.getElementById("phil"+n).src = "eating.jpg";
+					document.getElementById("phil"+n).src = "includes/eating.jpg";
 					document.getElementById("c"+(n+1)%5).style.display = "none";
 					document.getElementById("c"+(n)%5).style.display = "none";
 					document.getElementById("ph"+n).innerHTML = "Philosopher " + n + " - Eating";
@@ -83,7 +83,7 @@
 					chopsticks[n-1]=0;
 					chopsticks[n%5]=0;
 					phil[n-1] = 0;
-					document.getElementById("phil"+n).src = "thinking.jpg";
+					document.getElementById("phil"+n).src = "includes/thinking.jpg";
 					document.getElementById("c"+n%5).style.display = "block";
 					document.getElementById("c"+(n+1)%5).style.display = "block";
 					document.getElementById("ph"+n).innerHTML = "Philosopher " + n + " - Thinking";

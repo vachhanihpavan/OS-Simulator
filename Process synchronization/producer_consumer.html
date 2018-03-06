@@ -9,23 +9,23 @@
 
 <body>
 	<h1>Simulation of Producer-Consumer Problem</h1>
-	<input type="image" src="play.png" class="play1" onclick="toggle1(this);"/>
-	<img id="prod" src="producer.png" >
-	<img id="producer" src="prod.png">
+	<input type="image" src="includes/play.png" class="play1" onclick="toggle1(this);"/>
+	<img id="prod" src="includes/producer.png" >
+	<img id="producer" src="includes/prod.png">
 	<div class="buffer">Buffer size : 8</div>
 	<div id="count">Counter : 0</div>
-	<input type="image" src="play.png" class="play2" onclick="toggle2(this);"/>
-	<img id="cons" src="consumer.png" >
-	<img id="consumer" src="cons.png">
+	<input type="image" src="includes/play.png" class="play2" onclick="toggle2(this);"/>
+	<img id="cons" src="includes/consumer.png" >
+	<img id="consumer" src="includes/cons.png">
 	
-	<img id="empty1" src="empty.png">
-	<img id="empty2" src="empty.png">
-	<img id="empty3" src="empty.png">
-	<img id="empty4" src="empty.png">
-	<img id="empty5" src="empty.png">
-	<img id="empty6" src="empty.png">
-	<img id="empty7" src="empty.png">
-	<img id="empty8" src="empty.png">
+	<img id="empty1" src="includes/empty.png">
+	<img id="empty2" src="includes/empty.png">
+	<img id="empty3" src="includes/empty.png">
+	<img id="empty4" src="includes/empty.png">
+	<img id="empty5" src="includes/empty.png">
+	<img id="empty6" src="includes/empty.png">
+	<img id="empty7" src="includes/empty.png">
+	<img id="empty8" src="includes/empty.png">
 	
 </body>
 
@@ -38,23 +38,23 @@
 	{
 		if(el.className!="pause1")
 		{
-			el.src="pause.png";
+			el.src="includes/pause.png";
 			el.className="pause1";
 			flag2 = 1;
-			document.getElementById("prod").src="producer.gif";
+			document.getElementById("prod").src="includes/producer.gif";
 			var intclear = setInterval(function(){
 				if(el.className!="play1") {
 				str="empty"+(end+1);
 				count++;
-				document.getElementById(str).src="food.jpg";
+				document.getElementById(str).src="includes/food.jpg";
 				document.getElementById("count").innerHTML = "Counter : "+count;
 				end = (end+1)%8;
 				if(count==8)
 				{
 					flag2 = 0;
-					el.src='play.png';
+					el.src='includes/play.png';
 					el.className="play1";
-					document.getElementById("prod").src="producer.png";
+					document.getElementById("prod").src="includes/producer.png";
 					clearInterval(intclear);
 					start = 0;
 					end = 0;
@@ -65,9 +65,9 @@
 		else if(el.className=="pause1")
 		{
 			flag2 = 0;
-			el.src='play.png';
+			el.src='includes/play.png';
 			el.className="play1";
-			document.getElementById("prod").src="producer.png";
+			document.getElementById("prod").src="includes/producer.png";
 		}
 	}
 	else if(count==8)
@@ -87,24 +87,24 @@
 	{
 		if(el.className!="pause2")
 		{
-			el.src="pause.png";
+			el.src="includes/pause.png";
 			el.className="pause2";
 			flag1 = 1;
-			document.getElementById("cons").src="consumer.gif";
+			document.getElementById("cons").src="includes/consumer.gif";
 			var intclear = setInterval(function(){
 				if(el.className!="play2") {
 				str="empty"+(start+1);
 				count--;
-				document.getElementById(str).src="empty.png";
+				document.getElementById(str).src="includes/empty.png";
 				document.getElementById("count").innerHTML = "Counter : "+count;
 				start = (start+1)%8;
 				if(count==0)
 				{
 					flag1 = 0;
 					flag2 = 1;
-					el.src='play.png';
+					el.src='includes/play.png';
 					el.className="play2";
-					document.getElementById("cons").src="consumer.png";
+					document.getElementById("cons").src="includes/consumer.png";
 					clearInterval(intclear);
 					start = 0;
 					end = 0;
@@ -115,9 +115,9 @@
 		else if(el.className=="pause2")
 		{
 			flag1 = 0;
-			el.src='play.png';
+			el.src='includes/play.png';
 			el.className="play2";
-			document.getElementById("cons").src="consumer.png";
+			document.getElementById("cons").src="includes/consumer.png";
 		}
 	}
 	else if(count==0)
