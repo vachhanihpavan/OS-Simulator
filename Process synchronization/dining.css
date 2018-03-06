@@ -1,0 +1,322 @@
+html, body {
+	background: url("back.jpg");
+}
+
+#table {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:500px;
+  height:500px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}	
+
+#phil1 {
+  position: absolute;
+  top: 23%;
+  left: 39%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#phil2 {
+  position: absolute;
+  top: 22%;
+  left: 59%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#phil3 {
+  position: absolute;
+  top: 57%;
+  left: 65%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#phil4 {
+  position: absolute;
+  top: 83%;
+  left: 51%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#phil5 {
+  position: absolute;
+  top: 60%;
+  left: 34%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#food {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:120px;
+	height:120px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+span {
+	text-indent: 175px;
+	font-size: 40px;
+	position: absolute;
+    top: 8px;
+    left: 150px;
+}
+
+#c0 {
+	width: 5px;
+    height: 60px;
+	position: absolute;
+	top: 62%;
+	left: 43%;
+    background-color: #DAA520;
+    -ms-transform: rotate(40deg); 
+    -webkit-transform: rotate(40deg); 
+    transform: rotate(40deg);
+}
+
+#c1 {
+	width: 5px;
+    height: 60px;
+	position: absolute;
+	top: 39%;
+	left: 39%;
+    background-color: #DAA520;
+    -ms-transform: rotate(100deg); 
+    -webkit-transform: rotate(100deg); 
+    transform: rotate(100deg);
+}
+
+#c2 {
+	width: 5px;
+    height: 60px;
+	position: absolute;
+	top: 23%;
+	left: 49%;
+    background-color: #DAA520;
+    -ms-transform: rotate(1deg); 
+    -webkit-transform: rotate(1deg); 
+    transform: rotate(1deg);
+}
+
+#c3 {
+	width: 5px;
+    height: 60px;
+	position: absolute;
+	top: 35%;
+	left: 58.5%;
+    background-color: #DAA520;
+    -ms-transform: rotate(60deg); 
+    -webkit-transform: rotate(60deg); 
+    transform: rotate(60deg);
+}
+
+#c4 {
+	width: 5px;
+    height: 60px;
+	position: absolute;
+	top: 61%;
+	left: 56%;
+    background-color: #DAA520;
+    -ms-transform: rotate(130deg); 
+    -webkit-transform: rotate(130deg); 
+    transform: rotate(130deg);
+}
+
+.next {
+	width: 200px;
+    height: 90px;
+	position: absolute;
+	top: 17%;
+	left: 5%;
+    background-color: #4CAF50;
+	font-size: 40px;
+	border-radius: 15px;
+}
+
+#random {
+	font-size: 25px;
+    position: absolute;
+    top: 41%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+	background: #fff099;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#p1 {
+	font-size: 20px;
+    position: absolute;
+    top: 22%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#p2 {
+	font-size: 20px;
+    position: absolute;
+    top: 20%;
+    left: 69%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#p3 {
+	font-size: 20px;
+    position: absolute;
+    top: 59%;
+    left: 74%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#p4 {
+	font-size: 20px;
+    position: absolute;
+    top: 95%;
+    left: 51%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+
+#p5 {
+	font-size: 20px;
+    position: absolute;
+    top: 65%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#think {
+	  position: absolute;
+	  top: 70%;
+	  left: 85%;
+	  width:60px;
+	  height:60px;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	  border-radius: 700px;
+}
+
+#hungry {
+	  position: absolute;
+	  top: 80%;
+	  left: 85%;
+	  width:60px;
+	  height:60px;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	  border-radius: 700px;
+}
+
+#eating {
+	  position: absolute;
+	  top: 90%;
+	  left: 85%;
+	  width:60px;
+	  height:60px;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	  border-radius: 700px;
+}
+
+#thinkt {
+	  position: absolute;
+	  top: 73%;
+	  left: 90%;
+	  width:60px;
+	  height:60px;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	  border-radius: 700px;
+}
+
+#hungryt {
+	  position: absolute;
+	  top: 83%;
+	  left: 90%;
+	  width:60px;
+	  height:60px;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	  border-radius: 700px;
+}
+
+#eatingt {
+	  position: absolute;
+	  top: 93%;
+	  left: 90%;
+	  width:60px;
+	  height:60px;
+	  /* bring your own prefixes */
+	  transform: translate(-50%, -50%);
+	  border-radius: 700px;
+}
+
+#ph1 {
+	position:absolute; 
+	bottom:150px; 
+	left:30px;
+}
+
+#ph2 {
+	position:absolute; 
+	bottom:130px; 
+	left:30px;
+}
+
+#ph3 {
+	position:absolute; 
+	bottom:110px; 
+	left:30px;
+}
+
+#ph4 {
+	position:absolute; 
+	bottom:90px; 
+	left:30px;
+}
+
+#ph5 {
+	position:absolute; 
+	bottom:70px; 
+	left:30px;
+}

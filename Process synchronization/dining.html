@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<link href="dining.css" rel="stylesheet" />
+	
+</head>
+
+<body>
+	<span style="font-weight:bold">Simulation of Dining Philosophers Problem</span>
+	<img id="table" src="table.jpg" >
+	<img id="food" src="noodles.jpg" >
+	
+	<button type="button" class="next" onclick="simulate()">Next</button>
+	
+	<div>
+		<img id="phil1" src="thinking.jpg" >
+		<img id="phil2" src="thinking.jpg" >
+		<img id="phil3" src="thinking.jpg" >
+		<img id="phil4" src="thinking.jpg" >
+		<img id="phil5" src="thinking.jpg" >
+	</div>
+	
+	<div id="c4"></div>
+	<div id="c0"></div>
+	<div id="c1"></div>
+	<div id="c2"></div>
+	<div id="c3"></div>
+	
+	<img id="think" src="thinking.jpg" align="right"><div id="thinkt">Thinking</div>
+	<img id="hungry" src="hungry.jpg" align="right"><div id="hungryt">Hungry</div>
+	<img id="eating" src="eating.jpg" align="right"><div id="eatingt">Eating</div>
+	
+	<div id="p1">Philosopher 1</div>
+	<div id="p2">Philosopher 2</div>
+	<div id="p3">Philosopher 3</div>
+	<div id="p4">Philosopher 4</div>
+	<div id="p5">Philosopher 5</div>
+
+	<div id="random">Random number generated : 0</div>
+	
+	<p id="ph1">Philosopher 1 - Thinking</p>
+	<p id="ph2">Philosopher 2 - Thinking</p>
+	<p id="ph3">Philosopher 3 - Thinking</p>
+	<p id="ph4">Philosopher 4 - Thinking</p>
+	<p id="ph5">Philosopher 5 - Thinking</p>
+	
+	<script>
+	
+		var phil = [0,0,0,0,0], chopsticks = [0,0,0,0,0];
+
+		function simulate() 
+		{
+			var n = Math.floor((Math.random() * 5) + 1);
+		
+			document.getElementById("random").innerHTML = "Random number generated : "+n;
+			if(phil[n-1]==0)
+			{
+				phil[n-1] = 1;
+				document.getElementById("phil"+n).src = "hungry.jpg";
+				document.getElementById("ph"+n).innerHTML = "Philosopher " + n + " - Hungry";
+			}
+			else if(phil[n-1]==1)
+			{
+				if(chopsticks[n-1]==0 && chopsticks[n%5]==0)
+				{
+					chopsticks[n-1]=1;
+					chopsticks[n%5]=1;
+					phil[n-1] = 2;
+					document.getElementById("phil"+n).src = "eating.jpg";
+					document.getElementById("c"+(n+1)%5).style.display = "none";
+					document.getElementById("c"+(n)%5).style.display = "none";
+					document.getElementById("ph"+n).innerHTML = "Philosopher " + n + " - Eating";
+				}
+				else
+				{
+					alert("Philosopher " + n + " cannot eat now!");
+				}
+			}
+			else if(phil[n-1]==2)
+			{
+					chopsticks[n-1]=0;
+					chopsticks[n%5]=0;
+					phil[n-1] = 0;
+					document.getElementById("phil"+n).src = "thinking.jpg";
+					document.getElementById("c"+n%5).style.display = "block";
+					document.getElementById("c"+(n+1)%5).style.display = "block";
+					document.getElementById("ph"+n).innerHTML = "Philosopher " + n + " - Thinking";
+			}
+		}
+	
+	</script>
+	
+</body>
+
+</html>

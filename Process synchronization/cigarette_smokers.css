@@ -1,0 +1,232 @@
+html, body {
+	background: url("back.jpg");
+}
+
+span {
+	text-indent: 175px;
+	font-size: 40px;
+	position: absolute;
+    top: 8px;
+    left: 150px;
+}
+
+#table {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width:500px;
+  height:500px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}	
+
+#smoker1 {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#smoker2 {
+  position: absolute;
+  top: 19%;
+  left: 49%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#smoker3 {
+  position: absolute;
+  top: 42%;
+  left: 64.5%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#non-smoker {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width:100px;
+  height:100px;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+  border-radius: 700px;
+}
+
+#s1 {
+	font-size: 20px;
+    position: absolute;
+    top: 34%;
+    left: 28%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#s2 {
+	font-size: 20px;
+    position: absolute;
+    top: 14%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#s3 {
+	font-size: 20px;
+    position: absolute;
+    top: 38%;
+    left: 72%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#ns {
+	font-size: 20px;
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	background: #e7e7e7;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+.next {
+	width: 200px;
+    height: 90px;
+	position: absolute;
+	top: 19%;
+	left: 4%;
+    background-color: #4CAF50;
+	font-size: 40px;
+	border-radius: 15px;
+}
+
+#t {
+	font-size: 20px;
+    position: absolute;
+    top: 40%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+	background: #DAA520;
+	padding: 7px 7px 7px 7px;
+	border-radius: 15px;
+}
+
+#p {
+	font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+	background: #DAA520;
+	padding: 7px 7px 7px 7px;
+	border-radius: 15px;
+}
+
+#m {
+	font-size: 20px;
+    position: absolute;
+    top: 41%;
+    left: 57.5%;
+    transform: translate(-50%, -50%);
+	background: #DAA520;
+	padding: 7px 7px 7px 7px;
+	border-radius: 15px;
+}
+
+#su1 {
+	font-size: 20px;
+    position: absolute;
+    top: 65%;
+    left: 55%;
+	width: 80px;
+	height: 30px;
+    transform: translate(-50%, -50%);
+	background: #2eb82e;
+	padding: 7px 7px 7px 7px;
+	border-radius: 15px;
+}
+
+#su2 {
+	font-size: 20px;
+    position: absolute;
+    top: 65%;
+    left: 45%;
+	width: 80px;
+	height: 30px;
+    transform: translate(-50%, -50%);
+	background: #2eb82e;
+	padding: 7px 7px 7px 7px;
+	border-radius: 15px;
+}
+
+#random {
+	font-size: 25px;
+    position: absolute;
+    top: 41%;
+    left: 13%;
+    transform: translate(-50%, -50%);
+	background: #fff099;
+	padding: 7px 7px 7px 7px;
+	border-radius: 10px;
+}
+
+#smoke {
+	font-size: 30px;
+    position: absolute;
+    top: 74%;
+    left: 82%;
+	width: 300px;
+	height: 40px;
+    transform: translate(-50%, -50%);
+	background: #ff471a;
+	padding: 5px 5px 5px 5px;
+	border-radius: 15px;
+}
+
+#ph1 {
+	font-size: 20px;
+	position:absolute; 
+	bottom:150px; 
+	left:60px;
+}
+
+#ph2 {
+	font-size: 20px;
+	position:absolute; 
+	bottom:130px; 
+	left:60px;
+}
+
+#ph3 {
+	font-size: 20px;
+	position:absolute; 
+	bottom:110px; 
+	left:60px;
+}
+
+#ph4 {
+	font-size: 20px;
+	position:absolute; 
+	bottom:90px; 
+	left:60px;
+}
