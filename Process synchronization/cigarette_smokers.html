@@ -3,39 +3,110 @@
 
 <head>
 
-	<link href="cigarette_smokers.css" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="css/cigarette_smokers.css" rel="stylesheet" />
+	<script type="text/javascript" src="../Index/js/scrolloverflow.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../Index/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
+   	<script type="text/javascript" src="../Index/js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$('#fullpage').fullpage({
+    			sectionsColor: ['#00000'],
+    			anchors: ['anime'],
+    			menu: '#menu',
+    			easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
+    		});
+    	});
+      </script>
 	
 </head>
 
 <body>
 
-	<span style="font-weight:bold">Simulation of Cigarette Smokers Problem</span>
-	<img id="table" src="includes/table.jpg">
-	<button type="button" class="next" onclick="simulate()">Next</button>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	    <a class="navbar-brand" href="../Index/index.html#firstPage">Operationg System Simulator</a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+	        <span class="navbar-toggler-icon"></span>
+	      </button>         
 
-	<img id="smoker1" src="includes/smoker1.jpg">
-	<img id="smoker2" src="includes/smoker2.jpg">
-	<img id="smoker3" src="includes/smoker3.jpg">
-	<img id="non-smoker" src="includes/non_smoker.jpg">
+	    <div class="collapse navbar-collapse" id="navbarColor01">
+	        <ul class="navbar-nav mr-auto">
+	          <li class="nav-item">
+	            <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="../Disk/disk.html">Disk Scheduling</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="../Bankers/index.html">Banker's Algorithm</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="../Index/index.html/#5thpage">Process Synchronization</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="#">Semaphores</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="#">File Management</a>
+	          </li>
+	          <li class="nav-item">
+	            <a class="nav-link" href="#">About</a>
+	          </li>
+	        </ul>
+	    </div>
+    </nav>
+    <br>
+    <div id="fullpage">
+		<div class="section " id="section0">
+			<div class="container">
+		        <div class="jumbotron">
+		            <h1 class="display-3">Simulation of Cigarette Smokers Problem</h1>
+		            <p class="lead">Single line description Iwrin</p>
+		            <hr class="my-4">
+		            <p>Few lines Iwrin</p>
+		            <p class="lead">
+		              <a class="btn btn-success" href="#" role="button">Wiki</a>
+		            </p>
+		            <p class="lead">
+		              <a class="btn btn-success" href="dining.html#anim" role="button">Play</a>
+		            </p>
+		        </div>
+	        <br>
+	    	</div>
+		</div>
+		<div class="section" id="section1">
+			<div class="container" id="anim">
+				<img id="table" src="includes/table.jpg">
+				<button type="button" class="next" onclick="simulate()">Next</button>
 
-	<div id="s1">Smoker 1</div>
-	<div id="s2">Smoker 2</div>
-	<div id="s3">Smoker 3</div>
-	<div id="ns">Agent</div>
+				<img id="smoker1" src="includes/smoker1.jpg">
+				<img id="smoker2" src="includes/smoker2.jpg">
+				<img id="smoker3" src="includes/smoker3.jpg">
+				<img id="non-smoker" src="includes/non_smoker.jpg">
 
-	<div id="t">Tabocco</div>
-	<div id="p">Papers</div>
-	<div id="m">Matches</div>
-	<div id="su1" align="middle"></div>
-	<div id="su2" align="middle"></div>
+				<div id="s1">Smoker 1</div>
+				<div id="s2">Smoker 2</div>
+				<div id="s3">Smoker 3</div>
+				<div id="ns">Agent</div>
 
-	<div id="random">Random numbers generated : 0 0</div>
-	<div id="smoke" align="middle">Smoker 0 smoking</div>
+				<div id="t">Tabocco</div>
+				<div id="p">Papers</div>
+				<div id="m">Matches</div>
+				<div id="su1" align="middle"></div>
+				<div id="su2" align="middle"></div>
 
-	<p id="ph1">Smoker 1 has tabocco</p>
-	<p id="ph2">Smoker 2 has papers</p>
-	<p id="ph3">Smoker 3 has matches</p>
-	<p id="ph4">Agent supplies - </p>
+				<div id="random">Random numbers generated : 0 0</div>
+				<div id="smoke" align="middle">Smoker 0 smoking</div>
+
+				<p id="ph1">Smoker 1 has tobacco</p>
+				<p id="ph2">Smoker 2 has papers</p>
+				<p id="ph3">Smoker 3 has matches</p>
+				<p id="ph4">Agent supplies - </p>
+			</div>
+		</div>
 	
 	<script>
 		
@@ -54,9 +125,9 @@
 			if((g1==1 && g2==2) || (g1==2 && g2==1))
 			{
 				document.getElementById("smoke").innerHTML = "Smoker 3 smoking";
-				document.getElementById("su1").innerHTML = "Tabocco";
+				document.getElementById("su1").innerHTML = "Tobacco";
 				document.getElementById("su2").innerHTML = "Papers";
-				document.getElementById("ph4").innerHTML = "Agent supplies - Tabocco and Papers";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Tobacco and Papers";
 			}
 			else if((g1==2 && g2==3) || (g1==3 && g2==2))
 			{
@@ -68,9 +139,9 @@
 			else if((g1==1 && g2==3) || (g1==3 && g2==1))
 			{
 				document.getElementById("smoke").innerHTML = "Smoker 2 smoking";
-				document.getElementById("su1").innerHTML = "Tabocco";
+				document.getElementById("su1").innerHTML = "Tobacco";
 				document.getElementById("su2").innerHTML = "Matches";
-				document.getElementById("ph4").innerHTML = "Agent supplies - Tabocco and Matches";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Tobacco and Matches";
 			}
 		
 		}
