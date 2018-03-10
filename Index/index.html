@@ -8,8 +8,6 @@
 	<meta name="description" content="OS Project index page" />
 	<meta name="keywords"  content="Scheduling,Bankers,OS" />
 	<meta name="Resource-type" content="Document" />
-
-
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
 	<link rel="stylesheet" type="text/css" href="css/index.css" />
 
@@ -22,7 +20,7 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'rgba(201, 108, 108, 0.5)', '#ccddff'],
+				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '4ecdc4', '#a4bfeb'],
 				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage' ,'8thpage'],
 				menu: '#menu',
 				easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
@@ -51,14 +49,14 @@
 	<div class="section" id="section1">
 		<div class="intro">
 			<div class="row">
-				<div class="column">
-					<h1>Process Sceduling</h1>
+				<div class="column1">
+					<h1>Process Scheduling</h1>
 				</div>
-				<div class="column">
+				<div class="column1">
 					 <ul id="scheduling-style">
-  					   <li><a href="#">SJF</a></li>
-					   <li><a href="#">FCFS</a></li>
-					   <li><a href="#">Multiqueue</a></li>
+  					   <li><a href="#">Shortest Job Firsr</a></li>
+					   <li><a href="#">First Come First Serve</a></li>
+					   <li><a href="#">Multilevel Queue</a></li>
 					   <li><a href="#">Round Robin</a></li>
 					 </ul>
 				</div>
@@ -73,17 +71,27 @@
 	</div>
 	<div class="section" id="section3">
 		<div class="intro">
-			<h1><a href="../Disk/disk.html">Disk Scheduling</h1>
+			<div class="row">
+				<div class="column1">
+					<h1>Disk Scheduling</h1>
+				</div>
+				<div class="column1">
+					 <ul id="d-scheduling-style">
+  					   <li><a href="#">1-Main</a></li>
+					   <li><a href="#">2-LBA</a></li>
+					 </ul>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="section" id="section5">
 		<div class="intro">
 			<div class="row">
-				<div class="column">
+				<div class="column2">
 					<h1>Process Synchronization</h1>
 				</div>
-				<div class="column">
-					 <ul id="scheduling-style">
+				<div class="column2">
+					 <ul id="synchronization-style">
   					   <li><a href="../Process synchronization/cigarette_smokers.html">Cigarette Smokers</a></li>
 					   <li><a href="../Process synchronization/dining.html">Dining Philosophers</a></li>
 					   <li><a href="../Process synchronization/producer_consumer.html">Producer Consumer</a></li>
@@ -105,11 +113,9 @@
 	</div>
 	<div class="section" id="section8">
 		<div class="intro">
-			<h1><a href="about.html">About</h1>
+			<h1><a href="about.html">Meet the Developers</h1>
 		</div>
 	</div>
 </div>
-
-
 </body>
 </html>
