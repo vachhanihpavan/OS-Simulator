@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1>
+            Logical Block Addressing and CHS
+        </h1>
+        <input id="c" type="number" placeholder="Cylinder Number">
+        <input id="hpc" type="number" placeholder="Heads per Cylinder">
+        <input id="h" type="number" placeholder="Head Number">
+        <input id="spt" type="number" placeholder="Sectors per Track">
+        <input id="s" type="number" placeholder="Sector Number">
+        <br>
+        <button id="lbabutton" 
+                onclick="lbafoo(event, document.getElementById('c').value, document.getElementById('hpc').value, document.getElementById('h').value, document.getElementById('spt').value, document.getElementById('s').value)"
+        >
+            Logical Block Address
+        </button>
+        <br>
+        <div id="lba"></div>
+        <br>
+        <hr>
+        <br>
+        <input id="hpc1" type="number" placeholder="Heads per Cylinder">
+        <input id="spt1" type="number" placeholder="Sectors per Track">
+        <input id="lba1" type="number" placeholder="Logical Block Address">
+        <br>
+        <button id="calbutton" 
+                onclick="calfoo(event, document.getElementById('hpc1').value, document.getElementById('spt1').value, document.getElementById('lba1').value)"
+        >
+            CHS
+        </button>
+        <br>
+        <div id="print"></div>
+        <br>
+        <script>
+            function lbafoo(event, c, hpc, h, spt, s){
+                c=parseInt(c);
+                hpc=parseInt(hpc);
+                h=parseInt(h);
+                spt=parseInt(spt);
+                s=parseInt(s);
+                var ret=((c * hpc) + h) * spt + (s - 1);
+                console.log(c);
+                console.log(hpc);
+                console.log(h);
+                console.log(spt);
+                console.log(s);                
+                console.log(ret);
+                document.getElementById("lba").innerHTML = "LBA: "+ret;
+            }
+            function calfoo(event, hpc, spt, lba){
+                hpc=parseInt(hpc);
+                spt=parseInt(spt);
+                lba=parseInt(lba);
+                var c=(Math.floor(lba/(hpc*spt)));
+                var h=(Math.floor(lba/spt))%hpc;
+                var s=(lba%spt)+1;
+                document.getElementById("print").innerHTML = "C: "+c+" H: "+h+" S: "+s;
+            }
+            
+        </script>
+
+    </body>
+</html>
