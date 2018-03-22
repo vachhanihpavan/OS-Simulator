@@ -6,8 +6,8 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 r3=parseInt(r2[a1]);
                                 inp.push(r3);
                         }
-                        console.log(r2);
-			console.log(inp);
+                        //console.log(r2);
+			//console.log(inp);
 			pre=1;
                         if(alg=="fcfs"){
                                 fcfs(inp, ini, final);
@@ -29,6 +29,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                         }
                         if(alg=="compare"){
                                 pre=0;
+                                console.log("hello");
                                 fcfs(inp, ini, final);
                                 sstf(inp, ini, final);
                                 scan(inp, ini, final);
@@ -88,8 +89,8 @@ var pre,v1,v2,v3,v4,v5,v6;
                         var data = [trace1];
                         v1=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
-                        document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
-                        document.getElementById("alg-name").innerHTML = "FCFS";
+                        document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                        document.getElementById("alg_name").innerHTML = "FCFS";
                         }
                 }
                 function sstf(inp, ini, final){
@@ -153,8 +154,8 @@ var pre,v1,v2,v3,v4,v5,v6;
                         var data = [trace1];
                         v2=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
-                        document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
-                        document.getElementById("alg-name").innerHTML = "SSTF";
+                        document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                        document.getElementById("alg_name").innerHTML = "SSTF";
                         }
                 }
                 function scan(inp, ini, final){
@@ -250,8 +251,8 @@ var pre,v1,v2,v3,v4,v5,v6;
                         var data = [trace1];
                         v3=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
-                        document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
-                        document.getElementById("alg-name").innerHTML = "SCAN";
+                        document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                        document.getElementById("alg_name").innerHTML = "SCAN";
                         }
                 }
                 function cscan(inp, ini, final){
@@ -382,8 +383,8 @@ var pre,v1,v2,v3,v4,v5,v6;
                         var data = [trace1,trace2,trace3];
                         v4=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
-                        document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
-                        document.getElementById("alg-name").innerHTML = "C-SCAN";
+                        document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                        document.getElementById("alg_name").innerHTML = "C-SCAN";
                         }
                 }
                 function look(inp, ini, final){
@@ -471,8 +472,8 @@ var pre,v1,v2,v3,v4,v5,v6;
                         var data = [trace1];
                         v5=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
-                        document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
-                        document.getElementById("alg-name").innerHTML = "LOOK";
+                        document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                        document.getElementById("alg_name").innerHTML = "LOOK";
                         }
                 }
                 function clook(inp, ini, final){
@@ -598,15 +599,15 @@ var pre,v1,v2,v3,v4,v5,v6;
                         var data = [trace1,trace2,trace3];
                         v6=seek;
                         if(pre){Plotly.newPlot('graph_area', data, layout);
-                        document.getElementById("alg-seek").innerHTML = "Seek: "+seek;
-                        document.getElementById("alg-name").innerHTML = "C-LOOK";
+                        document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                        document.getElementById("alg_name").innerHTML = "C-LOOK";
                         }
                 }
                 function compare(){
                         var avg=(v1+v2+v3+v4+v5+v6)/6.0;
                         console.log(avg);
-                        document.getElementById("alg-seek").innerHTML = "Mean: "+avg;
-                        document.getElementById("alg-name").innerHTML = "Comparision";
+                        document.getElementById("alg_seek").innerHTML = "Mean: "+avg;
+                        document.getElementById("alg_name").innerHTML = "Comparision";
                         var trace1 = {
                         x: ['FCFS', 'SSTF', 'SCAN', 'C-SCAN', 'LOOK', 'C-LOOK'],
                         y: [v1,v2,v3,v4,v5,v6],
