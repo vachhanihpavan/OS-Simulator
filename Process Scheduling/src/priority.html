@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Priority Scheduling </title>
+    <script type="text/javascript" src="../js/pri.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="../css/index.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css" />
+</head>
+<body style="background-color:#931F6C;">
+    <h1 style="text-align:center;"> Priority Scheduling </h1>
+    <br />
+    <br />
+    <div id="showinput"></div>
+    <div id="inputsection" class="card" style="width:100%;float:left;background-color:#931F6C;">
+        <div style="width: 300px; float:left;text-align:left; margin-left: 20px;">
+            Arrival Time:
+            <input style="width:50px;" id="newat" class="form-control" type="text" value=""></input>
+        </div>
+        <div style="width: 300px;float:left;text-align:left;">
+            Burst Time:
+            <input style="width:50px;" id="newbt" class="form-control" type="text" value=""></input>
+        </div>
+        <div style="width: 300px;float:left;text-align:left;">
+            Priority:
+            <input style="width:50px;" id="newpri" class="form-control" type="text" value=""></input>
+        </div>
+        <button class="btn btn-success" onclick="addToList()" style="float:left;margin-left:10px;">Add</button>
+    </div>
+    <br>
+    <div>
+        <div class="input-field col l6" style="float:left;text-align:left; margin-left: 20px;">
+            <select class="form-control" id="sel" style="width:100px;">
+                <option value="nonpre">Non-preemptive</option>
+                <option value="pre">Preemptive</option>
+            </select>
+            
+        </div>
+        <button class="btn btn-success" onclick="clearData()" style="float:right; margin-right: 50px;">Clear Data</button>
+        <button class="btn btn-success" onclick="showOutput()" style="float:right; margin-right: 50px;">Schedule</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <h2 id="chart-header" style="text-align:center;"></h2>
+        <br />
+        <div id="gantt"></div>
+        <div id="timer"></div>
+        <br /><br />
+        <div>
+            <div style="width: 50%; text-align:center;float:left; font-size: 20px;" id="awt1">
+            </div>
+            <div style="width:50%; text-align:center;float:left;font-size:20px;" id="atat1">
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h3 id="operations-heading" style="text-align:center;"></h3>
+        <div id="operations"></div>
+    </div>
+    <br /><br />
+    <div>
+        <h3 id="table-heading" style="text-align:center;"></h3>
+        <div>
+            <table id="tab" class="table bordered centered responsive-table" style="border-color: black; border-width: 2px; align: center; bgcolor: white; cellspacing: 10px;">
+                <thead id="thead">
+                </thead>
+                <tbody id="ptable"></tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
