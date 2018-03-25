@@ -6,4 +6,4 @@
 - [ ] Semaphores - Aditi and Iwrin
 - [ ] Memory Management - Archit
 - [ ] Page Replacement - Adwaith
-- [ ] Process Management - Vichitr and Akshay
+- [x] Process Management - Vichitr and Akshay
