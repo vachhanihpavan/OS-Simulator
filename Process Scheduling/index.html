@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Disk Scheduling</title>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-        <link rel="stylesheet" href="styles.css">
+        <title>Process Scheduling</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="disk.js"></script>
         <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
     </head>
     <body>
@@ -46,15 +43,80 @@
         <br>
         <div class="container">
             <div class="jumbotron">
-                <h1 class="display-3">Disk Scheduling</h1>
-                <p class="lead">Disk scheduling is the method that computer operating systems use to decide in which order the block I/O operations will be submitted to storage volumes. I/O scheduling is sometimes called disk scheduling.</p>
+                <h1 class="display-3">Process Scheduling</h1>
+                <p class="lead">Disk scheduling is the method that computer operating systems use to decide in which order the block I/O operations will be submitted to storage volumes.</p>
                 <hr class="my-4">
-                <p>Some more details here</p>
+                <p>Some more details here 3-4 lines</p>
                 <p class="lead">
                   <a class="btn btn-success" href="#" role="button">Wiki</a>
                 </p>
             </div>
-        <ul style="list-style-type:none;">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                  <div class="card-header">FCFS</div>
+                  <div class="card-body">
+                    <h4 class="card-title">First Come First Serve</h4>
+                    <p class="card-text">FCFS executes queued processes and requests by the order of their arrival. It is based on FIFO queue. It is rarely used in modern operating systems.</p>
+                    <a class="btn btn-success" href="src/fcfs.html" role="button">Go</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                  <div class="card-header">SJF</div>
+                  <div class="card-body">
+                    <h4 class="card-title">First Come First Serve</h4>
+                    <p class="card-text">FCFS executes queued processes and requests by the order of their arrival. It is based on FIFO queue. It is rarely used in modern operating systems.</p>
+                    <a class="btn btn-success" href="src/sjf.html" role="button">Go</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                  <div class="card-header">RR</div>
+                  <div class="card-body">
+                    <h4 class="card-title">First Come First Serve</h4>
+                    <p class="card-text">FCFS executes queued processes and requests by the order of their arrival. It is based on FIFO queue.</p>
+                    <a class="btn btn-success" href="src/rr.html" role="button">Go</a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-4">
+                <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                <div class="card-header">SRTF</div>
+                <div class="card-body">
+                  <h4 class="card-title">First Come First Serve</h4>
+                  <p class="card-text">FCFS executes queued processes and requests by the order of their arrival. It is based on FIFO queue.</p>
+                  <a class="btn btn-success" href="src/srtf.html" role="button">Go</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                <div class="card-header">Priority</div>
+                <div class="card-body">
+                  <h4 class="card-title">First Come First Serve</h4>
+                  <p class="card-text">FCFS executes queued processes and requests by the order of their arrival. It is based on FIFO queue.</p>
+                  <a class="btn btn-success" href="src/priority.html" role="button">Go</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="card text-white bg-danger mb-3" style="max-width: 25rem;">
+                <div class="card-header">MLQS</div>
+                <div class="card-body">
+                  <h4 class="card-title">Multilevel Queue</h4>
+                  <p class="card-text">FCFS executes queued processes and requests by the order of their arrival. It is based on FIFO queue.</p>
+                  <a class="btn btn-success" href="" role="button">Go</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <!-- <ul style="list-style-type:none;">
           <li>
             <a href="src/fcfs.html"> First Come First Served </a>
           </li>
@@ -70,6 +132,5 @@
           <li>
             <a href="src/priority.html"> Priority Scheduling </a>
           </li>
-        </ul>
-      </div>
+        </ul> -->
 </body>

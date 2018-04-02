@@ -1,161 +1,3 @@
-<html>
-<head>
-<style>
-
-h1
-{
- background-color:grey;
- color:black;
- margin:-8;
- padding:5;
- font-family:Arial;
- position:fixed;
- display:block;
- width:100%;
- text-align:center; 
-}
-
-#Serverlabel,#Clientlabel
-{
- text-align: center;
- vertical-align: middle;
- line-height: 50px;
-}
-
-.textbox { 
-    background: black; 
-    height:25px; 
-    width: 275px; 
-    border: none; 
-    color: green; 
-    outline: none; 
-} 
-
-#div,#div1
-{
-    display:inline-block;
-    background-color: black;
-    color:green;
-    width: 500px;
-    height: 400px;
-    border: 3px solid grey;
-    position:relative;
-    top:150px;
-    left:200px;
-    overflow: auto;
-}
-
-#Server_u,#Server_t
-{
-  width: 80px;
-  height: 50px;
-  border:none;
-  position: relative;
-  background: yellow;
-}
-
-#Listen1,#Listen2,#Listen3
-{
-  width: 15px;
-  height: 15px;
-  display:none;
-  border:none;
-  position: relative;
-  background: yellow;
-}
-
-#Client_u,#Client_t
-{
-  width: 80px;
-  height: 50px;
-  border:none;
-  position: relative;
-  background: yellow;
-}
-
-#myContainer_u,#myContainer_t 
-{
-  width: 500px;
-  height: 4px;
-  border:none;
-  overflow:hidden;
-  position: relative;
-  background: white;
-}
-
-#myAnimation_t,#myAnimation_u 
-{
-  width: 10px;
-  height: 4px;
-  border:none;
-  overflow:hidden;
-  position: absolute;
-  background-color: red;
-}
-
-</style>
-
-<title>Hello</title>
-</head>
-<body>
-<h1>SOCKET PROGRAMMING</h1>
-<br>
-<br>
-<br>
-<br>
-
-<div id = 'div'></div>
-<div id = 'div1'></div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<hr size = 2px>
-
-<h2>TCP</h2>
-<button onclick="socket_t()" style = "display:inline-block">Socket</button> 
-<button onclick="bind_t()" style = "display:inline-block">Bind</button>
-<button onclick="listen_t()" style = "display:inline-block">Listen</button> 
-<button onclick="accept_t()" style = "display:inline-block">Accept</button>  
-<button onclick="send_t()" style = "display:inline-block">Send</button> 
-<button onclick="receive_t()" style = "display:inline-block">Receive</button> 
-<br>
-<br>
-<br>
-<br>
-<div id ="myContainer_t" style = "margin-left:400px;margin-top:55px"><div id ="myAnimation_t"></div></div>
-<div id ="Server_t" style = "margin-left:375px;margin-top:-42px"><p id = 'Serverlabel'>Server</p></div>
-<div id ="Client_t" style = "margin-left:900px;margin-top:-66px"><p id = 'Clientlabel'>Client</p></div>
-<div id ="Listen1" style = "margin-left:465px;margin-top:-60px;"></div>
-<div id ="Listen2" style = "margin-left:465px;margin-top:20px;"></div>
-<div id ="Listen3" style = "margin-left:465px;margin-top:20px;"></div>
-
-
-<br>
-<br>
-
-<hr size = 2px>
-
-<h2>UDP</h2>
-<button onclick="socket_u()" style = "display:inline-block">Socket</button> 
-<button onclick="bind_u()" style = "display:inline-block">Bind</button>
-<button onclick="send_u()" style = "display:inline-block">Send</button> 
-<button onclick="receive_u()" style = "display:inline-block">Receive</button> 
-<br>
-<br>
-<br>
-<br>
-<div id ="myContainer_u" style = "margin-left:400px"><div id ="myAnimation_u"></div></div>
-<div id ="Server_u" style = "margin-left:375px;margin-top:-43px"><p id = 'Serverlabel'>Server</p></div>
-<div id ="Client_u" style = "margin-left:900px;margin-top:-66px"><p id = 'Clientlabel'>Client</p></div>
-<script>
-
 var infoserver = [];
 var infoclient = [];
 var servermsg = "";
@@ -177,8 +19,8 @@ var text1 = document.createElement("input");
 var text2 = document.createElement("input");
 var text = document.createElement("input");
 
-document.getElementById("div").appendChild(document.createTextNode(serIPaddress));
-document.getElementById("div").appendChild(document.createElement("br"));
+document.getElementById("scr").appendChild(document.createTextNode(serIPaddress));
+document.getElementById("scr").appendChild(document.createElement("br"));
 
 createserver();
 
@@ -193,9 +35,9 @@ function createserver()
    ser_input.setAttribute("class","textbox");
    ser_input.setAttribute("type","text");
    ser_input.setAttribute("onkeydown","keyCodeserver(event,0)");
-   document.getElementById("div").appendChild(ser);
-   document.getElementById("div").appendChild(ser_input);
-   document.getElementById("div").appendChild(br);
+   document.getElementById("scr").appendChild(ser);
+   document.getElementById("scr").appendChild(ser_input);
+   document.getElementById("scr").appendChild(br);
    ser_input.focus();
  }
  else if(count_ser == 4)
@@ -204,8 +46,8 @@ function createserver()
    toggle = 1;                         // No message is sent here; toggle is set to 1 for client to send message
    count_ser++;
    var br = document.createElement("br");
-   document.getElementById("div").appendChild(ser);
-   document.getElementById("div").appendChild(br);
+   document.getElementById("scr").appendChild(ser);
+   document.getElementById("scr").appendChild(br);
    createclient();   
  }
  else if(toggle == 0)                 //This means client has sent a message and decremented toggle value  
@@ -220,11 +62,11 @@ function createserver()
   text.setAttribute("class","textbox");
   text.setAttribute("type","text");
   text.setAttribute("onkeydown","keyCodeserver(event,1)");
-  document.getElementById("div").appendChild(ser); 
-  document.getElementById("div").appendChild(br); 
-  document.getElementById("div").appendChild(label);
-  document.getElementById("div").appendChild(text);
-  document.getElementById("div").appendChild(br1);
+  document.getElementById("scr").appendChild(ser); 
+  document.getElementById("scr").appendChild(br); 
+  document.getElementById("scr").appendChild(label);
+  document.getElementById("scr").appendChild(text);
+  document.getElementById("scr").appendChild(br1);
   text.focus();  
  }
 }
@@ -279,9 +121,9 @@ function createclient()
    cli_input.setAttribute("class","textbox");
    cli_input.setAttribute("type","text");
    cli_input.setAttribute("onkeydown","keyCodeclient(event,1)");
-   document.getElementById("div1").appendChild(cli);
-   document.getElementById("div1").appendChild(cli_input);
-   document.getElementById("div1").appendChild(br);
+   document.getElementById("scr1").appendChild(cli);
+   document.getElementById("scr1").appendChild(cli_input);
+   document.getElementById("scr1").appendChild(br);
    cli_input.focus();
  }
  else if(count_cli == 5)
@@ -293,9 +135,9 @@ function createclient()
    text2.setAttribute("class","textbox");
    text2.setAttribute("type","text");
    text2.setAttribute("onkeydown","keyCodeclient(event,toggle)");
-   document.getElementById("div1").appendChild(label2);
-   document.getElementById("div1").appendChild(text2);
-   document.getElementById("div1").appendChild(br4);
+   document.getElementById("scr1").appendChild(label2);
+   document.getElementById("scr1").appendChild(text2);
+   document.getElementById("scr1").appendChild(br4);
    text2.focus();      
  }
  else if(toggle == 1)                 //This means client has sent a message and decremented toggle value  
@@ -310,11 +152,11 @@ function createclient()
   text1.setAttribute("class","textbox");
   text1.setAttribute("type","text");
   text1.setAttribute("onkeydown","keyCodeclient(event,0)");
-  document.getElementById("div1").appendChild(cli); 
-  document.getElementById("div1").appendChild(br2); 
-  document.getElementById("div1").appendChild(label1);
-  document.getElementById("div1").appendChild(text1);
-  document.getElementById("div1").appendChild(br3);
+  document.getElementById("scr1").appendChild(cli); 
+  document.getElementById("scr1").appendChild(br2); 
+  document.getElementById("scr1").appendChild(label1);
+  document.getElementById("scr1").appendChild(text1);
+  document.getElementById("scr1").appendChild(br3);
   text1.focus();
   
  }
@@ -501,7 +343,3 @@ function send_u() {
     }
   }
 }
-</script>
-
-</body>
-</html>
