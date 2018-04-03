@@ -54,7 +54,7 @@ function addToList() {
 
 function displayList() {
     var inp = document.getElementById("showinput");
-    inp.setAttribute("style", "height:" + p.length * 80 + "px");
+    //inp.setAttribute("style", "height:" + p.length * 80 + "px");
     inp.innerHTML = "";
     for (var i = 0; i < p.length; i++) {
         var card = document.createElement("div");
@@ -75,7 +75,7 @@ function displayList() {
         input2.setAttribute("class", "form-control text-primary");
         input2.setAttribute("disabled", "disabled");
         input2.setAttribute("id", "bt" + i);
-        input2.setAttribute("style", "width:50px;float:left;margin-left:100px;text-align:center;");
+        input2.setAttribute("style", "width:50px;float:left;margin-left:100px;margin-right:100px;text-align:center;");
         var btn = document.createElement("button");
         var text1 = document.createTextNode("EDIT");
         btn.appendChild(text1);
