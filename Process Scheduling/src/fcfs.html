@@ -25,10 +25,10 @@
                     <a class="nav-link" href="#">Disk Scheduling</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Bankers/index.html">Banker's Algorithm</a>
+                    <a class="nav-link" href="../../Bankers/index.html">Banker's Algorithm</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="../Index/index.html#5thpage">Process Synchronization</a>
+                    <a class="nav-link" href="../../Index/index.html#5thpage">Process Synchronization</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">Semaphores</a>
@@ -45,8 +45,10 @@
         <br>
         <div class="container">
             <div class="jumbotron">
-                <h1 class="display-3">FCFS</h1>
+                <h1 class="display-3">FCFS Scheduling</h1>
                 <br>
+				<div id="showinput"></div>
+				<hr>
                 <div class="row">
                     <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
                         <label class="col-form-label" for="inputDefault">Enter arrival time:</label>
@@ -68,21 +70,18 @@
                     </div>
                     <button class="btn btn-success" onclick="addToList()" style="float:left;margin-left:10px;">Add</button>
                 </div> -->
-                <button type="submit" id="clear" class="btn btn-primary" style="margin-left: 36px" onclick="addToList()">Add</button>
+                <button type="submit" class="btn btn-primary" style="margin-left: 36px" onclick="addToList()">Add</button>
                 <br>
-                <br>
-                <button type="submit" id="clear" class="btn btn-primary" style="margin-left: 36px" onclick="clearData()">Clear Data</button>
-                <button type="submit" id="run" class="btn btn-primary" style="margin-left: 36px" onclick="showOutput(0)">Schedule It!</button>
+                <button type="submit" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="clearData()">Clear Data</button>
+                <button type="submit" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="showOutput(0)">Schedule It!</button>
             </div>
                 <!-- <div>
                     <button class="btn btn-success" onclick="clearData()" style="float:right; margin-right: 50px;">Clear Data</button>
                     <button class="btn btn-success" onclick="showOutput(0)" style="float:right; margin-right: 50px;">Schedule</button>
                 </div> -->
-                <div id="showinput"></div>
-            <br>
-            <br>
-            <br>
-            <div style="margin-top: 200px">
+				
+            <!-- Gantt Chart -->
+            <div style="margin-top: 150px;">
                 <h2 id ="chart-header" style="text-align:center;"></h2>
                 <br />
                 <div id="gantt"></div>
@@ -95,14 +94,13 @@
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <div>
+			<!-- CPU Operations -->
+            <div style="margin-top: 100px;">
                 <h3 id="operations-heading" style="text-align:center;"></h3>
                 <div id="operations"></div>
             </div>
-            <br /><br />
-            <div>
+			<!-- Table -->
+            <div style="margin-top: 50px;">
                 <h2 id="table-heading" style="text-align:center;"></h2>
                 <div>
                     <table id="tab" class="table table-striped centered responsive-table" style="border-color: black; border-width: 2px; align: center; bgcolor: white; cellspacing: 10px;">
