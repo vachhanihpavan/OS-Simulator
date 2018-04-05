@@ -2,68 +2,108 @@
 <html>
 <head>
     <title> RR Scheduling </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../js/index.js"></script>
+	<link rel="stylesheet" type="text/css" href="../../Index/css/bootswatch.css" />
     <link rel="stylesheet" type="text/css" href="../css/index.css"></link>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    
 </head>
-<body style="background-color:#68164C;">
-    <h1 style="text-align:center;"> Round Robin Scheduling </h1>
-    <br />
-    <br />
-    <div id="showinput"></div>
-    <div id="inputsection" class="card" style="width:100%;float:left;">
-        <div style="width: 300px; float:left;text-align:left; margin-left: 20px;">
-            Arrival Time:
-            <input style="width:50px;" id="newat" class="form-control" type="text" value=""></input>
-        </div>
-        <div style="width: 300px;float:left;text-align:left;">
-            Burst Time:
-            <input style="width:50px;" id="newbt" class="form-control" type="text" value=""></input>
-        </div>
-        <button class="btn btn-success" onclick="addToList()" style="float:left;margin-left:10px;">Add</button>
-    </div>
-    <br>
+<body >
+<!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="../Index/index.html#firstPage">Operationg System Simulator</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="#">Disk Scheduling</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="../../Bankers/index.html">Banker's Algorithm</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="../../Index/index.html#5thpage">Process Synchronization</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="#">Semaphores</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="#">File Management</a>
+				</li>
+				<li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<div class="container">
+		<div class="jobotron">
+			<h1 class="display-3">RR Scheduling</h1>
+            <br>
+			<div id="showinput"></div>
+			<hr>
+			<div class="row">
+				<div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+                    <label class="col-form-label" for="inputDefault">Arrival time: </label>
+                    <input class="form-control" id="newat" name="at" placeholder="Arrival Time" type="text" size="35">
+                </div>
+				<div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+					<label class="col-form-label" for="inputDefault">Burst time:</label>
+					<input class="form-control" id="newbt" name="bt" placeholder="Burst Time" type="text" size="35">
+				</div>
+			</div>
+            <button type="submit" id="add" class="btn btn-primary" style="margin-left: 36px" onclick="addToList()">Add</button>
+			<br>
+			<div class="form-group" style="margin-left: 36px; float:left; width: 20%;">
+				<label class="col-form-label" for="inputDefault">Time Quantum: </label>
+				<input class="form-control" id = "tq" name="tq" placeholder="quantum" type="text" size="35">
+			</div>
+			<!--
     <div style="width:800px;margin-left:20px;">
         Time Quantum:
         <input style="width:50px;margin-left:30px;" id="tq" type="text" value=""></input>
     </div>
-    <div>
-        <button class="btn btn-success" onclick="clearData()" style="float:right; margin-right: 50px;">Clear Data</button>
-        <button class="btn btn-success" onclick="showOutput(3)" style="float:right; margin-right: 50px;">Schedule</button>
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-        <h2 id="chart-header" style="text-align:center;"></h2>
-        <br />
-        <div id="gantt"></div>
-        <div id="timer"></div>
-        <br /><br />
-        <div>
-            <div style="width: 50%; text-align:center;float:left; font-size: 20px;" id="awt1">
-            </div>
-            <div style="width:50%; text-align:center;float:left;font-size:20px;" id="atat1">
+    -->
+			<div style="margin-top: 50px;">
+				<button type="submit" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="clearData()">Clear Data</button>
+				<button type="submit" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="showOutput(3)">Schedule It!</button>
+			</div>
+		</div>
+		<!-- Gantt Chart -->
+		<div style="margin-top: 150px;">
+			<h2 id ="chart-header" style="text-align:center;"></h2>
+			<br />
+			<div id="gantt"></div>
+			<div id="timer"></div>
+			<br /><br />
+			<div>
+				<div style="width: 50%; text-align:center;float:left; font-size: 20px;" id="awt1"></div>
+				<div style="width: 50%; text-align:center;float:left; font-size: 20px;" id="atat1"></div>
             </div>
         </div>
-    </div>
-    <br>
-    <br>
-    <div>
-        <h3 id="operations-heading" style="text-align:center;"></h3>
-        <div id="operations"></div>
-    </div>
-    <br /><br />
-    <div>
-        <h2 id="table-heading" style="text-align:center;"></h2>
-        <div>
-            <table id="tab" class="table bordered centered responsive-table" style="border-color: black; border-width: 2px; align: center; bgcolor: white; cellspacing: 10px;">
-                <thead id="thead">
-                </thead>
-                <tbody id="ptable"></tbody>
-            </table>
-        </div>
-    </div>
+		<br>
+		<!-- CPU Operations -->
+		<div style="margin-top: 100px;">
+			<h3 id="operations-heading" style="text-align:center;"></h3>
+			<div id="operations"></div>
+		</div>
+		<!-- Table -->
+		<div style="margin-top: 50px;">
+			<h2 id="table-heading" style="text-align:center;"></h2>
+			<div>
+				<table id="tab" class="table table-striped centered responsive-table" style="border-color: black; border-width: 2px; align: center; bgcolor: white; cellspacing: 10px;">
+					<thead id="thead"></thead>
+					<tbody id="ptable"></tbody>
+				</table>
+			</div>
+		</div>
 </body>
 </html>

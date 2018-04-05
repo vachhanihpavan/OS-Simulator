@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Page Table</title>
+		<meta charset="utf-8"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="pgtable.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="../Index/index.html#firstPage">Operationg System Simulator</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+                <span class="navbar-toggler-icon"></span>
+              </button>         
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../Index/index.html#4thpage">Disk Scheduling</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../Bankers/index.html">Banker's Algorithm</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../Index/index.html#5thpage">Process Synchronization</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Semaphores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">File Management</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-3">Disk Scheduling</h1>
+                <p class="lead">Disk scheduling is the method that computer operating systems use to decide in which order the block I/O operations will be submitted to storage volumes. I/O scheduling is sometimes called disk scheduling.</p>
+                <hr class="my-4">
+                <p>Some more details here</p>
+                <p class="lead">
+                  <a class="btn btn-success" href="#" role="button">Wiki</a>
+                </p>
+            </div>
+            <form>
+            	<fieldset>
+            		<div class="row">
+            			<div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+                            <label class="col-form-label">Size of Logical Address Space</label>
+                            <input class="form-control" id="slas" placeholder="Size Logical" type="number" size="30" onkeyup="SetLAS(parseInt(this.value, 10));">
+                        </div>
+                        <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+                            <label class="col-form-label">Size of Physical Address Space</label>
+                            <input class="form-control" id="spas" placeholder="Size Physical" type="number" size="30" onkeyup="SetPAS(parseInt(this.value, 10));">
+                        </div>
+                        <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+                            <label class="col-form-label">Size of Page</label>
+                            <input class="form-control" id="spg" placeholder="Size Page" type="number" size="30" onkeyup="SetPg(parseInt(this.value, 10));">
+                        </div>
+                        <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+            				<label class="col-form-label">Enter Logical Address to Search</label>
+                            <input class="form-control" id="lg_search" placeholder="Logical Address" type="number" size="30" onkeyup="Setla(parseInt(this.value, 10));"">
+            			</div>
+            		</div>
+            	</fieldset>
+            </form>
+            <form name="pg_entries">
+            	<fieldset>
+            		<div class="row">
+            			<div class="form-group" style="margin-left:50px; float:left;  width: 20%">
+                            <label class="col-form-label">Enter Page Table</label>
+                            <div id="PgFields"></div>
+			            </div>
+                    </div>
+                    <button type="submit" id="enter" class="btn btn-primary" style="margin-left: 36px" onclick="checkentry()">Enter</button>
+            	</fieldset>
+            </form>
+            <br>
+            <div class="col-md-5">
+	            <div class="list-group" id="list">
+				</div>
+			</div>
+        </div>
+        <br>
+        <br>
+    </body>
+</html>

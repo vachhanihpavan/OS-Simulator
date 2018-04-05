@@ -1,33 +1,26 @@
 var res,pro;
         var resource;
-
 			function BuildFormFields($amount) // For Resorce allocation
 			{
+                
                 res = $amount;
 				var
 					$container = document.getElementById('FormFields'),
 					$item, $field, $i;
-
 				$container.innerHTML = '';
 				for ($i = 0; $i < $amount; $i++) {
 					$item = document.createElement('div');
 					$item.style.margin = '10px';
-
-
+				
                     $field = document.createElement('label');
                     $field.innerHTML = 'Resource '+$i;
 					$item.appendChild($field);
-
 					$field = document.createElement('input');
 					$field.name = 'Design[' + $i + ']';
 					$field.type = 'text';
                     $field.setAttribute("class","form-control");
-                    $field.setAttribute("style","width:100%");
 					$item.appendChild($field);
-
-
 					$container.appendChild($item);
-
 				}
             }
             function BuildFormFields2($amount) //For Allocation
@@ -37,83 +30,59 @@ var res,pro;
 				var
 					$container = document.getElementById('FormFields1'),
 					$item, $field, $i;
-
 				$container.innerHTML = '';
 				for ($i = 0; $i < $amount; $i++) {
                     for($j = 0; $j < res; $j++)
                     {
                         $item = document.createElement('div');
                         $item.style.margin = '10px';
-                       // $item.style.float = 'center';
-
                         $field = document.createElement('label');
                         $field.innerHTML = 'Need for process '+$i+' Res: ' +$j;
-                        //$field.style.marginRight = '10px';
 					    $item.appendChild($field);
-
                         $field = document.createElement('input');
-
                         $field.name = 'Design[' + $i + ']';
                         $field.type = 'text';
                         $field.setAttribute("class","form-control");
-                        $field.setAttribute("style","width:100%");
                         $item.appendChild($field);
-
-                     //   console.log($item);
                         $container.appendChild($item);
                     }
-
-
 				}
                 BuildFormFields3($amount);
             }
-
 			function BuildFormFields3($amount) //For Allocation
 			{
                 console.log(res);
 				var
 					$container = document.getElementById('FormFields2'),
 					$item, $field, $i;
-
 				$container.innerHTML = '';
 				for ($i = 0; $i < $amount; $i++) {
                     for($j = 0; $j < res; $j++)
                     {
                         $item = document.createElement('div');
                         $item.style.margin = '10px';
-
                         $field = document.createElement('label');
                         $field.innerHTML = 'Allocation for process '+$i+' Res: ' +$j;
-                        //$field.style.marginRight = '10px';
                         $item.appendChild($field);
-
                         $field = document.createElement('input');
-
                         $field.name = 'Design[' + $i + ']';
                         $field.type = 'text';
                         $field.setAttribute("class","form-control");
                         $item.appendChild($field);
-
-                     //   console.log($item);
                         $container.appendChild($item);
                     }
-
-
 				}
             }
-
             var y;
 			function banker()
 			{
 						var res_form = document.resource;
-
 						var resource = [];
 						for(var i = 1;i <= res; i++)
 						{
 							resource[i-1] = Number(res_form[i].value);
 						}
 						console.log(resource);
-
 						var form = document.Need;
 						var ned = [];
 						var i,j;
@@ -133,7 +102,6 @@ var res,pro;
 							}
 							console.log(ned);
 						console.log(needy);
-
 						var alloc_form = document.Alloc;
 						var alloc = [];
 						for(var i = 0; i < pro; i++)
@@ -146,11 +114,9 @@ var res,pro;
 								}
 							}
 						console.log(alloc);
-
 						var avail = [];
 						for(var i = 0; i < res; i++)
 							avail[i] = resource[i];
-
 						for(var i = 0; i < pro; i++)
 						{
 							for(var j = 0; j < res; j++)
@@ -160,12 +126,9 @@ var res,pro;
 							}
 						}
 						console.log('avail: ' + avail);
-
 						//TABLE for NEED
-
 						var tab_need = document.getElementById("tab_need");
-						var header = tab_need.createTHead();
-						var row = header.insertRow(0);
+						var row = tab_need.insertRow(0);
 						var cell = row.insertCell(0);
 						cell.innerHTML = "<b>Need</b>";
                         var pro_head = tab_need.insertRow(1);
@@ -176,8 +139,6 @@ var res,pro;
                             cell = pro_head.insertCell(i);
                             cell.innerHTML = "<b>Res "+(i-1)+"</b>";
                         }
-
-
 						for(i=0;i<pro;i++)
 						{
 							var row = tab_need.insertRow(i+2);
@@ -189,14 +150,9 @@ var res,pro;
 								cell.innerHTML = ned[res*i+j];
 							}
 						}
-
                         //TABLE for ALLOC
-
-
-
 						var tab_alloc = document.getElementById("tab_alloc");
-						var header = tab_alloc.createTHead();
-						var row = header.insertRow(0);
+						var row = tab_alloc.insertRow(0);
 						var cell = row.insertCell(0);
 						cell.innerHTML = "<b>Allocation</b>";
                         var alloc_head = tab_alloc.insertRow(1);
@@ -218,11 +174,7 @@ var res,pro;
 								cell.innerHTML = alloc[i][j];
 							}
 						}
-
                         var prints = document.getElementById("printing");
-
-
-
 						var i,j;
 						var exec = 0; //Number of executed processes
 						var ex = [0,0];
@@ -230,7 +182,6 @@ var res,pro;
 						{
 							ex[i] = 0;
 						}
-						// Array ex checks if process 'i' is executed or not
                         var iter = 1;
 						while(1)
 						{
@@ -257,7 +208,6 @@ var res,pro;
 											break;
 										}
 									}
-
 									if(flag)
 									{
 										console.log("Process " + i + " doesn't have enough resources");
@@ -320,5 +270,4 @@ var res,pro;
 									break;
 								}
 						}
-
 			}

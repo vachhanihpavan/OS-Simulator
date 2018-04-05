@@ -1,7 +1,6 @@
 var p = [];
 var index = 1;
 var gantt = [];
-var result = [];
 var colors = ["#e040fb", "#ff80ab", "#3f51b5", "#1e88e5", "#009688", "#4caf50", "#cddc39", "#ffeb3b", "#607d8b", "#ff9800"];
 var atat = 0.0;
 var awt = 0.0;
@@ -55,28 +54,28 @@ function addToList() {
 
 function displayList() {
     var inp = document.getElementById("showinput");
-    inp.setAttribute("style", "height:" + p.length * 80 + "px");
+    //inp.setAttribute("style", "height:" + p.length * 80 + "px");
     inp.innerHTML = "";
     for (var i = 0; i < p.length; i++) {
         var card = document.createElement("div");
-        card.setAttribute("class", "card");
-        var pid = document.createElement("span");
+        //card.setAttribute("class", "card");
+        var pid = document.createElement("div");
         pid.textContent = "P" + (i + 1) + "    ";
         pid.setAttribute("style", "float:left;margin-left:20px;");
         //card.setAttribute("style", "float:left;");
-        card.setAttribute("style", "height:auto; width:20%;");
+        card.setAttribute("style", "width:800px;height: 50px;");
         var input1 = document.createElement("input");
         input1.value = p[i].at;
-        input1.setAttribute("class", "form-control");
-        input1.setAttribute("style", "width:20%;float:right;margin-left:150px;text-align:center;");
+        input1.setAttribute("class", "form-control text-primary");
+        input1.setAttribute("style", "width:50px;float:left;margin-left:100px;text-align:center;");
         input1.setAttribute("disabled", "disabled");
         input1.setAttribute("id", "at" + i);
         var input2 = document.createElement("input");
         input2.value = p[i].bt;
-        input2.setAttribute("class", "form-control");
+        input2.setAttribute("class", "form-control text-primary");
         input2.setAttribute("disabled", "disabled");
         input2.setAttribute("id", "bt" + i);
-        input2.setAttribute("style", "width:20%;float:right;margin-left:150px;text-align:center;");
+        input2.setAttribute("style", "width:50px;float:left;margin-left:100px;margin-right:100px;text-align:center;");
         var btn = document.createElement("button");
         var text1 = document.createTextNode("EDIT");
         btn.appendChild(text1);
@@ -105,8 +104,34 @@ function edit(id) {
 }
 
 function save(pos) {
-    p[pos].at = parseInt(document.getElementById("at" + pos).value);
-    p[pos].bt = parseInt(document.getElementById("bt" + pos).value);
+    at = parseInt(document.getElementById("at" + pos).value);
+    bt = parseInt(document.getElementById("bt" + pos).value);
+    if (isNaN(parseInt(at)) && isNaN(parseInt(bt))) {
+        window.alert("Please enter valid inputs");
+        return;
+    }
+    if (isNaN(parseInt(at))) {
+        window.alert("Please enter numeric value of arrival time");
+        return;
+    }
+    if (isNaN(parseInt(bt))) {
+        window.alert("Please enter numeric value of burst time");
+        return;
+    }
+    if (parseInt(at) < 0 && parseInt(bt) <= 0) {
+        window.alert("Invalid inputs");
+        return;
+    }
+    if (parseInt(at) < 0) {
+        window.alert("Please enter valid value of arrival time");
+        return;
+    }
+    if (parseInt(bt) <= 0) {
+        window.alert("Please enter positive value of burst time");
+        return;
+    }
+    p[pos].at = at;
+    p[pos].bt = bt;
     displayList();
 }
 
@@ -139,7 +164,7 @@ function srtf() {
         // perform checks
         if (k != prev) {
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             if (k == -1) {
                 newdiv.textContent = "t = " + t + ": CPU is idle.";
             }
@@ -242,7 +267,7 @@ function sjf() {
         else {
             if (x > 0) {
                 var newdiv = document.createElement("div");
-                newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+                newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
                 newdiv.textContent = "t = " + (t - x) + ": CPU is idle.";
                 operation.appendChild(br);
                 operation.appendChild(newdiv);
@@ -256,7 +281,7 @@ function sjf() {
                 x = 0;
             }
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             newdiv.textContent = "t = " + t + ": Process-" + p[k].id + " entered CPU and being executed";
             operation.appendChild(br);
             operation.appendChild(newdiv);
@@ -296,8 +321,88 @@ function rr() {
         return a.at - b.at;
     });
     gantt = [];
-    //t = 0;
-
+    t = 0;
+    var q = [];
+    var done = 0, count = 0;
+    var i = 0;
+    while (p[i].at == 0) {
+        q.push(i);
+        i++;
+    }
+    while (done != 1) {
+        var k = q.shift();
+        if (k == undefined) {
+            var t1 = t;
+            for (i = 0; i < p.length; i++) {
+                if (p[i].valid == 0)
+                    break;
+            }
+            t = p[i].at;
+            var newdiv = document.createElement("div");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
+            newdiv.textContent = "t = " + t1 + ": CPU is idle.";
+            operation.appendChild(br);
+            operation.appendChild(newdiv);
+            operation.appendChild(br);
+            gantt.push({
+                "id": -1,
+                "start": t1,
+                "end": t
+            });
+            for (i = 0; i < p.length; i++) {
+                if (p[i].at == t) {
+                    q.push(i);
+                }
+            }
+        }
+        else {
+            var newdiv = document.createElement("div");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
+            newdiv.textContent = "t = " + t + ": Process-" + p[k].id + " entered CPU and being executed";
+            operation.appendChild(br);
+            operation.appendChild(newdiv);
+            operation.appendChild(br);
+            if (p[k].rt <= quantum) {
+                p[k].valid = 1;
+                count += 1;
+                p[k].ct = t + p[k].rt;
+                p[k].tat = p[k].ct - p[k].at;
+                p[k].wt = p[k].tat - p[k].bt;
+                p[k].rt = 0;
+                gantt.push({
+                    "id": p[k].id,
+                    "start": t,
+                    "end": p[k].ct
+                });
+                t = p[k].ct;
+            }
+            else {
+                p[k].rt -= quantum;
+                gantt.push({
+                    "id": p[k].id,
+                    "start": t,
+                    "end": t+quantum
+                });
+                t += quantum;
+            }
+            for (i = 0; i < p.length; i++) {
+                if (p[i].at > t - quantum && p[i].at <= t)
+                    q.push(i);
+            }
+            if (p[k].rt > 0) {
+                q.push(k);
+            }
+        }
+        if (count == p.length) done = 1;
+    }
+    //calculations
+    var total_tat = 0.0, total_wt = 0.0;
+    for (var i = 0; i < p.length; i++) {
+        total_tat += p[i].tat;
+        total_wt += p[i].wt;
+    }
+    atat = (total_tat / p.length).toFixed(2);
+    awt = (total_wt / p.length).toFixed(2);
 }
 
 function fcfs() {
@@ -312,7 +417,7 @@ function fcfs() {
     for (var i = 0; i < p.length; i++) {
         if (p[i].at <= t) {
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             newdiv.textContent = "t = " + t + ": Process-" + p[i].id + " entered CPU and being executed";
             operation.appendChild(br);
             operation.appendChild(newdiv);
@@ -330,7 +435,7 @@ function fcfs() {
         }
         else {
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             newdiv.textContent = "t = " + t + ": CPU is idle.";
             operation.appendChild(br);
             operation.appendChild(newdiv);
@@ -342,7 +447,7 @@ function fcfs() {
             });
             t = p[i].at;
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             newdiv.textContent = "t = " + t + ": Process-" + p[i].id + " entered CPU and being executed"; 
             operation.appendChild(br);
             operation.appendChild(newdiv);
