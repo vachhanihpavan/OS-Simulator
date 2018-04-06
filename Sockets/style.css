@@ -1,0 +1,78 @@
+#Serverlabel,#Clientlabel
+{
+ text-align: center;
+ vertical-align: middle;
+ line-height: 50px;
+}
+
+.textbox { 
+    background: black; 
+    height:25px; 
+    width: 275px; 
+    border: none; 
+    color: green; 
+    outline: none; 
+} 
+
+#div1,#div2
+{
+    display:inline-block;
+    background-color: black;
+    color:green;
+    width: 500px;
+    height: 400px;
+    border: 3px solid grey;
+    position:relative;
+    /*top:100px;*/
+    margin: 15px;
+    /*left:200px;*/
+    overflow: auto;
+}
+
+#Server_u,#Server_t
+{
+  width: 80px;
+  height: 50px;
+  border:none;
+  position: relative;
+  background: #f7d08a;
+}
+
+#Listen1,#Listen2,#Listen3
+{
+  width: 15px;
+  height: 15px;
+  display:none;
+  border:none;
+  position: relative;
+  background: #f7d08a;
+}
+
+#Client_u,#Client_t
+{
+  width: 80px;
+  height: 50px;
+  border:none;
+  position: relative;
+  background: #f7d08a;
+}
+
+#myContainer_u,#myContainer_t 
+{
+  width: 500px;
+  height: 4px;
+  border:none;
+  overflow:hidden;
+  position: relative;
+  background: white;
+}
+
+#myAnimation_t,#myAnimation_u 
+{
+  width: 10px;
+  height: 4px;
+  border:none;
+  overflow:hidden;
+  position: absolute;
+  background-color: red;
+}
