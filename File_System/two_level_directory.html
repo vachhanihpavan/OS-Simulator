@@ -5,7 +5,7 @@
 
 h1
 {
- background-color:grey;
+ background-color:grey;                     /* Tree structure directory */
  color:black;
  margin:-8;
  padding:5;
@@ -52,13 +52,13 @@ div
 <script>
 
 var clipboard = []                // To store files to clipboard to copy or move them 
-var pre = "user@root"            // Beginning of each terminal line
-var current_path = "/"            // Current location of user     
+var pre = "root@"            // Beginning of each terminal line
+var current_path = ""            // Current location of user     
 var pointer = -1                   // pointer points to the index of the current directory
                                    //pointer = -1 corresponds to root directory
 var file_dir = []                 // List of files and directories
-var commands = ["create","vi","rm","truncate","ls","rename","properties","command_list"]
-
+var commands = ["create","vi","rm","truncate","ls","rename","properties","command_list","signout"]
+var passwords = ['abc','def','ghi','jkl']           // Passwords of all users
 /*
 create : For creating a file
 mkdir : Creating a directory
@@ -70,17 +70,111 @@ truncate : Delete contents of a file
 ls : List contents of a directory
 rename : Rename a file
 properties : Display properties of file
-commands : Display all commands
 */
 var textbox
 var contents
 var divide
 var lslabel
 var index
+var ufd                       // Contains the index of the current user file directory 
+var userin
 
+userdir('user_1')
+userdir('user_2')
+userdir('user_3')
+userdir('user_4')
 
-start()
+ 
+signup()
 
+function signup()
+{
+ var div = document.getElementById('div')
+ var choice = -1
+ var pointer = -1
+ var br1 = document.createElement("br")
+ var br2 = document.createElement("br")
+ var br3 = document.createElement("br")
+ var br4 = document.createElement("br")
+ var br5 = document.createElement("br")
+ var br6 = document.createElement("br")
+ var label1 = document.createTextNode('User Signup')
+ var label2 = document.createTextNode('1. User 1')
+ var label3 = document.createTextNode('2. User 2')
+ var label4 = document.createTextNode('3. User 3')
+ var label5 = document.createTextNode('4. User 4')
+ var label6 = document.createTextNode('Enter user number and password ')
+ userin = document.createElement('input')
+ userin.setAttribute("class","textbox")
+ userin.setAttribute("type","text")
+ userin.setAttribute("onkeydown","signupresponse(event,userin.value)") 
+ div.appendChild(label1)
+ div.appendChild(br1)
+ div.appendChild(label2)
+ div.appendChild(br2)
+ div.appendChild(label3)
+ div.appendChild(br3)
+ div.appendChild(label4)
+ div.appendChild(br4)
+ div.appendChild(label5)
+ div.appendChild(br5)
+ div.appendChild(label6)
+ div.appendChild(userin)
+ div.appendChild(br6)
+ userin.focus()
+} 
+
+function signupresponse(event,userinput)
+{
+ var x = event.keyCode
+ if(x == 13)
+ {
+	 var userin_split = userinput.split(" ")
+	 switch(userin_split[0])
+	 {
+	  case '1':if(userin_split[1] == passwords[0])  
+	  	 {
+	  	  current_path = 'user_1/'
+	  	  ufd = 0
+	  	  pointer = 0
+	  	  start()
+	  	 }	
+	  	 break
+	  case '2':if(userin_split[1] == passwords[1])  
+	  	 {
+	  	  current_path = 'user_2/'
+	  	  ufd = 1
+	  	  pointer = 1
+	  	  start()
+	  	 }	
+	  	 break 
+	  case '3':if(userin_split[1] == passwords[2])  
+	  	 {
+	  	  current_path = 'user_3/'
+	  	  ufd = 2
+	  	  pointer = 2
+	  	  start()
+	  	 }	
+	  	 break 
+	  case '4':if(userin_split[1] == passwords[3])  
+	  	 {
+	  	  current_path = 'user_4/'
+	  	  ufd = 3
+	  	  pointer = 3
+	  	  start()
+	  	 }	
+	  	 break
+	  default:signup()
+	 }
+ }
+}
+
+function signout()
+{
+ signup()
+}  
+ 
+ 
 function start()
 {
  var div = document.getElementById('div')
@@ -131,6 +225,8 @@ function nextline(event,text)
 	    break
     case 7:command_list()
     	    break
+    case 8:signout(divide[1])
+            break 
    }
   }
  }
@@ -142,7 +238,7 @@ Each entry is a list
 1. Name of file : string
 2. File/directory : Binary value - 0 for file, 1 for directory
 3. Address of previous directory : Index of previous directory
-4. Size : Length of content of file - String format
+4. Size : Length of content of file
 5. Protection : User, Group, Other
 6. Location : Location of file
 7. Content : String 
@@ -163,6 +259,10 @@ function create(file)          // Working
  start()
 }
 
+function userdir(dir)          // Working 
+{
+ file_dir.push([dir,1,pointer,0,666,current_path,""])
+}
 
 function ls()                // Working
 {
@@ -172,7 +272,7 @@ function ls()                // Working
   if(file_dir[i][2] == pointer)
   {
    var label = document.createTextNode(String(file_dir[i][0]) + " ")
-   div.appendChild(label)   
+   div.appendChild(label)
   }
  } 
  var br = document.createElement("br")
@@ -220,8 +320,8 @@ function vi(file)                                       // Working
    div.appendChild(prompt)
    div.appendChild(br)
    div.appendChild(contents)
-   div.appendChild(br1)   
-   contents.focus()
+   div.appendChild(br1)  
+   contents.focus() 
   }
  }
  if(flag == 0)
@@ -247,6 +347,8 @@ function savefile(event,text,index,contents)                   // Save contents 
  }
 } 
 
+
+
 function truncate(file)
 {
  for(i=0;i<file_dir.length;i++)
@@ -267,26 +369,7 @@ function truncate(file)
  start()
 }
 
-function rename(file,name)
-{
- for(i=0;i<file_dir.length;i++)
- {
-  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
-  {								    			 
-   file_dir[i][0] = name
-   start()
-   return
-  }
- }
- div = document.getElementById('div')
- var label = document.createTextNode("File not found")
- var br = document.createElement("br")
- div.appendChild(label)
- div.appendChild(br)
- start()
-}
-
-function properties(file)                      // Working
+function properties(file)                      
 {
  for(i=0;i<file_dir.length;i++)
  {
@@ -321,7 +404,7 @@ function properties(file)                      // Working
  start()
 }
 
-function command_list()
+function command_list()                       
 {
  var div = document.getElementById("div")
  var l1 = document.createTextNode("create	")
@@ -360,4 +443,3 @@ function command_list()
 </script>
 </body>
 </html>
- 
