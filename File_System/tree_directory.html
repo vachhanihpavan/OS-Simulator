@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
 
@@ -53,13 +51,13 @@ div
 
 <script>
 
-var clipboard = []                // To store files to clipboard to copy or move them 
+
 var pre = "root@"            // Beginning of each terminal line
 var current_path = ""            // Current location of user     
 var pointer = -1                   // pointer points to the index of the current directory
                                    //pointer = -1 corresponds to root directory
 var file_dir = []                 // List of files and directories
-var commands = ["create","mkdir","rmdir","vi","rm","cd","truncate","ls","setaccess","rename","properties","creategroup","signout"]
+var commands = ["create","vi","rm","truncate","ls","rename","properties","command_list","signout","mkdir","rmdir","cd"]
 var passwords = ['abc','def','ghi','jkl']           // Passwords of all users
 /*
 create : For creating a file
@@ -70,15 +68,6 @@ rm : Delete a file
 cd : Go to a directory
 truncate : Delete contents of a file
 ls : List contents of a directory
-cut : Move a file to clipboard
-copy : Copy a file to clipboard
-paste : Paste a file from clipboard to directory
-setaccess : Change access permissions of file
------Interface of setaccess------
-User : rwx                     User has to enter these permissions in this format in the textbox
-group : rw-
-other : r--
------------------------------
 rename : Rename a file
 properties : Display properties of file
 */
@@ -132,6 +121,7 @@ function signup()
  div.appendChild(label6)
  div.appendChild(userin)
  div.appendChild(br6)
+ userin.focus()
 } 
 
 function signupresponse(event,userinput)
@@ -197,6 +187,7 @@ function start()
  div.appendChild(label)
  div.appendChild(textbox)
  div.appendChild(br)
+ textbox.focus()
 }
 
 
@@ -220,29 +211,27 @@ function nextline(event,text)
    {
     case 0:create(divide[1])
 	   break    
-    case 1:mkdir(divide[1])
-           break 
-    case 2:rmdir(divide[1])
-    	   break
-    case 3:vi(divide[1])
+    case 1:vi(divide[1])
     	   break	
-    case 4:rm(divide[1])
+    case 2:rm(divide[1])
     	   break
-    case 5:cd(divide[1])
-    	   break       	
-    case 6:truncate(divide[1])
+    case 3:truncate(divide[1])
     	   break 
-    case 7:ls()
+    case 4:ls()
     	   break 
-    case 8:setaccess(divide[1])
-    	    break 
-    case 9:rename(divide[1])
+    case 5:rename(divide[1],divide[2])
     	    break
-    case 10:properties(divide[1])
+    case 6:properties(divide[1])
 	    break
-    case 11:creategroup(divide[1])
-            break	    
-    case 12:signout(divide[1])
+    case 7:command_list()
+    	    break
+    case 8:signout(divide[1])
+            break 
+    case 9:mkdir(divide[1])
+    	    break
+    case 10:rmdir(divide[1])
+            break
+    case 11:cd(divide[1])
             break 
    }
   }
@@ -276,21 +265,6 @@ function create(file)          // Working
  start()
 }
 
-function mkdir(dir)          // Working 
-{
- for(i=0;i<file_dir.length;i++)
- {
-  if(file_dir[i][0] == dir && file_dir[i][2] == pointer)           // Second condition verifies whether elements of current directory are checked 
-  {								    // or not	
-   alert("Directory already exists")
-   start()
-   return
-  }
- }
- file_dir.push([dir,1,pointer,0,666,current_path,""])
- start()
-}
-
 function userdir(dir)          // Working 
 {
  file_dir.push([dir,1,pointer,0,666,current_path,""])
@@ -309,25 +283,6 @@ function ls()                // Working
  } 
  var br = document.createElement("br")
  div.appendChild(br) 
- start()
-}
-
-function rmdir(dir)           // Working
-{
- for(i=0;i<file_dir.length;i++)
- {
-  if(file_dir[i][0] == dir && file_dir[i][2] == pointer && file_dir[i][1] == 1)           
-  {								    			 	
-   file_dir.splice(i,1)
-   start()
-   return
-  }
- }
- div = document.getElementById('div')
- var label = document.createTextNode("Directory not found")
- var br = document.createElement("br")
- div.appendChild(label)
- div.appendChild(br)
  start()
 }
 
@@ -362,16 +317,17 @@ function vi(file)                                       // Working
    var br = document.createElement("br")
    var br1 = document.createElement("br")
    var prompt = document.createTextNode("Press Ctrl to Save and Exit")					    			 	
-   contents = document.createElement('input')
-   contents.setAttribute("class","textbox")
-   contents.setAttribute("type","text")
+   contents = document.createElement('TextArea')
+   contents.setAttribute("rows","15")
+   contents.setAttribute("cols","150")
    index = i
-   contents.setAttribute("onkeydown","savefile(event,contents.value,index)")
+   contents.setAttribute("onkeydown","savefile(event,contents.value,index,contents)")
    contents.value = file_dir[i][6]                      // Contents of file are copied to the textbox
    div.appendChild(prompt)
    div.appendChild(br)
    div.appendChild(contents)
-   div.appendChild(br1)   
+   div.appendChild(br1)  
+   contents.focus() 
   }
  }
  if(flag == 0)
@@ -384,16 +340,156 @@ function vi(file)                                       // Working
  }
 }
 
-function savefile(event,text,index)                   // Save contents of file    // Working
+function savefile(event,text,index,contents)                   // Save contents of file    // Working
 {
  var x = event.keyCode
  if(x == 17)
  {
   file_dir[index][6] = text
+  file_dir[index][3] = String(text.length)
   alert("File saved")
+  contents.setAttribute("disabled",true)
   start()
  }
 } 
+
+
+
+function truncate(file)
+{
+ for(i=0;i<file_dir.length;i++)
+ {
+  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
+  {								    			 
+   file_dir[i][6] = ""
+   file_dir[i][3] = "0"
+   start()
+   return
+  }
+ }
+ div = document.getElementById('div')
+ var label = document.createTextNode("File not found")
+ var br = document.createElement("br")
+ div.appendChild(label)
+ div.appendChild(br)
+ start()
+}
+
+function properties(file)                      
+{
+ for(i=0;i<file_dir.length;i++)
+ {
+  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
+  {	
+   var div = document.getElementById('div')
+   var l1 = document.createTextNode("Name : " + file_dir[i][0])
+   var br1 = document.createElement("br")   
+   var l2 = document.createTextNode("Type : text")
+   var br2 = document.createElement("br")
+   var l3 = document.createTextNode("Size : " + file_dir[i][3])
+   var br3 = document.createElement("br")
+   var l4 = document.createTextNode("Location : " + file_dir[i][5])
+   var br4 = document.createElement("br")
+   div.appendChild(l1)
+   div.appendChild(br1)
+   div.appendChild(l2)
+   div.appendChild(br2)
+   div.appendChild(l3)
+   div.appendChild(br3)
+   div.appendChild(l4)
+   div.appendChild(br4)
+   start()
+   return
+  }
+ }
+ div = document.getElementById('div')
+ var label = document.createTextNode("File not found")
+ var br = document.createElement("br")
+ div.appendChild(label)
+ div.appendChild(br)
+ start()
+}
+
+function command_list()                       
+{
+ var div = document.getElementById("div")
+ var l1 = document.createTextNode("create	")
+ var l2 = document.createTextNode("vi	")
+ var l3 = document.createTextNode("rm	")
+ var l4 = document.createTextNode("truncate	")
+ var l5 = document.createTextNode("ls	")
+ var l6 = document.createTextNode("rename	")
+ var l7 = document.createTextNode("mkdir")
+ var l8 = document.createTextNode("rmdir")
+ var l9 = document.createTextNode("cd")
+ var l10 = document.createTextNode("properties")
+ var br = document.createElement("br")
+ var br1 = document.createElement("br")
+ var br2 =document.createElement("br")
+ var br3 =document.createElement("br")
+ var br4 =document.createElement("br")
+ var br5 =document.createElement("br")
+ var br6 =document.createElement("br")
+ var br7 =document.createElement("br")
+ var br8 =document.createElement("br")
+ var br9 =document.createElement("br")
+ var br10 =document.createElement("br")
+ div.appendChild(l1)
+ div.appendChild(br7)
+ div.appendChild(l2)
+ div.appendChild(br1)
+ div.appendChild(l3)
+ div.appendChild(br2)
+ div.appendChild(l4)
+ div.appendChild(br3)
+ div.appendChild(l5)
+ div.appendChild(br4)
+ div.appendChild(l6)
+ div.appendChild(br5)
+ div.appendChild(l7)
+ div.appendChild(br6)
+ div.appendChild(l8)
+ div.appendChild(br8)
+ div.appendChild(l9)
+ div.appendChild(br9)
+ div.appendChild(l10)
+ div.appendChild(br10)
+ start()
+}
+
+function mkdir(dir)          // Working 
+{
+ for(i=0;i<file_dir.length;i++)
+ {
+  if(file_dir[i][0] == dir && file_dir[i][2] == pointer)           // Second condition verifies whether elements of current directory are checked 
+  {								    // or not	
+   alert("Directory already exists")
+   start()
+   return
+  }
+ }
+ file_dir.push([dir,1,pointer,0,666,current_path,""])
+ start()
+}
+
+function rmdir(dir)           // Working
+{
+ for(i=0;i<file_dir.length;i++)
+ {
+  if(file_dir[i][0] == dir && file_dir[i][2] == pointer && file_dir[i][1] == 1)           
+  {								    			 	
+   file_dir.splice(i,1)
+   start()
+   return
+  }
+ }
+ div = document.getElementById('div')
+ var label = document.createTextNode("Directory not found")
+ var br = document.createElement("br")
+ div.appendChild(label)
+ div.appendChild(br)
+ start()
+}
 
 function cd(dir)                                     // Working
 {
@@ -420,28 +516,6 @@ function cd(dir)                                     // Working
  div.appendChild(br)
  start()
 }
-
-function truncate(file)
-{
- for(i=0;i<file_dir.length;i++)
- {
-  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
-  {								    			 
-   file_dir[i][6] = ""
-   start()
-   return
-  }
- }
- div = document.getElementById('div')
- var label = document.createTextNode("File not found")
- var br = document.createElement("br")
- div.appendChild(label)
- div.appendChild(br)
- start()
-}
-
-
-
   
 </script>
 </body>
