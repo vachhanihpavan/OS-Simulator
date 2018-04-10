@@ -1,59 +1,3 @@
-<!DOCTYPE HTML>
-<html>
-<<<<<<< HEAD
-<head>
-
-<style>
-
-h1
-{
- background-color:grey;                     /* Tree structure directory */
- color:black;
- margin:-8;
- padding:5;
- font-family:Arial;
- position:fixed;
- display:block;
- width:100%;
- text-align:center; 
-}
-
-div
-{
-    display:inline-block;
-    background-color: black;
-    color:green;
-    width: 1250px;
-    height: 400px;
-    border: 3px solid grey;
-    position:relative;
-    top:150px;
-    left:50px;
-    overflow: auto;
-}
-
-.textbox 
-{ 
-    background: black; 
-    height:25px; 
-    width: 275px; 
-    border: none; 
-    color: green; 
-    outline: none; 
-} 
- 
-</style>
-</head>
-
-<body>
-
-<h1>File Management</h1>
-
-<div id = 'div'></div>
-
-<script>
-
-
 var pre = "root@"            // Beginning of each terminal line
 var current_path = ""            // Current location of user     
 var pointer = -1                   // pointer points to the index of the current directory
@@ -91,7 +35,7 @@ signup()
 
 function signup()
 {
- var div = document.getElementById('div')
+ var div = document.getElementById('divx')
  var choice = -1
  var pointer = -1
  var br1 = document.createElement("br")
@@ -179,7 +123,7 @@ function signout()
  
 function start()
 {
- var div = document.getElementById('div')
+ var div = document.getElementById('divx')
  var label = document.createTextNode(pre + current_path)
  var br = document.createElement("br")
  textbox = document.createElement('input')
@@ -274,7 +218,7 @@ function userdir(dir)          // Working
 
 function ls()                // Working
 {
- var div = document.getElementById('div')
+ var div = document.getElementById('divx')
  for(i=0;i<file_dir.length;i++)
  {
   if(file_dir[i][2] == pointer)
@@ -299,7 +243,7 @@ function rm(file)            // Working
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -309,7 +253,7 @@ function rm(file)            // Working
 
 function vi(file)                                       // Working
 {
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var flag = 0
  for(i=0;i<file_dir.length;i++)
  {
@@ -321,7 +265,7 @@ function vi(file)                                       // Working
    var prompt = document.createTextNode("Press Ctrl to Save and Exit")					    			 	
    contents = document.createElement('TextArea')
    contents.setAttribute("rows","15")
-   contents.setAttribute("cols","150")
+   contents.setAttribute("cols","120")
    index = i
    contents.setAttribute("onkeydown","savefile(event,contents.value,index,contents)")
    contents.value = file_dir[i][6]                      // Contents of file are copied to the textbox
@@ -369,7 +313,7 @@ function truncate(file)
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -383,7 +327,7 @@ function properties(file)
  {
   if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
   {	
-   var div = document.getElementById('div')
+   var div = document.getElementById('divx')
    var l1 = document.createTextNode("Name : " + file_dir[i][0])
    var br1 = document.createElement("br")   
    var l2 = document.createTextNode("Type : text")
@@ -403,8 +347,26 @@ function properties(file)
    start()
    return
   }
+  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 1)       // For directories    
+  {	
+   var div = document.getElementById('divx')
+   var l1 = document.createTextNode("Name : " + file_dir[i][0])
+   var br1 = document.createElement("br")   
+   var l2 = document.createTextNode("Type : directory")
+   var br2 = document.createElement("br")
+   var l4 = document.createTextNode("Location : " + file_dir[i][5])
+   var br4 = document.createElement("br")
+   div.appendChild(l1)
+   div.appendChild(br1)
+   div.appendChild(l2)
+   div.appendChild(br2)
+   div.appendChild(l4)
+   div.appendChild(br4)
+   start()
+   return
+  }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -414,7 +376,7 @@ function properties(file)
 
 function command_list()                       
 {
- var div = document.getElementById("div")
+ var div = document.getElementById("divx")
  var l1 = document.createTextNode("create	")
  var l2 = document.createTextNode("vi	")
  var l3 = document.createTextNode("rm	")
@@ -485,7 +447,7 @@ function rmdir(dir)           // Working
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("Directory not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -512,63 +474,10 @@ function cd(dir)                                     // Working
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("Directory not found")
  var br = document.createElement("br")
  div.appendChild(label)
  div.appendChild(br)
  start()
 }
-  
-</script>
-</body>
-=======
-    <head>
-        <title>File Management Tree</title>
-        <meta charset="utf-8">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/tree.css">
-        <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
-    </head>
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="../Index/index.html#firstPage">Operating System Simulator</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
-                <span class="navbar-toggler-icon"></span>
-              </button>         
-
-                <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Disk Scheduling</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../Bankers/index.html">Banker's Algorithm</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="../Index/index.html#5thpage">Process Synchronization</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Semaphores</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">File Management</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                  </li>
-                </ul>
-            </div>
-        </nav>
-        <br>
-      <div class="container">
-        <div id = 'divx'></div>
-      </div>
-      <script type="text/javascript" src="js/tree.js"></script>
-    </body>
->>>>>>> 7761d88b418efaf263555f208e079ebc6170c1f5
-</html>

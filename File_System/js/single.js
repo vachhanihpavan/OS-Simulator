@@ -1,56 +1,3 @@
-<html>
-<head>
-
-<style>
-
-h1
-{
- background-color:grey;
- color:black;
- margin:-8;
- padding:5;
- font-family:Arial;
- position:fixed;
- display:block;
- width:100%;
- text-align:center; 
-}
-
-div
-{
-    display:inline-block;
-    background-color: black;
-    color:green;
-    width: 1250px;
-    height: 400px;
-    border: 3px solid grey;
-    position:relative;
-    top:150px;
-    left:50px;
-    overflow: auto;
-}
-
-.textbox 
-{ 
-    background: black; 
-    height:25px; 
-    width: 275px; 
-    border: none; 
-    color: green; 
-    outline: none; 
-} 
- 
-</style>
-</head>
-
-<body>
-
-<h1>File Management</h1>
-
-<div id = 'div'></div>
-
-<script>
-
 var clipboard = []                // To store files to clipboard to copy or move them 
 var pre = "user@root"            // Beginning of each terminal line
 var current_path = "/"            // Current location of user     
@@ -83,7 +30,7 @@ start()
 
 function start()
 {
- var div = document.getElementById('div')
+ var div = document.getElementById('divx')
  var label = document.createTextNode(pre + current_path)
  var br = document.createElement("br")
  textbox = document.createElement('input')
@@ -166,7 +113,7 @@ function create(file)          // Working
 
 function ls()                // Working
 {
- var div = document.getElementById('div')
+ var div = document.getElementById('divx')
  for(i=0;i<file_dir.length;i++)
  {
   if(file_dir[i][2] == pointer)
@@ -191,7 +138,7 @@ function rm(file)            // Working
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -201,7 +148,7 @@ function rm(file)            // Working
 
 function vi(file)                                       // Working
 {
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var flag = 0
  for(i=0;i<file_dir.length;i++)
  {
@@ -213,7 +160,7 @@ function vi(file)                                       // Working
    var prompt = document.createTextNode("Press Ctrl to Save and Exit")					    			 	
    contents = document.createElement('TextArea')
    contents.setAttribute("rows","15")
-   contents.setAttribute("cols","150")
+   contents.setAttribute("cols","120")
    index = i
    contents.setAttribute("onkeydown","savefile(event,contents.value,index,contents)")
    contents.value = file_dir[i][6]                      // Contents of file are copied to the textbox
@@ -259,7 +206,7 @@ function truncate(file)
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -278,7 +225,7 @@ function rename(file,name)
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -290,9 +237,9 @@ function properties(file)                      // Working
 {
  for(i=0;i<file_dir.length;i++)
  {
-  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
+  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)       // For files    
   {	
-   var div = document.getElementById('div')
+   var div = document.getElementById('divx')
    var l1 = document.createTextNode("Name : " + file_dir[i][0])
    var br1 = document.createElement("br")   
    var l2 = document.createTextNode("Type : text")
@@ -313,7 +260,7 @@ function properties(file)                      // Working
    return
   }
  }
- div = document.getElementById('div')
+ div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
  var br = document.createElement("br")
  div.appendChild(label)
@@ -323,7 +270,7 @@ function properties(file)                      // Working
 
 function command_list()
 {
- var div = document.getElementById("div")
+ var div = document.getElementById("divx")
  var l1 = document.createTextNode("create	")
  var l2 = document.createTextNode("vi	")
  var l3 = document.createTextNode("rm	")
@@ -355,9 +302,3 @@ function command_list()
  div.appendChild(br6)
  start()
 }
-
-  
-</script>
-</body>
-</html>
- 
