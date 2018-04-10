@@ -4,6 +4,8 @@ var res,pro;
 			{
                 
                 res = $amount;
+                if(res<0)
+                	alert("Invalid Inputs");
 				var
 					$container = document.getElementById('FormFields'),
 					$item, $field, $i;
@@ -26,6 +28,8 @@ var res,pro;
             function BuildFormFields2($amount) //For Allocation
 			{
 				pro = $amount;
+				if($amount<0)
+                	alert("Invalid Inputs");
                 console.log(res);
 				var
 					$container = document.getElementById('FormFields1'),
@@ -51,6 +55,8 @@ var res,pro;
             }
 			function BuildFormFields3($amount) //For Allocation
 			{
+				if($amount<0)
+					alert("Invalid Inputs");
                 console.log(res);
 				var
 					$container = document.getElementById('FormFields2'),

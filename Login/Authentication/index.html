@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <title>OTP</title>
+    <style>
+        body {
+            margin: 0 auto;
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+    </style>
+  </head>
+
+  <body style="width: 70em;">
+    <h1 id="jsotp-demo">One Time Password</h1>
+    <p>The Time-based One-Time Password algorithm (TOTP) is an algorithm that computes a one-time password from a shared secret key and the current time. It has been adopted as Internet Engineering Task Force standard RFC 6238, is the cornerstone of Initiative For Open Authentication (OATH), and is used in a number of two-factor authentication systems.</p>
+    <hr>
+    <div style="border: 1px">
+      <p id="secret">Secret: </p>
+      <h2 id="code-1">TOTP code</h2>
+      <p id="ticker">timer</p>
+    </div>
+
+    <p>TOTP is based on HOTP with a timestamp replacing the incrementing counter.
+
+    The current timestamp is turned into an integer time-counter (TC) by defining the start of an epoch (T0) and counting in units of a time interval (TI). For example:
+
+    <li>TC = floor((unixtime(now) - unixtime(T0)) / TI)</li>
+    <li>TOTP = HOTP(SecretKey, TC)</li>
+    <li>TOTP-Value = TOTP mod 10<sup>d</sup>, where d is the desired number of digits of the one-time password.</li>
+    </p>
+    <script src="dist/jsOTP.min.js"></script>
+    <script>
+    $ = function(sel) {
+      return document.querySelector(sel);
+    };
+
+    var secret = "23pavans46juzcyx"
+    $('#secret').innerText = "Secret: " + secret;
+
+    var totp = new jsOTP.totp();
+    var code = totp.getOtp(secret);
+    var hotp = new jsOTP.hotp();
+    var doge = hotp.getOtp(secret, 0);
+
+    console.log(code);
+    console.log(doge);
+
+    var updateTicker = function(tick, el) {
+      el.innerText = tick;
+    }
+    var updateTotp = function(secret, el) {
+      el.innerText = totp.getOtp(secret);
+    }
+
+    updateTotp(secret, $('#code-1'));
+
+    var timeLoop = function() {
+      var epoch = Math.round(new Date().getTime() / 1000.0);
+      var countDown = 30 - (epoch % 30);
+      updateTicker(countDown, $('#ticker'));
+      if (epoch % 30 == 0) updateTotp(secret, $('#code-1'));
+    }
+
+    setInterval(timeLoop, 1000);
+
+    var counter = 0;
+    var secret2 = "abcdefghijklmnop";
+    $('#secret-2').innerText = "Secret: " + secret2;
+    $('#counter').innerText = counter;
+
+    var updateHotp = function(secret, counter, el) {
+      el.innerText = hotp.getOtp(secret, counter);
+    }
+    var updateCounter = function(counter, el) {
+      el.innerText = counter;
+    }
+    var requestHotp = function() {
+      updateHotp(secret2, counter, $('#code-2'));
+      updateCounter(++counter, $('#counter'));
+    }
+
+    </script>
+  </body>
+</html>

@@ -20,8 +20,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '4ecdc4', '#a4bfeb', '#fff'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '9thpage' , '7thpage' ,'8thpage'],
+				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#4ecdc4', '#a4bfeb', '#c5e0d8', '#91bab3' , '#f0ebd8' , '#c5e0d8',],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '9thpage' , '7thpage' ,'8thpage','10thpage'],
 				menu: '#menu',
 				easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
 			});
@@ -39,7 +39,8 @@
 	<li data-menuanchor="6thpage"><a href="#6thpage">Page Replacement</a></li>
 	<li data-menuanchor="9thpage"><a href="#9thpage">Sockets</a></li>
 	<li data-menuanchor="7thpage"><a href="#7thpage">File Management</a></li>
-	<li data-menuanchor="8thpage"><a href="#8thpage">About</a></li>
+	<li data-menuanchor="8thpage"><a href="#8thpage">OS Security</a></li>
+	<li data-menuanchor="10thpage"><a href="#10thpage">About</a></li>
 </ul>
 
 <div id="fullpage">
@@ -127,6 +128,12 @@
 		<div class="intro">
 			<h1><a href="../File_System/index.html">File Management</h1>
 			<p>Amal complete here</p>
+		</div>
+	</div>
+	<div class="section" id="section10">
+		<div class="intro">
+			<h1><a href="../Login/Authentication/index.html">Time-Based OTP</h1>
+			<p>TOTP is two-factor authentication based on HMAC which combines a secret key with the current timestamp using a cryptographic hash function to generate a one-time password.</p>
 		</div>
 	</div>
 	<div class="section" id="section8">
