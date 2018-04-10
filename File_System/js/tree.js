@@ -347,6 +347,24 @@ function properties(file)
    start()
    return
   }
+  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 1)       // For directories    
+  {	
+   var div = document.getElementById('divx')
+   var l1 = document.createTextNode("Name : " + file_dir[i][0])
+   var br1 = document.createElement("br")   
+   var l2 = document.createTextNode("Type : directory")
+   var br2 = document.createElement("br")
+   var l4 = document.createTextNode("Location : " + file_dir[i][5])
+   var br4 = document.createElement("br")
+   div.appendChild(l1)
+   div.appendChild(br1)
+   div.appendChild(l2)
+   div.appendChild(br2)
+   div.appendChild(l4)
+   div.appendChild(br4)
+   start()
+   return
+  }
  }
  div = document.getElementById('divx')
  var label = document.createTextNode("File not found")
@@ -443,6 +461,7 @@ function cd(dir)                                     // Working
  {
   pointer = ufd
   current_path = file_dir[ufd][0] + '/'             // Coming back to the user file directory
+  start()
   return
  }
  for(i=0;i<file_dir.length;i++)

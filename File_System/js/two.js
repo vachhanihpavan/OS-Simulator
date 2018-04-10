@@ -260,7 +260,7 @@ function vi(file)                                       // Working
    var prompt = document.createTextNode("Press Ctrl to Save and Exit")					    			 	
    contents = document.createElement('TextArea')
    contents.setAttribute("rows","15")
-   contents.setAttribute("cols","150")
+   contents.setAttribute("cols","135")
    index = i
    contents.setAttribute("onkeydown","savefile(event,contents.value,index,contents)")
    contents.value = file_dir[i][6]                      // Contents of file are copied to the textbox

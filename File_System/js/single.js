@@ -237,7 +237,7 @@ function properties(file)                      // Working
 {
  for(i=0;i<file_dir.length;i++)
  {
-  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)           
+  if(file_dir[i][0] == file && file_dir[i][2] == pointer && file_dir[i][1] == 0)       // For files    
   {	
    var div = document.getElementById('divx')
    var l1 = document.createTextNode("Name : " + file_dir[i][0])
