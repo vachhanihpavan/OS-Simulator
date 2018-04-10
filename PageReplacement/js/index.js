@@ -1,8 +1,3 @@
-
-
-
-
-
 var colors = ["#e040fb", "#ff80ab", "#3f51b5", "#1e88e5", "#009688", "#4caf50", "#cddc39", "#ffeb3b", "#607d8b", "#ff9800"];
 
 function lru() {
