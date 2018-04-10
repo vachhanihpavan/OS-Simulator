@@ -55,41 +55,41 @@ function addToList() {
 
 function displayList() {
     var inp = document.getElementById("showinput");
-    inp.setAttribute("style", "height:" + p.length * 80 + "px");
+    //inp.setAttribute("style", "height:" + p.length * 80 + "px");
     inp.innerHTML = "";
     for (var i = 0; i < p.length; i++) {
-        var card = document.createElement("div");
-        card.setAttribute("class", "card");
-        var pid = document.createElement("span");
+		var card = document.createElement("div");
+        //card.setAttribute("class", "card");
+        var pid = document.createElement("div");
         pid.textContent = "P" + (i + 1) + "    ";
         pid.setAttribute("style", "float:left;margin-left:20px;");
         //card.setAttribute("style", "float:left;");
-        card.setAttribute("style", "height:auto; width:100%;background-color:#931F6C;");
+        card.setAttribute("style", "width:800px;height: 50px;");
         var input1 = document.createElement("input");
         input1.value = p[i].at;
-        input1.setAttribute("class", "form-control");
-        input1.setAttribute("style", "width:250px;float:center;margin-left:100px;text-align:center; opacity: 0.87;");
+        input1.setAttribute("class", "form-control text-primary");
+        input1.setAttribute("style", "width:50px;float:left;margin-left:100px;text-align:center;");
         input1.setAttribute("disabled", "disabled");
         input1.setAttribute("id", "at" + i);
         var input2 = document.createElement("input");
         input2.value = p[i].bt;
-        input2.setAttribute("class", "form-control");
+        input2.setAttribute("class", "form-control text-primary");
         input2.setAttribute("disabled", "disabled");
         input2.setAttribute("id", "bt" + i);
-        input2.setAttribute("style", "width:250px;float:center;margin-left:100px;text-align:center; opacity: 0.87;");
-        var input3 = document.createElement("input");
+        input2.setAttribute("style", "width:50px;float:left;margin-left:100px;text-align:center;");
+		var input3 = document.createElement("input");
         input3.value = p[i].pri;
-        input3.setAttribute("class", "form-control");
+        input3.setAttribute("class", "form-control text-primary");
         input3.setAttribute("disabled", "disabled");
         input3.setAttribute("id", "pri" + i);
-        input3.setAttribute("style", "width:250px;float:center;margin-left:100px;text-align:center; opacity: 0.87;");
+        input3.setAttribute("style", "width:50px;float:left;margin-left:100px;margin-right:100px;text-align:center;");
         var btn = document.createElement("button");
         var text1 = document.createTextNode("EDIT");
         btn.appendChild(text1);
         btn.setAttribute("id", "btn" + i);
         btn.setAttribute("class", "btn btn-warning");
         btn.setAttribute("onclick", "edit(this.id)");
-        btn.setAttribute("style", "float:right;margin-right:50px;");
+        //btn.setAttribute("style", "float:right;margin-right:50px;");
         var br = document.createElement("br");
         card.appendChild(pid);
         //card.appendChild(pid);
@@ -98,7 +98,6 @@ function displayList() {
         card.appendChild(input3);
         card.appendChild(btn);
         inp.appendChild(card);
-        //inp.appendChild(br);
     }
 }
 
@@ -177,7 +176,7 @@ function pre() {
         // perform checks
         if (k != prev) {
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             if (k == -1) {
                 newdiv.textContent = "t = " + t + ": CPU is idle.";
             }
@@ -281,7 +280,7 @@ function nonpre() {
         else {
             if (x > 0) {
                 var newdiv = document.createElement("div");
-                newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+                newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
                 newdiv.textContent = "t = " + (t - x) + ": CPU is idle.";
                 operation.appendChild(br);
                 operation.appendChild(newdiv);
@@ -295,7 +294,7 @@ function nonpre() {
                 x = 0;
             }
             var newdiv = document.createElement("div");
-            newdiv.setAttribute("style", "margin-left: 500px; width:100%; font-size: 20px;");
+            newdiv.setAttribute("style", "text-align: center; margin: auto; width:100%; font-size: 20px;");
             newdiv.textContent = "t = " + t + ": Process-" + p[k].id + " entered CPU and being executed";
             operation.appendChild(br);
             operation.appendChild(newdiv);
