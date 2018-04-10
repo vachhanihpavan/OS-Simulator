@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Priority Scheduling </title>
+    <title> Multilevel Queue Scheduling </title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../js/pri.js"></script>
+    <script type="text/javascript" src="../js/multi.js"></script>
 	<link rel="stylesheet" type="text/css" href="../../Index/css/bootswatch.css" />
     <link rel="stylesheet" type="text/css" href="../css/index.css"></link>
 </head>
@@ -46,8 +46,11 @@
 	<div class="container">
 		<!-- Input section -->
 		<div class="jumbotron">
-            <h1 class="display-3">Priority Scheduling</h1>
+            <h1 class="display-3">Multilevel Queue Scheduling</h1>
             <br>
+			<p> Here foreground queue has more priority than background queue.</p>
+			<p> Foreground queue uses SJF scheduling algorithm whereas background queue uses FCFS.</p>
+			<hr>
 			<div id="showinput"></div>
 			<hr>
 			<div class="row">
@@ -59,23 +62,18 @@
 					<label class="col-form-label" for="inputDefault">Burst time:</label>
 					<input class="form-control" id="newbt" name="bt" placeholder="Burst Time" type="text" size="35">
 				</div>
-				<div class="form-group" style="margin-left:50px; float:left;  width: 20%">
-					<label class="col-form-label" for="inputDefault">Priority:</label>
-					<input class="form-control" id="newpri" name="priority" placeholder="Priority" type="text" size="35">
-				</div>
+				<div class="form-group" style="margin-left:50px; float:left;  width: 20%; height: 30px;">
+				<label class="control-label" for="inputDefault">Select Queue</label>
+				<select id = "newq" class="form-control" name="queue-select">
+					<option value="foreground">Foreground</option>
+					<option value="background">Background</option>
+				</select>
+			</div>
 			</div>
             <button type="submit" id="add" class="btn btn-primary" style="margin-left: 36px" onclick="addToList()">Add</button>
 			<br>
-			<div class="form-group" style="margin-left:36px; float:left;  width: 20%; height: 30px;">
-				<label class="control-label" for="inputDefault"></label>
-				<select id = "sel" class="form-control" name="preemptive-select">
-					<option value="nonpre">Non-preemptive</option>
-					<option value="pre">Preemptive</option>
-				</select>
-			</div>
-			<br>
 			<button type="submit" id="clear" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="clearData()">Clear Data</button>
-			<button type="submit" id="run" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="showOutput(2)">Schedule It!</button>
+			<button type="submit" id="run" class="btn btn-primary" style="margin-left: 36px; float: right;" onclick="showOutput()">Schedule It!</button>
 		</div>
 		<!-- Gantt Chart -->
 		<div style="margin-top: 150px;">

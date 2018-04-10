@@ -3,15 +3,21 @@ var pg_array = [], la;
 function SetLAS($las)
 {
 	log_size = $las;
+	if(log_size<=0)
+		alert("Invalid Inputs");
 }
 function SetPAS($pas)
 {
 	phy_size = $pas;
+	if(phy_size<=0)
+		alert("Invalid Inputs");
 }
 
 function Setla($add)
 {
 	la = $add;
+	if(la<=0)
+		alert("Invalid Inputs");
 }
 
 function SetPg($pg)
@@ -59,7 +65,7 @@ function checkentry()
 
 		if(p_frame == -1)
 		{
-			alert("No such Logical Address exists");
+			alert("No such Logical Address exists\nPage Fault");
 		}
 		else
 		{

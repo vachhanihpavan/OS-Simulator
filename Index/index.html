@@ -20,8 +20,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '4ecdc4', '#a4bfeb'],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '7thpage' ,'8thpage'],
+				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '4ecdc4', '#a4bfeb', '#fff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '9thpage' , '7thpage' ,'8thpage'],
 				menu: '#menu',
 				easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
 			});
@@ -32,32 +32,43 @@
 
 <ul id="menu">
 	<li data-menuanchor="firstPage"><a href="#firstPage">Home</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">Scheduling</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Process Scheduling</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Banker's</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage">Disk Scheduling</a></li>
 	<li data-menuanchor="5thpage"><a href="#5thpage">Process Synchronization</a></li>
-	<li data-menuanchor="6thpage"><a href="#6thpage">Semaphores</a></li>
+	<li data-menuanchor="6thpage"><a href="#6thpage">Page Replacement</a></li>
+	<li data-menuanchor="9thpage"><a href="#9thpage">Sockets</a></li>
 	<li data-menuanchor="7thpage"><a href="#7thpage">File Management</a></li>
 	<li data-menuanchor="8thpage"><a href="#8thpage">About</a></li>
 </ul>
 
 <div id="fullpage">
 	<div class="section " id="section0">
-		<h1>OS Project 5</h1>
-		<p>Trial Index</p>
+		<h1>Operating System Simulator</h1>
+		<h4>Project By: Group 5 (16CO151-205)</h4>
+		<li>Member 1: Pavan (16CO151)</li>
+		<li>Member 2: Vichitr (16CO152)</li>
+		<li>Member 3: Archit (16CO153)</li>
+		<li>Member 4: Dibyadarshan (16CO154)</li>
+		<li>Member 5: Iwrin (16CO155)</li>
+		<li>Member 6: Aditi (16CO202)</li>
+		<li>Member 7: Adwaith (16CO204)</li>
+		<li>Member 8: Amal (16CO203)</li>
+		<li>Member 9: Akshay (16CO205)</li>
 	</div>
 	<div class="section" id="section1">
 		<div class="intro">
 			<div class="row">
 				<div class="column1">
-					<h1>Process Scheduling</h1>
+					<h1><a href="../Process Scheduling/index.html">Process Scheduling</a></h1>
 				</div>
 				<div class="column1">
 					 <ul id="scheduling-style">
-  					   <li><a href="#">Shortest Job Firsr</a></li>
-					   <li><a href="#">First Come First Serve</a></li>
-					   <li><a href="#">Multilevel Queue</a></li>
-					   <li><a href="#">Round Robin</a></li>
+  					   <li><a href="../Process Scheduling/index.html">Shortest Job First</a></li>
+					   <li><a href="../Process Scheduling/index.html">First Come First Served</a></li>
+					   <li><a href="../Process Scheduling/index.html">Multilevel Queue</a></li>
+					   <li><a href="../Process Scheduling/index.html">Round Robin</a></li>
+					   <li><a href="../Process Scheduling/index.html">Priority Scheduling</a></li>
 					 </ul>
 				</div>
 			</div>
@@ -65,7 +76,7 @@
 	</div>
 	<div class="section" id="section2">
 		<div class="intro">
-			<h1><a href="../Bankers/index.html">Banker</a></h1>
+			<h1><a href="../Bankers/index.html">Banker's Algorithm</a></h1>
 			<p>Banker's Algorithm is a resource allocation and deadlock avoidance algorithm that tests for safety by simulating the allocation of predetermined maximum possible amounts of all resources, and then makes an "safe-state" check to test for possible deadlock conditions for all other pending activities, before deciding whether allocation should be allowed to continue.</p>
 		</div>
 	</div>
@@ -103,12 +114,20 @@
 	</div>
 	<div class="section" id="section6">
 		<div class="intro">
-			<h1><a href="#">Semaphores</h1>
+			<h1><a href="../PageReplacement/index.html">Page Replacement</h1>
+				<p>Adwaith complete here</p> 
+		</div>
+	</div>
+	<div class="section" id="section9">
+		<div class="intro">
+			<h1><a href="../Sockets/index.html">Sockets</h1>
+			<p>Amal Complete here</p>
 		</div>
 	</div>
 	<div class="section" id="section7">
 		<div class="intro">
 			<h1><a href="../File_System/index.html">File Management</h1>
+			<p>Amal complete here</p>
 		</div>
 	</div>
 	<div class="section" id="section8">
