@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-
   <title>Page Replacement Demo</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../../Index/css/bootswatch.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src=../js/index.js></script>
+  <script src=index.js></script>
 </head>
 
 
@@ -23,50 +22,22 @@
   <div class="panel-body">
   <div id="input">
     <h4 >Requests string:</h4>
-     <input type="text" class="requests form-control" id="request_string" placeholder="Enter requests string"></input>
+    <form>
+     <input type="text" class="requests form-control" id="request_string" placeholder="Enter requests string" />
      <h4 >Cache Size:</h4>
-      <input type="text" class="size form-control" id="csize" placeholder="Enter cache size"></input>
+      <input type="text" class="size form-control" id="csize" placeholder="Enter cache size" /><br\>
+      <input type="button" value="submit" onclick="myfunction()"/>
+    </form>
     </div>
-
-  </div>
-  <div class="panel-footer" style="height:50px;">
-    <button style="float:right;" id="submit" class="btn btn-primary">Submit</button>
   </div>
 </div>
+
   <div>
+  <button class="button button1" onclick="fifo()">FIFO(First In First Out)</button>
+  <button class="button button2" onclick="lru()">LRU(Least Recently Used)</button>
+  <button class="button button3" onclick="optimal()">Optimal</button>
+</div>
 
-  </div>
-
-  <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#1">FIFO</a></li>
-    <li><a data-toggle="tab" href="#2">LRU</a></li>
-    <li><a data-toggle="tab" href="#3">OPT</a></li>
-  </ul>
-
-  <div class="tab-content">
-    <div id="1" class="tab-pane fade in active">
-      <h1>FIRST IN FIRST OUT</h1>
-      <button class="proceed hidden btn btn-primary" id="proceed1">Proceed</button><br><br>
-      <div id="fifo">
-
-      </div>
-      <div class="answer" id="answers1"></div>
-    </div>
-    <div id="2" class="tab-pane fade">
-      <h1>LEAST RECENTLY USED</h1>
-      <button class="proceed hidden btn btn-primary" id="proceed2">Proceed</button><br><br>
-      <div id="lru">
-      </div>
-      <div class="answer" id="answers2"></div>
-    </div>
-    <div id="3" class="tab-pane fade">
-      <h1>OPTIMUM</h1>
-      <button class="proceed hidden btn btn-primary" id="proceed3">Proceed</button><br><br>
-      <div id="opt">
-      </div>
-      <div class="answer" id="answers3"></div>
-    </div>
-  </div>
 </body>
 </html>
 
@@ -141,4 +112,8 @@ h1{
   float: right;
   margin-right: 10px;
 }
+
+.button1 {background-color: #555555;}
+.button2 {background-color: #555555;}
+.button3 {background-color: #555555;}
 </style>

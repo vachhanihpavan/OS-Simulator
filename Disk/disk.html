@@ -54,23 +54,44 @@
                       <a class="btn btn-success" href="https://docs.google.com/presentation/d/1xcAL0M9FgeertqbFYN_nitQzvmiQ2tB-FzEII20t9po/present#slide=13" role="button">Wiki</a>
                     </p>
                 </div>
-
+                <script>
+                function admSelectCheck(nameSelect)
+                {
+                    console.log(nameSelect);
+                    if(nameSelect){
+                        x3 = document.getElementById("o3").value;
+                        x4 = document.getElementById("o4").value;
+                        x5 = document.getElementById("o5").value;
+                        x6 = document.getElementById("o6").value;
+                        x7 = document.getElementById("o7").value;
+                        if(x3 == nameSelect.value || x4 == nameSelect.value || x5 == nameSelect.value || x6 == nameSelect.value || x7 == nameSelect.value){
+                            document.getElementById("admDivCheck").style.display = "block";
+                        }
+                        else{
+                            document.getElementById("admDivCheck").style.display = "none";
+                        }
+                    }
+                    else{
+                        document.getElementById("admDivCheck").style.display = "none";
+                    }
+                }
+                </script>
                 <form> 
                     <fieldset>
                         <div class="row">
                             <div class="form-group" style="margin-left:50px; float:left;">
                                 <label for="exampleSelect1">Algorithm</label>
-                                  <select class="form-control" id="algorithm">
-                                    <option value="fcfs">FCFS</option>
-                                    <option value="sstf">SSTF</option>
-                                    <option value="scan">SCAN</option>
-                                    <option value="cscan">C-SCAN</option>
-                                    <option value="look">LOOK</option>
-                                    <option value="clook">C-LOOK</option>
-                                    <option value="compare">Compare</option>
+                                  <select class="form-control" id="algorithm" onchange="admSelectCheck(this);">
+                                    <option id="o1" value="fcfs">FCFS</option>
+                                    <option id="o2" value="sstf">SSTF</option>
+                                    <option id="o3" value="scan">SCAN</option>
+                                    <option id="o4" value="cscan">C-SCAN</option>
+                                    <option id="o5" value="look">LOOK</option>
+                                    <option id="o6" value="clook">C-LOOK</option>
+                                    <option id="o7" value="compare">Compare</option>
                                   </select>
                             </div>
-                            <div class="form-group" style="margin-left:50px; float:left;">
+                            <div class="form-group" style="margin-left:50px; float:left;display:none;" id="admDivCheck">
                                 <label for="exampleSelect1">Direction</label>
                                   <select class="form-control" id="direction">
                                     <option value="left" selected="selected">Left</option>
