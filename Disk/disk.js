@@ -5,7 +5,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 if(r2[a1]==""){continue;}
                                 r3=parseInt(r2[a1]);
                                 inp.push(r3);
-                                if(r3>final || ini>final){
+                                if((r3>parseInt(final)) || (parseInt(ini)>parseInt(final))){
                                         console.log(r3);
                                         console.log(ini);
                                         console.log(final);
