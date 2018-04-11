@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>MFT</title>
+        <title>MVT</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -43,10 +43,10 @@
         <br>
         <div class="container">
             <div class="jumbotron">
-                <h1 class="display-3">MFT</h1>
-                <p class="lead">Multiprogramming with Fixed Tasks</p>
+                <h1 class="display-3">MVT</h1>
+                <p class="lead">Multiprogramming with Varialbe Tasks</p>
                 <hr class="my-4">
-                <p>Memory is partitioned into fixed size partitions and each job is assigned to a partition. The memory assigned to a partition does not change.</p>
+                <p>Each job gets just the amount of memory it needs. That is, the partitioning of memory is dynamic and changes as jobs enter and leave the system. MVT is a more ``efficient'' user of resources. MFT suffers with the problem of internal fragmentation and MVT suffers with external fragmentation.</p>
                 <p class="lead">
                   <a class="btn btn-success" href="#" role="button">Wiki</a>
                 </p>
@@ -58,30 +58,31 @@
 	        				<label class="col-form-label" for="inputDefault">Enter Total Memory Size</label>
 	                        <input class="form-control" id="totalMemSize" name="mem_size" placeholder="Total Memory Size" type="text" size="35">
 	                    </div>
-	                    <div class="form-group" style="margin-left:50px; float:left;">
-	        				<label class="col-form-label" for="inputDefault">Enter Number of Blocks</label>
-	                        <input class="form-control" id="numBlocks" name="block_no" placeholder="# Blocks" type="text" size="35">
-	                    </div>
 							<!-- <input type='text' id='totalMemSize'>
 							<input type='text' id='numBlocks'> -->
 							<!-- <button id='submitBtn'>Submit</button> -->
 							<div class="form-group" style="margin-left:50px; float:left;">
 								<label class="col-form-label" for="sel1">Allocation Strategy</label>
 									<select class="form-control" id="sel1">												                                                                    											<option>Best Fit</option>																														                                                                    											<option>First Fit</option>																																					                                                                      											<option>Worst Fit</option>																																				                                                              										</select>
-																																																					                                               								</div> 
+																																																					                                               								</div>  
+					</div>
+					<div class="row">
+						<div class="form-group" style="margin-left:50px; float:left;">
 
+						 <label class="checkbox-inline"><input type="checkbox" name="optradio">Compaction</label>
+					</div>
 					</div>
 					<button type="submit" id="submitBtn" class="btn btn-primary" style="margin-left: 36px">Submit
 					</button>
 					<br>
 					<div class="row">
-						<div id="blockContainer" class="form-group" style="margin-left:50px; float:left;"></div>
-					 </div>
-					<div class="row">
 						<div id='#requestContainer'>
 							<div class="form-group" style="margin-left:50px; float:left;">
-		        				<label class="col-form-label" for="inputDefault">Enter size of New Request</label>
-		                        <input class="form-control" id="requestSize" name="req_size" placeholder="Request Size" type="text" size="35">
+		        				<label class="col-form-label" for="inputDefault">Request ID</label>
+		                        <input class="form-control" id="requestId" name="req_size" placeholder="Request ID" type="text" size="35">
+					<label class="col-form-label" for="inputDefault">Enter size of New Request</label>
+					<input class="form-control" id="requestSize" name="req_size" placeholder="Request Size" type="text" size="35">
+
 		                    </div>
 							<!-- <input type='text' id='requestSize'></input> -->
 							<!-- <button id='submitRequestBtn'>Make request!</button> -->

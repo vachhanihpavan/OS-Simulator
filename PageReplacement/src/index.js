@@ -6,6 +6,7 @@ function myfunction() {
           cache_size = document.getElementById('csize').value;
           req_str = document.getElementById('request_string').value;
           requests = req_str.split(" ");
+          console.log("cache_size");
 }
 
 /*This is the fifo() function. */
