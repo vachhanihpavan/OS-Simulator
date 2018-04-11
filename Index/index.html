@@ -20,8 +20,8 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#4ecdc4', '#a4bfeb', '#c5e0d8', '#91bab3' , '#f0ebd8' , '#c5e0d8',],
-				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '9thpage' , '7thpage' ,'8thpage','10thpage'],
+				sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#4ecdc4', '#a4bfeb', '#c5e0d8', '#91bab3' , '#f0ebd8' , '#c5e0d8','#c5e0d8'],
+				anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', '5thpage', '6thpage', '9thpage' , '7thpage' ,'8thpage','10thpage','11thpage'],
 				menu: '#menu',
 				easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
 			});
@@ -35,11 +35,12 @@
 	<li data-menuanchor="secondPage"><a href="#secondPage">Process Scheduling</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Banker's</a></li>
 	<li data-menuanchor="4thpage"><a href="#4thpage">Secondary Storage</a></li>
-	<li data-menuanchor="5thpage"><a href="#5thpage">Process Synchronization</a></li>
+	<li data-menuanchor="5thpage"><a href="#5thpage">Process Sync</a></li>
 	<li data-menuanchor="6thpage"><a href="#6thpage">Page Replacement</a></li>
 	<li data-menuanchor="9thpage"><a href="#9thpage">Sockets</a></li>
-	<li data-menuanchor="7thpage"><a href="#7thpage">File Management</a></li>
+	<li data-menuanchor="7thpage"><a href="#7thpage">Files</a></li>
 	<li data-menuanchor="8thpage"><a href="#8thpage">OS Security</a></li>
+	<li data-menuanchor="11thpage"><a href="#11thpage">Memory</a></li>
 	<!-- <li data-menuanchor="10thpage"><a href="#10thpage">About</a></li> -->
 </ul>
 
@@ -138,11 +139,16 @@
 			<p>TOTP is two-factor authentication based on HMAC which combines a secret key with the current timestamp using a cryptographic hash function to generate a one-time password.</p>
 		</div>
 	</div>
-	<div class="section" id="section8">
+	<div class="section" id="section11">
+		<div class="intro">
+			<h1><a href="../MFT/index.html">Memory Management</h1>
+		</div>
+	</div>
+	<!-- <div class="section" id="section8">
 		<div class="intro">
 			<h1><a href="about.html">Meet the Developers</h1>
 		</div>
-	</div>
+	</div> -->
 </div>
 </body>
 </html>
