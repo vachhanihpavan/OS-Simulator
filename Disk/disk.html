@@ -70,6 +70,13 @@
                                     <option value="compare">Compare</option>
                                   </select>
                             </div>
+                            <div class="form-group" style="margin-left:50px; float:left;">
+                                <label for="exampleSelect1">Direction</label>
+                                  <select class="form-control" id="direction">
+                                    <option value="left" selected="selected">Left</option>
+                                    <option value="right">Right</option>
+                                  </select>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="form-group" style="margin-left:50px; float:left;  width: 20%">
@@ -87,7 +94,7 @@
                         </div>
                     </fieldset>
                 </form>
-                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value)">Plot</button>
+                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value,document.getElementById('direction').value)">Plot</button>
                     
                 
 			</div>        

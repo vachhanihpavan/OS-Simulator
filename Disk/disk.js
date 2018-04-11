@@ -1,5 +1,5 @@
-var pre,v1,v2,v3,v4,v5,v6;
-                function getBitStreamAndPlot(event, r1, ini, final, alg){
+var pre,v1,v2,v3,v4,v5,v6,dir;
+                function getBitStreamAndPlot(event, r1, ini, final, alg, side){
                         var inp=[],r2=r1.split(" "),r3;
                         for(a1=0;a1<r2.length;++a1){
                                 if(r2[a1]==""){continue;}
@@ -14,7 +14,10 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 }
                         }
                         //console.log(r2);
-			//console.log(inp);
+                        //console.log(inp);
+                        final=parseInt(final);
+                        ini=parseInt(ini);
+                        dir=side;
 			pre=1;
                         if(alg=="fcfs"){
                                 fcfs(inp, ini, final);
@@ -189,7 +192,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 }
                                 return;
                         }
-                        if(ini<=(final-ini)){
+                        if(dir=="left"){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
                                 var count=1;
@@ -222,11 +225,13 @@ var pre,v1,v2,v3,v4,v5,v6;
                                         y1.push(-1*count);
                                         ++count;      
                                         seek=seek+Math.abs(hold-inp[a1]);
+                                        console.log(seek);
                                         hold=inp[a1];                          
                                 }
                                 x1.push(final);
                                 y1.push(-1*count);
-                                seek=seek+final-hold;
+                                seek=seek+parseInt(final)-hold;
+                                console.log(seek);
                                 hold=final;
                                 ++count;
                                 for(a1=store-1;a1>=0;--a1){
@@ -234,6 +239,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                         y1.push(-1*count);
                                         ++count;
                                         seek=seek+Math.abs(hold-inp[a1]);
+                                        console.log(seek);
                                         hold=inp[a1];
                                 }
                                 
@@ -301,7 +307,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 }
                                 return;
                         }
-                        if(ini<=(final-ini)){
+                        if(dir=="left"){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
                                 var count=1;
@@ -440,7 +446,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 }
                                 return;
                         }
-                        if(ini<=(final-ini)){
+                        if(dir=="left"){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
                                 var count=1;
@@ -544,7 +550,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 }
                                 return;
                         }
-                        if(ini<=(final-ini)){
+                        if(dir=="left"){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
                                 var count=1;
