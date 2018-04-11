@@ -5,6 +5,13 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 if(r2[a1]==""){continue;}
                                 r3=parseInt(r2[a1]);
                                 inp.push(r3);
+                                if(r3>final || ini>final){
+                                        console.log(r3);
+                                        console.log(ini);
+                                        console.log(final);
+                                        alert("Invalid Input: Final cylinder has to be greater");
+                                        return;
+                                }
                         }
                         //console.log(r2);
 			//console.log(inp);
@@ -59,7 +66,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                         }
                 
                         var layout = {
-                                title: 'FCFS',
+                                // title: 'FCFS',
                                 xaxis: {
                                         autorange: true,
                                         showgrid: true,
@@ -124,7 +131,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 y1.push(-1*a1);
                         }
                         var layout = {
-                                title: 'SSTF',
+                                // title: 'SSTF',
                                 xaxis: {
                                         autorange: true,
                                         showgrid: true,
@@ -171,6 +178,17 @@ var pre,v1,v2,v3,v4,v5,v6;
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
+                        if((ini<inp[0])||(ini>inp[inp.length-1])){
+                                sstf(inp,ini,final);
+                                seek=v2;
+                                v3=seek;
+                                if(pre){
+                                // Plotly.newPlot('graph_area', data, layout);
+                                document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                                document.getElementById("alg_name").innerHTML = "SCAN";
+                                }
+                                return;
+                        }
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -221,7 +239,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 
                         }
                         var layout = {
-                                title: 'SCAN',
+                                // title: 'SCAN',
                                 xaxis: {
                                         autorange: true,
                                         showgrid: true,
@@ -272,6 +290,17 @@ var pre,v1,v2,v3,v4,v5,v6;
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
+                        if((ini<inp[0])||(ini>inp[inp.length-1])){
+                                sstf(inp,ini,final);
+                                seek=v2;
+                                v4=seek;
+                                if(pre){
+                                // Plotly.newPlot('graph_area', data, layout);
+                                document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                                document.getElementById("alg_name").innerHTML = "C-SCAN";
+                                }
+                                return;
+                        }
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -336,7 +365,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 
                         }
                         var layout = {
-                                title: 'C-SCAN',
+                                // title: 'C-SCAN',
                                 xaxis: {
                                         autorange: true,
                                         showgrid: true,
@@ -400,6 +429,17 @@ var pre,v1,v2,v3,v4,v5,v6;
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
+                        if((ini<inp[0])||(ini>inp[inp.length-1])){
+                                sstf(inp,ini,final);
+                                seek=v2;
+                                v5=seek;
+                                if(pre){
+                                // Plotly.newPlot('graph_area', data, layout);
+                                document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                                document.getElementById("alg_name").innerHTML = "LOOK";
+                                }
+                                return;
+                        }
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -442,7 +482,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 
                         }
                         var layout = {
-                                title: 'LOOK',
+                                // title: 'LOOK',
                                 xaxis: {
                                         autorange: true,
                                         showgrid: true,
@@ -493,6 +533,17 @@ var pre,v1,v2,v3,v4,v5,v6;
                         x1.push(ini);
                         y1.push(0);
                         inp.sort(function(a, b){return a-b});
+                        if((ini<inp[0])||(ini>inp[inp.length-1])){
+                                sstf(inp,ini,final);
+                                seek=v2;
+                                v6=seek;
+                                if(pre){
+                                // Plotly.newPlot('graph_area', data, layout);
+                                document.getElementById("alg_seek").innerHTML = "Seek: "+seek;
+                                document.getElementById("alg_name").innerHTML = "C-LOOK";
+                                }
+                                return;
+                        }
                         if(ini<=(final-ini)){
                                 var store,hold=ini;
                                 for(a1=0;a1<inp.length;++a1){if(inp[a1]<=ini){store=a1;}}
@@ -552,7 +603,7 @@ var pre,v1,v2,v3,v4,v5,v6;
                                 
                         }
                         var layout = {
-                                title: 'C-LOOK',
+                                // title: 'C-LOOK',
                                 xaxis: {
                                         autorange: true,
                                         showgrid: true,
