@@ -4,18 +4,18 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body background="../includes/floor.jpg">
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <div class="container-fluid">
 
-    <center><h1>Sleeping Barber Problem</h1></center>
+    <center><h1 style="color:white;">Sleeping Barber Problem</h1></center>
 
-    <button type = "button", id ="room", name = "room", style="height:600px;width:1325px;position:absolute;top:10%;left:7%;background-color:	#CD853F"> </button>
-    <button type = "button", id ="mirror", name = "mirror", style="height:25px;width:190px;position:absolute;top:10%;left:63%;background-color:#00BFFF"> </button>
-    <button type = "button", id ="seat", name = "seat", style="height:200px;width:220px;position:absolute;top:15%;left:62%;background-color:#DC143C"> </button>
+    <button type = "button", id ="room", name = "room", style="height:600px;width:1325px;position:absolute;top:10%;left:7%;background:	url('../includes/floor.jpg')"> </button>
+    <button type = "button", id ="mirror", name = "mirror", style="height:25px;width:190px;position:absolute;top:10%;left:63%;background-color:#808080"> </button>
+    <button type = "button", id ="seat", name = "seat", style="height:200px;width:220px;position:absolute;top:15%;left:62%;background:  url('../includes/floor.jpg')"> </button>
     <button type = "button", id ="cust", name = "cust", style="height:125px;width:125px;position:absolute;top:20%;left:65%;border-radius:125px;border:1px solid #DC143C;background-color:#DC143C"></button>
     <button type = "button", id ="barber", name = "barber", style="height:125px;width:125px;position:absolute;top:45%;left:65%;border-radius:125px;border:1px solid #000">Barber </button>
 
@@ -33,8 +33,8 @@
     <button class="btn btn-primary" id ="prod", type ="button", onclick ="produce()", style ="height:150px;width:250px;position:absolute;top:20%;left:15%;font-size:25px">Enter</button>
     <button class="btn btn-primary" id ="con", type ="button", onclick ="exit()", style ="height:150px;width:250px;position:absolute;top:45%;left:15%;font-size:25px" disabled>Exit</button>
 
-    <button class="btn btn-warning" id ="buffer-size", type ="button" style ="height:50px;width:143px;position:absolute;top:25%;left:42%;">Waiting Seats = 7</button>
-    <button class="btn btn-warning" id ="count", type ="button" style ="height:50px;width:143px;position:absolute;top:33%;left:42%;">Waiting = 0</button>
+    <button class="btn btn-warning" id ="buffer-size", type ="button" style ="height:50px;width:150px;position:absolute;top:63%;left:50%;">Waiting Seats = 7</button>
+    <button class="btn btn-warning" id ="count", type ="button" style ="height:50px;width:150px;position:absolute;top:63%;left:60%;">Waiting = 0</button>
 
 
     <script type = "text/javascript">
@@ -101,7 +101,7 @@
       {
         if(hc == 1)
         {
-          document.getElementById("cust").style.backgroundColor = '#00BFFF';
+          document.getElementById("cust").style.backgroundColor = '#808080';
           document.getElementById("barber").style.backgroundColor = '#FFFF00';
         }
         if(hc == 0)
@@ -111,31 +111,31 @@
         }
         if(queue[0]==1)
         {
-          document.getElementById("one").style.backgroundColor = '#00BFFF';
+          document.getElementById("one").style.backgroundColor = '#808080';
         }
         if(queue[1]==1)
         {
-          document.getElementById("two").style.backgroundColor = '#00BFFF';
+          document.getElementById("two").style.backgroundColor = '#808080';
         }
         if(queue[2]==1)
         {
-          document.getElementById("three").style.backgroundColor = '#00BFFF';
+          document.getElementById("three").style.backgroundColor = '#808080';
         }
         if(queue[3]==1)
         {
-          document.getElementById("four").style.backgroundColor = '#00BFFF';
+          document.getElementById("four").style.backgroundColor = '#808080';
         }
         if(queue[4]==1)
         {
-          document.getElementById("five").style.backgroundColor = '#00BFFF';
+          document.getElementById("five").style.backgroundColor = '#808080';
         }
         if(queue[5]==1)
         {
-          document.getElementById("six").style.backgroundColor = '#00BFFF';
+          document.getElementById("six").style.backgroundColor = '#808080';
         }
         if(queue[6]==1)
         {
-          document.getElementById("seven").style.backgroundColor = '#00BFFF';
+          document.getElementById("seven").style.backgroundColor = '#808080';
         }
         if(queue[0]==0)
         {
@@ -235,16 +235,16 @@
       }
     </script>
 
-    <p style="position:absolute;top:60%;left:79%;font-size:22px"><b> For Barber: </b></p>
+    <p style="position:absolute;top:60%;left:79%;font-size:22px;color:white"><b> For Barber: </b></p>
     <button type = "button", style="height:25px;width:25px;position:absolute;top:65%;left:80%;background-color:#DCDCDC"> </button>
-    <p style="position:absolute;top:65%;left:82%;font-size:20px"> Sleeping </p>
+    <p style="position:absolute;top:65%;left:82%;font-size:20px;color:white"> Sleeping </p>
     <button type = "button", style="height:25px;width:25px;position:absolute;top:70%;left:80%;background-color:#FFFF00"> </button>
-    <p style="position:absolute;top:70%;left:82%;font-size:20px"> Awake </p>
-    <p style="position:absolute;top:75%;left:79%;font-size:22px"><b> For Seats: </b></p>
+    <p style="position:absolute;top:70%;left:82%;font-size:20px;color:white"> Awake </p>
+    <p style="position:absolute;top:75%;left:79%;font-size:22px;color:white"><b> For Seats: </b></p>
     <button type = "button", style="height:25px;width:25px;position:absolute;top:80%;left:80%;background-color:#FFFFFF"> </button>
-    <p style="position:absolute;top:80%;left:82%;font-size:20px"> Available </p>
-    <button type = "button", style="height:25px;width:25px;position:absolute;top:85%;left:80%;background-color:#00BFFF"> </button>
-    <p style="position:absolute;top:85%;left:82%;font-size:20px"> Occupied </p>
+    <p style="position:absolute;top:80%;left:82%;font-size:20px;color:white"> Available </p>
+    <button type = "button", style="height:25px;width:25px;position:absolute;top:85%;left:80%;background-color:#808080"> </button>
+    <p style="position:absolute;top:85%;left:82%;font-size:20px;color:white"> Occupied </p>
 
   </div>
 </body>
