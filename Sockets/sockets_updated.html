@@ -1,0 +1,412 @@
+<html>
+<head>
+<style>
+
+h1
+{
+ background-color:grey;
+ color:black;
+ margin:-8;
+ padding:5;
+ font-family:Arial;
+ position:fixed;
+ display:block;
+ width:100%;
+ text-align:center; 
+}
+
+.textbox { 
+    background: black; 
+    height:25px; 
+    width: 275px; 
+    border: none; 
+    color: green; 
+    outline: none; 
+} 
+
+div 
+{
+    display:inline-block;
+    background-color: black;
+    color:green;
+    width: 500px;
+    height: 400px;
+    border: 3px solid grey;
+    position:relative;
+    top:150px;
+    left:200px;
+    overflow: auto;
+}
+
+div1 
+{
+    display:inline-block;
+    background-color: black;
+    color:green;
+    width: 500px;
+    height: 400px;
+    border: 3px solid grey;
+    position:relative;
+    top:150px;
+    left:500px;
+    overflow: auto;
+}
+
+</style>
+
+<title>Hello</title>
+</head>
+<body>
+<h1>SOCKET PROGRAMMING</h1>
+<button type = "button" onclick = "add_clients()">Add clients</button>
+<div id = 'div'></div>
+<div id = 'div1'></div>
+<div id = 'div2' style = "display:None;left:285px;"></div>
+<div id = 'div3' style = "display:None;left:285px;"></div>
+
+
+<script>
+
+var infoserver = [];
+var infoclient = [[],[],[],[]];
+var count_cli = [0,0,0,0];
+var servermsg = "";
+var clientmsg = "";
+var ser_input = document.createElement('input');   //Current input field entered by user in server terminal
+var cli_input = document.createElement('input');   //Current input field entered by user in client terminal
+var serquestions = ["socket family: ","socket type: ","Protocol: ","Port number: "]; 
+var cliquestions = ["socket family: ","socket type: ","Protocol: ","Port number: ","IP address of server: "];
+var seranswers = ["AF_INET",0,0,-1];
+var clianswers = ["AF_INET",0,0,-1,"192.127.90.10"];
+var client_request = "Connecting to server...";
+var toggle = 0;              // toggle = 0 means client has sent message, toggle = 1 means server sent a message
+var serIPaddress = "IP address of server is 192.127.90.10";
+var wait = "Waiting for clients.....\n";
+var count_ser = 0;
+var text1 = document.createElement("input"); 
+var text2 = document.createElement("input");
+var text = document.createElement("input");
+var countwindow = 0;
+var divss = document.getElementById("div")
+var divc1 = document.getElementById("div1") 
+var divc2 = document.getElementById("div2") 
+var divc3 = document.getElementById("div3") 
+var stext
+var c1text
+var c2text
+var c3text
+var sermsg = ""
+var cli1msg = ""
+var cli2msg = ""
+var cli3msg = ""
+
+document.getElementById("div").appendChild(document.createTextNode(serIPaddress));
+document.getElementById("div").appendChild(document.createElement("br"));
+countwindow = 2;
+createserver(divss,divc1);
+createclient(divc1,divss);
+
+function createserver(divs,divc,clientmsg)              // divc refers to the div of client
+{
+ if (count_ser < 4)
+ {
+   var ser = document.createTextNode(serquestions[count_ser]);
+   var br = document.createElement("br");
+   ser_input = document.createElement('input');
+   ser_input.setAttribute("class","textbox");
+   ser_input.setAttribute("type","text");
+   if(divc.id == divc1.id)
+    ser_input.setAttribute("onkeydown","keyCodeserver(event,0,divss,divc1)");
+   if(divc.id == divc2.id)
+    ser_input.setAttribute("onkeydown","keyCodeserver(event,0,divss,divc2)");
+   if(divc.id == divc3.id)
+    ser_input.setAttribute("onkeydown","keyCodeserver(event,0,divss,divc3)");
+   
+   divss.appendChild(ser);
+   divss.appendChild(ser_input);
+   divss.appendChild(br);
+   ser_input.focus();
+ }
+ else if(count_ser == 4)
+ {
+   var ser = document.createTextNode(wait);
+   toggle = 1;                         // No message is sent here; toggle is set to 1 for client to send message
+   count_ser++;
+   var br = document.createElement("br");
+   divs.appendChild(ser);
+   divs.appendChild(br);      
+ }
+ else if(toggle == 0)                 //This means client has sent a message and decremented toggle value  
+ {
+  toggle = 1;
+  var ser = document.createTextNode("Received message : " + clientmsg);
+  var label = document.createTextNode("Enter message to be sent : ");
+  var br = document.createElement("br");
+  var br1 = document.createElement("br");
+  stext = document.createElement('input'); 
+  stext.setAttribute("class","textbox");
+  stext.setAttribute("type","text");
+  if(divc.id == divc1.id)
+    stext.setAttribute("onkeydown","keyCodeserver(event,1,divss,divc1)");
+  if(divc.id == divc2.id)
+    stext.setAttribute("onkeydown","keyCodeserver(event,1,divss,divc2)");
+  if(divc.id == divc3.id)
+    stext.setAttribute("onkeydown","keyCodeserver(event,1,divss,divc3)");
+  divs.appendChild(ser); 
+  divs.appendChild(br); 
+  divs.appendChild(label);
+  divs.appendChild(stext);
+  divs.appendChild(br1);
+  text.focus();  
+ }
+}
+function keyCodeserver(event,toggle,divs,divc) 
+{
+
+    var x = event.keyCode;
+    if (x == 13 && toggle == 0) 
+    {
+        if(count_ser == 0 && seranswers[count_ser] != ser_input.value)
+        {
+         alert("Invalid value - AF_INET accepted");
+         return;
+        }
+        if(count_ser == 1 && ser_input.value != "SOCK_STREAM" && ser_input.value != "SOCK_DGRAM")
+        {
+         alert("Enter either SOCK_STREAM or SOCK_DGRAM");
+         return;
+        } 
+        if(count_ser == 2 && ser_input.value != "IPPROTO_TCP" && ser_input.value != "IPPROTO_UDP")
+        {
+         alert("Enter either IPPROTO_TCP or IPPROTO_UDP");
+         return;
+        }
+        if(count_ser == 3 && ser_input.value < "0")
+        {
+         alert("Enter a valid port number");
+         return;
+        }
+        infoserver.push(ser_input.value);
+        ser_input.disabled = true;
+        ser_input.blur();
+        count_ser = count_ser + 1;
+        createserver(divs,divc,"");                 
+    }
+    else if(x == 13)
+    {
+        sermsg = stext.value
+        text.disabled = true;
+        text.blur();
+        createclient(divc,divs,sermsg);                  //Send reply message back to only that client with talked to the server
+    }
+}
+
+function createclient(divc,divs,servermsg)
+{
+
+ var arg3 = parseInt(divc.id.substr(-1));
+ 
+ if (count_cli[arg3] < 5)
+ {
+   var cli = document.createTextNode(cliquestions[count_cli[arg3]]);
+   var br = document.createElement("br");
+   cli_input = document.createElement('input');
+   cli_input.setAttribute("class","textbox");
+   cli_input.setAttribute("type","text");
+   if(divc.id == divc1.id)
+    cli_input.setAttribute("onkeydown","keyCodeclient(event,1,divc1,divss,cli_input)");
+   if(divc.id == divc2.id)
+    cli_input.setAttribute("onkeydown","keyCodeclient(event,1,divc2,divss,cli_input)");
+   if(divc.id == divc3.id)
+    cli_input.setAttribute("onkeydown","keyCodeclient(event,1,divc3,divss,cli_input)");
+   divc.appendChild(cli);
+   divc.appendChild(cli_input);
+   divc.appendChild(br);
+   
+ }
+ else if(count_cli[arg3] == 5)
+ {
+   toggle = 0;                         
+   count_cli[arg3]++;
+   var br4 = document.createElement("br");
+   var label2 = document.createTextNode("Enter message to be sent : ");
+   divc.appendChild(label2);
+   if(divc.id == divc1.id)
+   {
+    c1text = document.createElement('input');
+    c1text.setAttribute("class","textbox");
+    c1text.setAttribute("type","text");
+    c1text.setAttribute("onkeydown","keyCodeclient(event,toggle,divc1,divss,c1text)");
+    divc.appendChild(c1text); 
+   }
+   if(divc.id == divc2.id)
+   {
+    c2text = document.createElement('input');
+    c2text.setAttribute("class","textbox");
+    c2text.setAttribute("type","text");
+    c2text.setAttribute("onkeydown","keyCodeclient(event,toggle,divc2,divss,c2text)");
+    divc.appendChild(c2text);
+   }
+   if(divc.id == divc3.id)
+   {
+    c3text = document.createElement('input');
+    c3text.setAttribute("class","textbox");
+    c3text.setAttribute("type","text");
+    c3text.setAttribute("onkeydown","keyCodeclient(event,toggle,divc3,divss,c3text)");   
+    divc.appendChild(c3text);
+   }
+   divc.appendChild(br4);
+         
+ }
+ else if(toggle == 1)                 //This means client has sent a message and decremented toggle value  
+ {
+  toggle = 0;
+  count_cli[arg3]++;
+  var cli = document.createTextNode("Received message : " + servermsg);
+  var label1 = document.createTextNode("Enter message to be sent : ");
+  var br2 = document.createElement("br");
+  var br3 = document.createElement("br");
+
+  divc.appendChild(cli); 
+  divc.appendChild(br2); 
+  divc.appendChild(label1);
+  
+  if(divc.id == divc1.id)
+  {
+    c1text = document.createElement('input');
+    c1text.setAttribute("class","textbox");
+    c1text.setAttribute("type","text");
+    c1text.setAttribute("onkeydown","keyCodeclient(event,toggle,divc1,divss,c1text)");
+    divc.appendChild(c1text);	
+  }
+  if(divc.id == divc2.id)
+  {
+    c2text = document.createElement('input');
+    c2text.setAttribute("class","textbox");
+    c2text.setAttribute("type","text");
+    c2text.setAttribute("onkeydown","keyCodeclient(event,toggle,divc2,divss,c2text)");
+    divc.appendChild(c2text);
+  }
+  if(divc.id == divc3.id)
+  {
+    c3text = document.createElement('input');
+    c3text.setAttribute("class","textbox");
+    c3text.setAttribute("type","text");
+    c3text.setAttribute("onkeydown","keyCodeclient(event,toggle,divc3,divss,c3text)");
+    divc.appendChild(c3text);
+  }  
+
+  divc.appendChild(br3);
+    
+ }
+}
+
+function keyCodeclient(event,toggle,divc,divs,text) 
+{
+    var arg3 = parseInt(divc.id.substr(-1));
+    var x = event.keyCode;
+    if (x == 13 && toggle == 1) 
+    {
+        if(count_cli[arg3] == 0 && clianswers[count_cli[arg3]] != text.value)
+        {
+         alert("Invalid value - AF_INET accepted");
+         return;
+        }
+        if(count_cli[arg3] == 1 && text.value != infoserver[1])
+        {
+         alert("Socket type mismatch");
+         return;
+        } 
+        if(count_cli[arg3] == 2 && text.value != infoserver[2])
+        {
+         alert("Socket protocol mismatch");
+         return;
+        }
+        if(count_cli[arg3] == 3 && text.value != infoserver[3])
+        {
+         alert("Enter a valid port number");
+         return;
+        }
+        if(count_cli[arg3] == 4 && text.value != clianswers[4])
+        {
+         alert("Enter the IP address of server");
+         return;
+        }
+        infoclient[arg3].push(text.value);
+        text.disabled = true;
+        count_cli[arg3] = count_cli[arg3] + 1;
+        if(divc.id == divc1.id)
+          createclient(divc1,divss,""); 
+        if(divc.id == divc2.id)
+          createclient(divc2,divss,""); 
+        if(divc.id == divc3.id)
+          createclient(divc3,divss,"");                
+    }
+    else if(x == 13 && count_cli[arg3] == 6)
+    {
+        if(divc.id == divc1.id)
+        {
+         cli1msg = text.value;
+         text.disabled = true;
+         createserver(divss,divc1,cli1msg);
+        }
+        if(divc.id == divc2.id)
+        {
+         cli2msg = text.value;
+         text.disabled = true;
+         createserver(divss,divc2,cli2msg);
+        }
+        if(divc.id == divc3.id)
+        {
+         cli3msg = text.value;
+         text.disabled = true;
+         createserver(divss,divc3,cli3msg);
+        }
+    }
+    else if(x == 13 && toggle == 0)
+    {
+        if(divc.id == divc1.id)
+        {
+         cli1msg = text.value;
+         text.disabled = true;
+         createserver(divss,divc1,cli1msg);
+        }
+        if(divc.id == divc2.id)
+        {
+         cli2msg = text.value;
+         text.disabled = true;
+         createserver(divss,divc2,cli2msg);
+        }
+        if(divc.id == divc3.id)
+        {
+         cli3msg = text.value;
+         text.disabled = true;
+         createserver(divss,divc3,cli3msg);
+        }
+    }
+}
+
+function add_clients()
+{
+	if(countwindow == 2)
+	{
+		divc2.style.display = "inline-block";
+                createclient(divc2,divss);
+		countwindow = 3;
+	}
+	else if(countwindow == 3)
+	{
+		divc3.style.display = "inline-block";
+		createclient(divc3,divss);
+		countwindow = 4;
+	}
+	else
+	{
+		alert("Maximum limit on clients reached");
+	}
+}
+					 
+</script>
+
+</body>
+</html>

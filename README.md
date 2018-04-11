@@ -2,7 +2,7 @@
 
 - [x] Banker's Algorithm - Pavan
 - [x] Disk Scheduling - Dibyadarshan
-- [x] Files and Sockets - Adwaith and Amal
+- [x] Files and Sockets - Amal
 - [x] Semaphores - Aditi and Iwrin
 - [x] Memory Management - Archit
 - [x] Page Replacement - Adwaith

@@ -1,17 +1,108 @@
+<!DOCTYPE html>
 <html>
-	<body>
-		<div id="mainContainer">
-			<input type='text' id='totalMemSize'>
-			<input type='text' id='numBlocks'>
-			<button id='submitBtn'>Submit</button>
-		</div>
-		<div id="blockContainer">
-		</div>
-		<div id='#requestContainer'>
-			<input type='text' id='requestSize'></input>
-			<button id='submitRequestBtn'>Make request!</button>
-			<p id='requestMsg'></p>
-		</div>
-		<script src='scripts/main.js'></script>
-	</body>
+    <head>
+        <title>Safety Algorithm</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a class="navbar-brand" href="../Index/index.html#firstPage">Operationg System Simulator</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+                <span class="navbar-toggler-icon"></span>
+              </button>         
+
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Process Scheduling<span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../Disk/disk.html">Disk Scheduling</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Banker's Algorithm</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="../Index/index.html#5thpage">Process Synchronization</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Semaphores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">File Management</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="jumbotron">
+                <h1 class="display-3">MFT</h1>
+                <p class="lead">Multiprogramming with Fixed Tasks</p>
+                <hr class="my-4">
+                <p>Memory is partitioned into fixed size partitions and each job is assigned to a partition. The memory assigned to a partition does not change.</p>
+                <p class="lead">
+                  <a class="btn btn-success" href="#" role="button">Wiki</a>
+                </p>
+            </div>
+            <br>
+
+	        		<div class="row">
+	        			<div class="form-group" style="margin-left:50px; float:left;">
+	        				<label class="col-form-label" for="inputDefault">Enter Total Memory Size</label>
+	                        <input class="form-control" id="totalMemSize" name="mem_size" placeholder="Total Memory Size" type="text" size="35">
+	                    </div>
+	                    <div class="form-group" style="margin-left:50px; float:left;">
+	        				<label class="col-form-label" for="inputDefault">Enter Number of Blocks</label>
+	                        <input class="form-control" id="numBlocks" name="block_no" placeholder="# Blocks" type="text" size="35">
+	                    </div>
+							<!-- <input type='text' id='totalMemSize'>
+							<input type='text' id='numBlocks'> -->
+							<!-- <button id='submitBtn'>Submit</button> -->
+							<div class="form-group" style="margin-left:50px; float:left;">
+								<label class="col-form-label" for="sel1">Allocation Strategy</label>
+									<select class="form-control" id="sel1">												                                                                    											<option>Best Fit</option>																														                                                                    											<option>First Fit</option>																																					                                                                      											<option>Worst Fit</option>																																				                                                              										</select>
+																																																					                                               								</div> 
+
+					</div>
+					<button type="submit" id="submitBtn" class="btn btn-primary" style="margin-left: 36px">Submit
+					</button>
+					<br>
+					<div class="row">
+						<div id="blockContainer" class="form-group" style="margin-left:50px; float:left;"></div>
+					 </div>
+					<div class="row">
+						<div id='#requestContainer'>
+							<div class="form-group" style="margin-left:50px; float:left;">
+		        				<label class="col-form-label" for="inputDefault">Enter size of New Request</label>
+		                        <input class="form-control" id="requestSize" name="req_size" placeholder="Request Size" type="text" size="35">
+		                    </div>
+							<!-- <input type='text' id='requestSize'></input> -->
+							<!-- <button id='submitRequestBtn'>Make request!</button> -->
+							<!-- <p id='requestMsg'></p> -->
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary" style="margin-left: 36px" id='submitRequestBtn'>Make request!</button>
+					<div class="row">
+						<div id='#removeContainer'>
+							<div class="form-group" style="margin-left:50px; float:left;">
+		        				<label class="col-form-label" for="inputDefault">Block to Empty</label>
+		                        <input class="form-control" id="removeNum" name="req_size" placeholder="Empty a block" type="text" size="35">
+		                    </div>
+							<!-- <input type='text' id='requestSize'></input> -->
+							<!-- <button id='submitRequestBtn'>Make request!</button> -->
+							<!-- <p id='requestMsg'></p> -->
+						</div>
+</div>
+				<button type="submit" class="btn btn-primary" style="margin-left: 36px; float:left;" id='removeBtn'>Empty Block</button>
+	<p id='requestMsg' style="float:left; margin-left:50px;"></p>
+        </div>
+    </body>
+    <script src='scripts/main.js'></script>
 </html>

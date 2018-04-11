@@ -12,7 +12,7 @@
     <body>
             <!-- Navigation Bar -->
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="../Index/index.html#firstPage">Operationg System Simulator</a>
+            <a class="navbar-brand" href="../Index/index.html#firstPage">Operating System Simulator</a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
                 <span class="navbar-toggler-icon"></span>
               </button>         
@@ -51,7 +51,7 @@
                     <hr class="my-4">
                     <p>Some more details here</p>
                     <p class="lead">
-                      <a class="btn btn-success" href="#" role="button">Wiki</a>
+                      <a class="btn btn-success" href="https://docs.google.com/presentation/d/1xcAL0M9FgeertqbFYN_nitQzvmiQ2tB-FzEII20t9po/present#slide=13" role="button">Wiki</a>
                     </p>
                 </div>
 
@@ -68,6 +68,13 @@
                                     <option value="look">LOOK</option>
                                     <option value="clook">C-LOOK</option>
                                     <option value="compare">Compare</option>
+                                  </select>
+                            </div>
+                            <div class="form-group" style="margin-left:50px; float:left;">
+                                <label for="exampleSelect1">Direction</label>
+                                  <select class="form-control" id="direction">
+                                    <option value="left" selected="selected">Left</option>
+                                    <option value="right">Right</option>
                                   </select>
                             </div>
                         </div>
@@ -87,7 +94,7 @@
                         </div>
                     </fieldset>
                 </form>
-                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value)">Plot</button>
+                <button type="submit" id="plot-button" class="btn btn-primary" style="margin-left: 36px" onclick="getBitStreamAndPlot(event, document.getElementById('bitstream-input').value, document.getElementById('initial-input').value, document.getElementById('final-input').value, document.getElementById('algorithm').value,document.getElementById('direction').value)">Plot</button>
                     
                 
 			</div>        
